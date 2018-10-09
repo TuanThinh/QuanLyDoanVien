@@ -1,0 +1,103 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #75a6da;
+}
+
+a:hover {
+	color: blue;
+}
+
+.wrap {
+	width: 370px;
+	margin: 50px auto;
+	border: 1px solid #ddd
+}
+
+.header {
+	background: rgba(248,248,248,.9);
+    padding: 20px;
+    font-size: 20px;
+    border-bottom: 1px solid #ddd
+}
+
+fieldset {
+    border: none;
+	margin: 20px;
+}
+
+.label {
+	padding-top: 10px;
+}
+
+.input {
+	position: relative;
+	padding: 10px 0px;
+}
+
+.txt {
+	padding: 5px 36px 5px 7px;
+    width: 85%;
+    height: 20px;
+}
+
+.Error {
+    color: red;
+    font-size: 15px;
+    padding: 5px 0px 10px 0px;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+/* .glyphicon {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    border-left: 1px solid #BDBDBD;
+    padding-left: 8px;
+    color: #A2A2A2;
+}
+ */
+
+.icon-append {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    border-left: 1px solid #BDBDBD;
+    padding-left: 8px;
+    color: #A2A2A2;
+}
+
+/* #infEmail {
+    color: #d41c1c;
+} */
+.note {
+    margin-top: 10px;
+}
+.note a {
+    float: right;
+}
+.footer {
+    background: rgba(248,248,248,.9);
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+#btnButton {
+    color: #fff;
+    background-color: #337ab7;
+    padding: 10px;
+    border: 1px solid transparent;
+    font-size: 15px
+}
+
+#btnButton:hover {
+	cursor: pointer;
+	background-color: #1d5280d4;
+}
