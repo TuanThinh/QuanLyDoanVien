@@ -1,14 +1,14 @@
-package mta.qldv.controller;
+package mta.qldv.controller.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
-public class HomeController {
+@RequestMapping("/user")
+public class HomeUserController {
 	@GetMapping
 	public String Default() {
-		return "login";
+		return "user/home";
 	}
 }

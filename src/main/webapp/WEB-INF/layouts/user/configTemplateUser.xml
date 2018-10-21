@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="TemplateUser" template="/WEB-INF/layouts/user/template_user.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="top" value="/WEB-INF/layouts/user/_top.jsp" />
+		<put-attribute name="left" value="/WEB-INF/layouts/user/_left.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="right" value="/WEB-INF/layouts/user/_right.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layouts/user/_footer.jsp" />
+		<put-attribute name="help" value="/WEB-INF/layouts/user/_help.jsp" />
+	</definition>
+	
+	<definition name="user/home" extends="TemplateUser">
+		<put-attribute name="title" value="Trang chủ" />
+		<put-attribute name="content" value="/WEB-INF/views/user/home.jsp" />
+	</definition>
+</tiles-definitions>

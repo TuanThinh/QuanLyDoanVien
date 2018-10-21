@@ -15,5 +15,21 @@
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"></property>
 		<property name="suffix" value=".jsp"></property>
+		<property name="order" value="1"></property>
 	</bean>
+	
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"></property>
+		<property name="order" value="0"></property>
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/layouts/admin/configTemplateAdmin.xml</value>
+				<value>/WEB-INF/layouts/user/configTemplateUser.xml</value>
+			</list>
+		</property>
+	</bean>
+
 </beans>
