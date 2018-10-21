@@ -18,3 +18,5 @@ buildNumber.properties
 
 # STS (Spring Tool Suite)
 .springBeans
+
+database.properties
