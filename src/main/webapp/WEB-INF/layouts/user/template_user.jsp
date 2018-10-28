@@ -20,22 +20,22 @@
 
 <meta name="msapplication-TileColor" content="#5bc0de" />
 <meta name="msapplication-TileImage"
-	content="resources/imgs/metis-tile.png" />
+	content="${pageContext.servletContext.contextPath}/resources/imgs/metis-tile.png" />
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/bootstrap.min.css">
 
 <!-- Font Awesome -->
-<link rel="stylesheet" href="resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/font-awesome.min.css">
 
 <!-- Metis core stylesheet -->
-<link rel="stylesheet" href="resources/css/user/main.css">
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/user/main.css">
 
 <!-- metisMenu stylesheet -->
-<link rel="stylesheet" href="resources/css/user/metisMenu.css">
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/user/metisMenu.css">
 
 <!-- onoffcanvas stylesheet -->
-<link rel="stylesheet" href="resources/css/user/onoffcanvas.css">
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/user/onoffcanvas.css">
 
 <!-- animate.css stylesheet -->
 <!-- <link rel="stylesheet" href="assets/lib/animate.css/animate.css"> -->
@@ -125,21 +125,21 @@
                 };
             </script> -->
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.js"></script> -->
-	<script src="resources/js/jquery-3.2.1.min.js"></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
 
 
 	<!--Bootstrap -->
-	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/bootstrap.min.js"></script>
 	<!-- MetisMenu -->
-	<script src="resources/js/user/metisMenu.js"></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/user/metisMenu.js"></script>
 	<!-- onoffcanvas -->
-	<script src="resources/js/user/onoffcanvas.js"></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/user/onoffcanvas.js"></script>
 	<!-- Screenfull -->
-	<script src="resources/js/user/screenfull.js"></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/user/screenfull.js"></script>
 
 
 	<!-- Metis core scripts -->
-	<script src="resources/js/user/core.js"></script>
+	<script src="${pageContext.servletContext.contextPath}/resources/js/user/core.js"></script>
 	<!-- Metis demo scripts -->
 	<!-- <script src="assets/js/app.js"></script> -->
 

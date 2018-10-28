@@ -8,7 +8,7 @@
 		<div class="user-wrapper bg-dark">
 			<a class="user-link" href=""> <img
 				class="media-object img-thumbnail user-img" alt="User Picture"
-				src="resources/imgs/user.gif">
+				src="${pageContext.servletContext.contextPath}/resources/imgs/user.gif">
 			</a>
 	
 			<div class="media-body">
@@ -65,8 +65,16 @@
 		</a></li>
 	
 		<li class="nav-divider"></li>
-		<li><a href="login.html"> <i class="fa fa-address-card"></i> <span
+		<li><a href="${pageContext.servletContext.contextPath}/user/danh-sach-ho-so"> <i class="fa fa-list-alt"></i> <span
 				class="link-title"> Danh sách hồ sơ </span>
+		</a></li>
+		
+		<li><a href=""> <i class="fa fa-asterisk"></i> <span
+				class="link-title"> Điểm rèn luyện </span>
+		</a></li>
+		
+		<li><a href=""> <i class="fa fa-rebel"></i> <span
+				class="link-title"> Khen thưởng - kỷ luật </span>
 		</a></li>
 	
 		<li class=""><a href=""> <i class="fa fa-bar-chart-o "></i> <span

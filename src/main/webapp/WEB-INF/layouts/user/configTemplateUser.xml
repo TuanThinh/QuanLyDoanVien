@@ -14,8 +14,13 @@
 		<put-attribute name="help" value="/WEB-INF/layouts/user/_help.jsp" />
 	</definition>
 	
-	<definition name="user/home" extends="TemplateUser">
+	<definition name="home" extends="TemplateUser">
 		<put-attribute name="title" value="Trang chủ" />
 		<put-attribute name="content" value="/WEB-INF/views/user/home.jsp" />
+	</definition>
+	
+	<definition name="danhsachhoso" extends="TemplateUser">
+		<put-attribute name="title" value="Danh sách hồ sơ" />
+		<put-attribute name="content" value="/WEB-INF/views/user/danhsachhoso.jsp" />
 	</definition>
 </tiles-definitions>
