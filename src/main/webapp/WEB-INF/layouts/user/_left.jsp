@@ -30,11 +30,11 @@
 				class="link-title">&nbsp;Trang chủ</span>
 		</a></li>
 	
-		<li><a href=""> <i class="fa fa-address-book"></i> <span
+		<li><a href="${pageContext.servletContext.contextPath}/user/ho-so-ca-nhan"> <i class="fa fa-address-book"></i> <span
 				class="link-title">Hồ sơ cá nhân</span>
 		</a></li>
 	
-		<li><a href=""> <i class="fa fa-edit"></i> <span
+		<li><a href="${pageContext.servletContext.contextPath}/user/cap-nhat-ho-so"> <i class="fa fa-edit"></i> <span
 				class="link-title">Cập nhật hồ sơ</span>
 		</a></li>
 		<li class=""><a href=""> <i class="fa fa-star "></i> <span
@@ -57,10 +57,10 @@
 						hoạt động
 				</a></li>
 			</ul></li>
-		<li><a href=""> <i class="fa fa-flash"></i> <span
+		<li><a href="${pageContext.servletContext.contextPath}/user/chinh-sach-va-thong-bao"> <i class="fa fa-flash"></i> <span
 				class="link-title"> Chính sách &amp; Thông báo </span>
 		</a></li>
-		<li><a href=""> <i class="fa fa-flickr"></i><span
+		<li><a href="${pageContext.servletContext.contextPath}/user/dong-gop-va-phan-hoi"> <i class="fa fa-flickr"></i><span
 				class="link-title"> Đóng góp ý kiến &amp; phản hồi </span>
 		</a></li>
 	
