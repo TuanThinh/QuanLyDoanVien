@@ -2,7 +2,6 @@ package mta.qldv.controller.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeUserController {
@@ -14,5 +13,15 @@ public class HomeUserController {
 	@GetMapping("/user/danh-sach-ho-so")
 	public String danhSachHoSo() {
 		return "danhsachhoso";
+	}
+	
+	@GetMapping("/user/diem")
+	public String diem() {
+		return "diem";
+	}
+	
+	@GetMapping("/user/khen-thuong-ky-luat")
+	public String khenthong_kyluat() {
+		return "khenthuongkyluat";
 	}
 }

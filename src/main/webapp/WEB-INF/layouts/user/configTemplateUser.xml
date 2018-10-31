@@ -23,4 +23,14 @@
 		<put-attribute name="title" value="Danh sách hồ sơ" />
 		<put-attribute name="content" value="/WEB-INF/views/user/danhsachhoso.jsp" />
 	</definition>
+	
+	<definition name="diem" extends="TemplateUser">
+		<put-attribute name="title" value="Điểm rèn luyện" />
+		<put-attribute name="content" value="/WEB-INF/views/user/diem.jsp" />
+	</definition>
+	
+	<definition name="khenthuongkyluat" extends="TemplateUser">
+		<put-attribute name="title" value="Khen thưởng - kỷ luật" />
+		<put-attribute name="content" value="/WEB-INF/views/user/khenthuong_kyluat.jsp" />
+	</definition>
 </tiles-definitions>

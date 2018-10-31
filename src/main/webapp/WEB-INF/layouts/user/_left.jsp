@@ -26,7 +26,7 @@
 	<ul id="menu" class="bg-blue dker">
 		<li class="nav-header">Menu</li>
 		<li class="nav-divider"></li>
-		<li class=""><a href=""> <i class="fa fa-home"></i><span
+		<li class=""><a href="${pageContext.servletContext.contextPath}/user"> <i class="fa fa-home"></i><span
 				class="link-title">&nbsp;Trang chủ</span>
 		</a></li>
 	
@@ -69,11 +69,11 @@
 				class="link-title"> Danh sách hồ sơ </span>
 		</a></li>
 		
-		<li><a href=""> <i class="fa fa-asterisk"></i> <span
+		<li><a href="${pageContext.servletContext.contextPath}/user/diem"> <i class="fa fa-asterisk"></i> <span
 				class="link-title"> Điểm rèn luyện </span>
 		</a></li>
 		
-		<li><a href=""> <i class="fa fa-rebel"></i> <span
+		<li><a href="${pageContext.servletContext.contextPath}/user/khen-thuong-ky-luat"> <i class="fa fa-rebel"></i> <span
 				class="link-title"> Khen thưởng - kỷ luật </span>
 		</a></li>
 	

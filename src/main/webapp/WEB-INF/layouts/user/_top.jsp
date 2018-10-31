@@ -9,7 +9,7 @@
 			<header class="navbar-header">
 	
 				<a href="user" class="navbar-brand"><img
-					src="resources/imgs/logo.png" alt=""></a>
+					src="${pageContext.servletContext.contextPath}/resources/imgs/logo.png" alt=""></a>
 	
 			</header>
 	

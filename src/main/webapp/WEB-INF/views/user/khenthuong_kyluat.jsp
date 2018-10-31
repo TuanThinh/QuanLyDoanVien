@@ -10,7 +10,7 @@
 			</div>
 	
 			<div class="form-group">
-				<label>Điểm</label>
+				<label>Tiêu đề</label>
 				<input class="form-control" id="" type="text" name="" placeholder="Nhập điểm"/>
 			</div>
 			
@@ -32,7 +32,8 @@
 				<tr>
 					<th width="120px;">Mã đoàn viên</th>
 					<th>Họ tên</th>
-					<th>Điểm</th>
+					<th>Tiêu đề</th>
+					<th>Nội dung</th>
 					<th>Thời gian</th>
 					<th>Ghi chú</th>
 					<th width="101px;"></th>
@@ -40,6 +41,7 @@
 			</thead>
 			<tbody>
 				<tr>
+					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
@@ -68,8 +70,6 @@
 		</table>
 </div>
 
-
-
 <div id="modalAdd" class="modal" role="dialog">
 	<!-- Modal content -->
 	<div class="modal-content">
@@ -95,7 +95,14 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-md-4 custom">điểm</label>
+						<label class="col-md-4 custom">Tiêu đề</label>
+						<div class="col-md-8 custom">
+							<input type="text" name="" class="form-control" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-md-4 custom">Nội dung</label>
 						<div class="col-md-8 custom">
 							<input type="text" name="" class="form-control" />
 						</div>
@@ -152,7 +159,14 @@
 				</div>
 	
 				<div class="form-group">
-					<label class="col-md-4 custom">điểm</label>
+					<label class="col-md-4 custom">Tiêu đề</label>
+					<div class="col-md-8 custom">
+						<input type="text" name="" class="form-control" />
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-md-4 custom">Nội dung</label>
 					<div class="col-md-8 custom">
 						<input type="text" name="" class="form-control" />
 					</div>
@@ -223,7 +237,14 @@
 				</div>
 	
 				<div class="form-group">
-					<label class="col-md-4 custom">điểm</label>
+					<label class="col-md-4 custom">Tiêu đề</label>
+					<div class="col-md-8 custom">
+						
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-md-4 custom">Nội dung</label>
 					<div class="col-md-8 custom">
 						
 					</div>
@@ -252,8 +273,8 @@
 		</div>
 	</div>
 </div>
-
-<style>	
+  
+  <style>	
 	i.fa:hover {
 		cursor: pointer;
 		color: blue;
@@ -271,7 +292,7 @@
 	.custom {
 		padding: 0px;
 	}
-	
+		
 	.inner.bg-light.lter {
 	    display: flex;
 	}
@@ -295,3 +316,5 @@
 	}
 		
 </style>
+  
+  
