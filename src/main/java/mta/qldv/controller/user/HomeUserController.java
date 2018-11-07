@@ -3,6 +3,8 @@ package mta.qldv.controller.user;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+
 @Controller
 public class HomeUserController {
 	@GetMapping("/user")
@@ -43,5 +45,26 @@ public class HomeUserController {
 	public String khenthong_kyluat() {
 		return "khenthuongkyluat";
 
+	}
+
+	@GetMapping("/user/thong-tin-khen-thuong-ky-luat")
+	public String sdk_kt_kl() {
+		return "sqdkhenthuongkyluat";
+
+	}
+
+	@GetMapping("/user/soan-bao-cao")
+	public String soanbaocao() {
+		return "soanbaocao";
+	}
+
+	@GetMapping("/user/bao-cao-da-gui")
+	public String baocaodagui() {
+		return "baocaodagui";
+	}
+
+	@GetMapping("/user/bao-cao-da-xoa")
+	public String baocaodaxoa() {
+		return "baocaodaxoa";
 	}
 }

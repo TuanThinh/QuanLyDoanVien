@@ -245,7 +245,7 @@
 				<hr>
 				<div class="form-group">
 					<div class="col-md-offset-10 col-md-2">
-						<button type="button" id="btnEdit" class="btn btn-default">Đóng</button>
+						<button type="button" id="btnEdit" class="btn btn-default" data-dismiss="modal">Đóng</button>
 					</div>
 				</div>
 			</div>
@@ -293,5 +293,8 @@
 	.inner-right {
 	    width: 74%;
 	}
-		
+
+    .col-md-offset-4.col-md-8 {
+        padding: 0px;
+    }
 </style>

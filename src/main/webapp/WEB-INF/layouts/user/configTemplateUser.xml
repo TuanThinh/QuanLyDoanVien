@@ -54,5 +54,24 @@
 		<put-attribute name="title" value="Khen thưởng - kỷ luật" />
 		<put-attribute name="content" value="/WEB-INF/views/user/khenthuong_kyluat.jsp" />
 	</definition>
-	
+
+	<definition name="sqdkhenthuongkyluat" extends="TemplateUser">
+		<put-attribute name="title" value="Các thông tin về khen thưởng kỷ luật" />
+		<put-attribute name="content" value="/WEB-INF/views/user/sqd_khenthuong_kyluat.jsp" />
+	</definition>
+
+	<definition name="soanbaocao" extends="TemplateUser">
+		<put-attribute name="title" value="Soạn báo cáo" />
+		<put-attribute name="content" value="/WEB-INF/views/user/soanbaocao.jsp" />
+	</definition>
+
+	<definition name="baocaodagui" extends="TemplateUser">
+		<put-attribute name="title" value="Báo cáo đã gửi" />
+		<put-attribute name="content" value="/WEB-INF/views/user/baocaodagui.jsp" />
+	</definition>
+
+	<definition name="baocaodaxoa" extends="TemplateUser">
+		<put-attribute name="title" value="Báo cáo đã xóa" />
+		<put-attribute name="content" value="/WEB-INF/views/user/baocaodaxoa.jsp" />
+	</definition>
 </tiles-definitions>

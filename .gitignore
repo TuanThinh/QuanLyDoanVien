@@ -19,4 +19,7 @@ buildNumber.properties
 # STS (Spring Tool Suite)
 .springBeans
 
+.idea/
+QuanLyDoanVien.iml
+
 database.properties

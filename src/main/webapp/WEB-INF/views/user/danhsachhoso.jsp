@@ -1,6 +1,6 @@
-/<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <div class="inner-top">
 	<div class="inner-top__left">
 		<form action="" method="get" accept-charset="utf-8">
@@ -8,8 +8,11 @@
 			<div class="form-group">
 				<div class="col-md-2 search-key">
 					<select name="" class="form-control">
-						<option value="">1</option>
-						<option value="">2</option>
+						<option value="">Mã</option>
+						<option value="">Họ tên</option>
+						<option value="">Địa chỉ</option>
+						<option value="">Chi đoàn</option>
+						<option value="">Đơn vị</option>
 					</select>
 				</div>
 				
@@ -59,7 +62,7 @@
 			<td></td>
 			<td></td>
 			<td>
-				<span >
+				<span data-toggle="modal" data-target="#modalDetail">
 					<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
 				</span> |
 				
@@ -416,145 +419,148 @@
 		</div>
 
 		<div class="modal-body">
-			
+			<div class="form-horizontal">
 				<div class="col-md-2">
 					<label>Ảnh đại diện</label>
 					<div class="img-avatar">
 						<img class="media-object img-thumbnail user-img"
-							alt="User Picture"
-							src="${pageContext.servletContext.contextPath}/resources/imgs/user.gif">
+							 alt="User Picture"
+							 src="${pageContext.servletContext.contextPath}/resources/imgs/user.gif">
 					</div>
 				</div>
-				
+
 				<div class="col-md-5">
 					<div class="form-group">
 						<label class="col-md-5 custom">Mã đoàn viên</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
-				
+
 					<div class="form-group">
 						<label class="col-md-5 custom">Họ tên</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-5 custom">Ngày sinh</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-5 custom">Giới tính</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-5 custom">Địa chỉ</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-5 custom">Chi đoàn</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-5 custom">Đơn vị</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label class="col-md-5 custom">Số điện thoại</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label class="col-md-5 custom">Email</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
-					
+
 				</div>
-				
+
 				<div class="col-md-5">
 					<div class="form-group">
 						<label class="col-md-5 custom">Ngày vào đoàn</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-5 custom">Ngày vào đảng</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label class="col-md-5 custom">Chức vụ</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label class="col-md-5 custom">Dân tộc</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-5 custom">Quốc tịch</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-5 custom">Tôn giáo</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-5 custom">Đối tượng chính sách</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label class="col-md-5 custom">Tài khoản</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<div class="col-md-offset-2 col-md-10">
-						<button type="button" id="btnAdd" class="btn btn-default">Đóng</button>
+						<button type="button" id="btnAdd" class="btn btn-default" data-dismiss="modal">Đóng</button>
 					</div>
 				</div>
+
+			</div>
+
 		</div>
 	</div>
 </div>
