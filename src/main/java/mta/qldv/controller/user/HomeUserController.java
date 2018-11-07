@@ -26,7 +26,32 @@ public class HomeUserController {
 	public String capNhatHoSo() {
 		return "capnhathoso";
 	}
-	
+
+	@GetMapping("/user/hoat-dong")
+	public String hoatDong() {
+		return "hoatdong";
+	}
+
+	@GetMapping("/user/hoat-dong-da-qua")
+	public String hoatDongDaQua() {
+		return "hoatdongdaqua";
+	}
+
+	@GetMapping("/user/hoat-dong-sap-toi")
+	public String hoatDongSapToi() {
+		return "hoatdongsaptoi";
+	}
+
+	@GetMapping("/user/hoat-dong-da-tham-gia")
+	public String hoatDongDaThamGia() {
+		return "hoatdongdathamgia";
+	}
+
+	@GetMapping("/user/de-xuat-hoat-dong")
+	public String hoatDongDeXuat() {
+		return "dexuathoatdong";
+	}
+
 	@GetMapping("/user/chinh-sach-va-thong-bao")
 	public String chinhSachVaThongBao() {
 		return "chinhsachvathongbao";

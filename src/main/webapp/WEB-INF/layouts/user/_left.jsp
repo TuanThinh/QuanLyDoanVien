@@ -41,19 +41,19 @@
 				class="link-title">Hoạt động</span> <span class="fa arrow"></span>
 		</a>
 			<ul class="collapse">
-				<li><a href=""> <i class="fa fa-angle-right"></i> Tất cả các
+				<li><a href="${pageContext.servletContext.contextPath}/user/hoat-dong"> <i class="fa fa-angle-right"></i> Tất cả các
 						hoạt động
 				</a></li>
-				<li><a href=""> <i class="fa fa-angle-right"></i> Các hoạt
+				<li><a href="${pageContext.servletContext.contextPath}/user/hoat-dong-sap-toi"> <i class="fa fa-angle-right"></i> Các hoạt
 						động sắp tới
 				</a></li>
-				<li><a href=""> <i class="fa fa-angle-right"></i> Các hoạt
+				<li><a href="${pageContext.servletContext.contextPath}/user/hoat-dong-da-qua"> <i class="fa fa-angle-right"></i> Các hoạt
 						động đã qua
 				</a></li>
-				<li><a href="fixed-header-menu.html"> <i
+				<li><a href="${pageContext.servletContext.contextPath}/user/hoat-dong-da-tham-gia"> <i
 						class="fa fa-angle-right"></i> Các hoạt động đã tham gia
 				</a></li>
-				<li><a href=""> <i class="fa fa-angle-right"></i> Đề xuất
+				<li><a href="${pageContext.servletContext.contextPath}/user/de-xuat-hoat-dong"> <i class="fa fa-angle-right"></i> Đề xuất
 						hoạt động
 				</a></li>
 			</ul></li>
