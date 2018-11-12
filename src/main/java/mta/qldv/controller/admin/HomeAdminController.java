@@ -2,10 +2,8 @@ package mta.qldv.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/admin")
 public class HomeAdminController {
 	@GetMapping
 	public String homeAdmin() {
@@ -31,10 +29,7 @@ public class HomeAdminController {
 	public String hoatDongDuocDuyetAdmin() {
 		return "hd-duyet-admin";
 	}
-	/**
-	 * 
-	 * @return
-	 */
+	
 	@GetMapping("/hd-de-xuat")
 	public String hoatDongDeXuatAdmin() {
 		return "hd-de-xuat-admin";

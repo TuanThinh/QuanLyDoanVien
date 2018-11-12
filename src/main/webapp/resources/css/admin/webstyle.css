@@ -1,0 +1,141 @@
+.container-fluid {
+    background-color: #4582EC;
+}
+
+.search-container {
+    float: right;
+    border-radius: 25px;
+    border: 1px solid #02B875;
+    margin: 30px 0 10px 0;
+}
+
+.search-input {
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    border: none;
+    margin-right: 0;
+}
+
+#btn-search {
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border: none;
+    margin-right: 5px;
+    background: transparent;
+
+}
+
+.nav-btn {
+    font-size: 1.2em;
+    padding: 0.5em 10px;
+}
+
+.number-label-home {
+    position: absolute;
+    right: 57px;
+    top: 40px;
+    background: #d9534f;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 6px;
+    min-width: 18px;
+    height: 18px;
+    line-height: 10px;
+    border-radius: 30px;
+}
+
+.number-label {
+    position: absolute;
+    right: 95px;
+    top: 40px;
+    background: #d9534f;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 6px;
+    min-width: 18px;
+    height: 18px;
+    line-height: 10px;
+    border-radius: 30px;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 45px 0 0 40px;
+    border-color: transparent transparent transparent #005d35;
+}
+
+.li-title {
+    background-color: #005d35;
+    border-top-left-radius: 1em;
+    color: white;
+}
+
+.ul-title {
+    margin: 30px 15px 0 0;
+    margin-bottom: 0px; 
+    padding-left: 0;
+    list-style: none;
+    display: inline-flex;
+}
+
+.ul-group-btn {
+    margin-top: 10px;
+    padding-left: 0;
+    display: inline-flex;
+    list-style: none;
+}
+
+.li-group-btn {
+    margin-bottom: 5px;
+}
+
+.group-btn {
+    width: 100%;
+    font-size: 1.1vw;
+}
+
+.p-title {
+    margin-bottom: 0;
+    margin-left: 5px;
+    padding: 6px 10px;
+    width: 250px;
+    font-size: 15pt;
+}
+
+.page-title {
+    text-align: center;
+    margin: 30px 0 10px 0;
+}
+
+.icon-margin-right {
+    margin-right: 5px;
+}
+
+.icon-float-right {
+    float: right;
+    margin-top: 4px;
+}
+
+.btn-table {
+    padding: 0.1rem 0.2rem;
+}
+
+.pagination-pos {
+    margin-top: 30px;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 3rem 0;
+    background: black;
+    text-align: center !important;
+}
+
+.p-footer {
+    margin-bottom: 0;
+    color: white;
+}

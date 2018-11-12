@@ -28,7 +28,7 @@
 <!-- Font Awesome -->
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/font-awesome.min.css">
 
-<!-- Metis core stylesheet -->
+	<!-- Metis core stylesheet -->
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/user/main.css">
 
 <!-- metisMenu stylesheet -->
@@ -43,8 +43,8 @@
 <!-- <link rel="stylesheet" href="assets/css/style-switcher.css"> -->
 <!-- <link rel="stylesheet/less" type="text/css" href="assets/less/theme.less"> -->
 
-
-
+	<script src="${pageContext.servletContext.contextPath}/resources/tinymce/tinymce.min.js"></script>
+	<script>tinymce.init({ selector: 'textarea' });</script>
 </head>
 <body class="  ">
 	<div class="bg-dark dk" id="wrap">

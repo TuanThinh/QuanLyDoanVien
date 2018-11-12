@@ -41,19 +41,19 @@
 				class="link-title">Hoạt động</span> <span class="fa arrow"></span>
 		</a>
 			<ul class="collapse">
-				<li><a href=""> <i class="fa fa-angle-right"></i> Tất cả các
+				<li><a href="${pageContext.servletContext.contextPath}/user/hoat-dong"> <i class="fa fa-angle-right"></i> Tất cả các
 						hoạt động
 				</a></li>
-				<li><a href=""> <i class="fa fa-angle-right"></i> Các hoạt
+				<li><a href="${pageContext.servletContext.contextPath}/user/hoat-dong-sap-toi"> <i class="fa fa-angle-right"></i> Các hoạt
 						động sắp tới
 				</a></li>
-				<li><a href=""> <i class="fa fa-angle-right"></i> Các hoạt
+				<li><a href="${pageContext.servletContext.contextPath}/user/hoat-dong-da-qua"> <i class="fa fa-angle-right"></i> Các hoạt
 						động đã qua
 				</a></li>
-				<li><a href="fixed-header-menu.html"> <i
+				<li><a href="${pageContext.servletContext.contextPath}/user/hoat-dong-da-tham-gia"> <i
 						class="fa fa-angle-right"></i> Các hoạt động đã tham gia
 				</a></li>
-				<li><a href=""> <i class="fa fa-angle-right"></i> Đề xuất
+				<li><a href="${pageContext.servletContext.contextPath}/user/de-xuat-hoat-dong"> <i class="fa fa-angle-right"></i> Đề xuất
 						hoạt động
 				</a></li>
 			</ul></li>
@@ -92,18 +92,24 @@
 				</a></li>
 				<li><a href=""> <i class="fa fa-angle-right"></i> Thống kê 5
 				</a></li>
-			</ul></li>
-	
-		<li class=""><a href=""> <i class="fa fa-flag "></i> <span
-				class="link-title">Báo cáo</span> <span class="fa arrow"></span>
-		</a>
+			</ul>
+		</li>
+
+		<li class="">
+			<a href="">
+				<i class="fa fa-flag "></i>
+				<span class="link-title">Báo cáo</span>
+				<span class="fa arrow"></span>
+			</a>
 			<ul class="collapse">
-				<li><a href=""> <i class="fa fa-angle-right"></i> Báo cáo đã
-						gửi
+				<li><a href="${pageContext.servletContext.contextPath}/user/soan-bao-cao"> <i class="fa fa-angle-right"></i> Soạn báo cáo
 				</a></li>
-				<li><a href=""> <i class="fa fa-angle-right"></i> Viết báo
-						cáo
+				<li><a href="${pageContext.servletContext.contextPath}/user/bao-cao-da-gui"> <i class="fa fa-angle-right"></i> Các báo cáo đã gửi
 				</a></li>
-			</ul></li>
+				<li><a href="${pageContext.servletContext.contextPath}/user/bao-cao-da-xoa"> <i class="fa fa-angle-right"></i> Các báo cáo đã xóa
+				</a></li>
+			</ul>
+		</li>
+
 	</ul>
 	<!-- /#menu -->

@@ -1,19 +1,38 @@
 package mta.qldv.entity;
 
-public class ChucVu {
-	private int id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "chuc_vu")
+public class ChucVu implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", nullable = false)
+	private Long id;
+
+	@Column(name = "ten_cv")
 	private String tenChucVu;
-	public int getId() {
+
+//	@OneToMany(mappedBy = "chucVu")
+//	private List<HoSo> listHoSo = new ArrayList<HoSo>();
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getTenChucVu() {
 		return tenChucVu;
 	}
+
 	public void setTenChucVu(String tenChucVu) {
 		this.tenChucVu = tenChucVu;
 	}
-	
+
 }

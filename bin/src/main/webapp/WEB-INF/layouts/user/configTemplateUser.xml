@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="TemplateUser" template="/WEB-INF/layouts/user/template_user.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="top" value="/WEB-INF/layouts/user/_top.jsp" />
+		<put-attribute name="left" value="/WEB-INF/layouts/user/_left.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="right" value="/WEB-INF/layouts/user/_right.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/layouts/user/_footer.jsp" />
+		<put-attribute name="help" value="/WEB-INF/layouts/user/_help.jsp" />
+	</definition>
+	
+	<definition name="home" extends="TemplateUser">
+		<put-attribute name="title" value="Trang chủ" />
+		<put-attribute name="content" value="/WEB-INF/views/user/home.jsp" />
+	</definition>
+	
+	<definition name="danhsachhoso" extends="TemplateUser">
+		<put-attribute name="title" value="Danh sách hồ sơ" />
+		<put-attribute name="content" value="/WEB-INF/views/user/danhsachhoso.jsp" />
+	</definition>
+	
+	<definition name="hosocanhan" extends="TemplateUser">
+		<put-attribute name="title" value="Hồ sơ cá nhân" />
+		<put-attribute name="content" value="/WEB-INF/views/user/hosocanhan.jsp" />
+	</definition>
+	
+	<definition name="capnhathoso" extends="TemplateUser">
+		<put-attribute name="title" value="Cập nhật hồ sơ" />
+		<put-attribute name="content" value="/WEB-INF/views/user/capnhathoso.jsp" />
+	</definition>
+	
+	<definition name="chinhsachvathongbao" extends="TemplateUser">
+		<put-attribute name="title" value="Chính sách và thông báo" />
+		<put-attribute name="content" value="/WEB-INF/views/user/chinhsachvathongbao.jsp" />
+	</definition>
+	
+	<definition name="donggopvaphanhoi" extends="TemplateUser">
+		<put-attribute name="title" value="Đóng góp và phản hồi" />
+		<put-attribute name="content" value="/WEB-INF/views/user/donggopvaphanhoi.jsp" />
+	</definition>
+		
+	<definition name="diem" extends="TemplateUser">
+		<put-attribute name="title" value="Điểm rèn luyện" />
+		<put-attribute name="content" value="/WEB-INF/views/user/diem.jsp" />
+	</definition>
+	
+	<definition name="khenthuongkyluat" extends="TemplateUser">
+		<put-attribute name="title" value="Khen thưởng - kỷ luật" />
+		<put-attribute name="content" value="/WEB-INF/views/user/khenthuong_kyluat.jsp" />
+	</definition>
+	
+</tiles-definitions>

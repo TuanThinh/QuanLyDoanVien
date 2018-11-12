@@ -34,10 +34,35 @@
 		<put-attribute name="title" value="Cập nhật hồ sơ" />
 		<put-attribute name="content" value="/WEB-INF/views/user/capnhathoso.jsp" />
 	</definition>
+
+	<definition name="hoatdong" extends="TemplateUser">
+		<put-attribute name="title" value="Hoạt động" />
+		<put-attribute name="content" value="/WEB-INF/views/user/hoatdong.jsp" />
+	</definition>
+
+	<definition name="hoatdongdaqua" extends="TemplateUser">
+		<put-attribute name="title" value="Hoạt động đã diễn ra" />
+		<put-attribute name="content" value="/WEB-INF/views/user/hd_daqua.jsp" />
+	</definition>
+
+	<definition name="hoatdongsaptoi" extends="TemplateUser">
+		<put-attribute name="title" value="Hoạt động sắp tới" />
+		<put-attribute name="content" value="/WEB-INF/views/user/hd_saptoi.jsp" />
+	</definition>
+
+	<definition name="hoatdongdathamgia" extends="TemplateUser">
+		<put-attribute name="title" value="Hoạt động đã tham gia" />
+		<put-attribute name="content" value="/WEB-INF/views/user/hd_dathamgia.jsp" />
+	</definition>
 	
 	<definition name="chinhsachvathongbao" extends="TemplateUser">
 		<put-attribute name="title" value="Chính sách và thông báo" />
 		<put-attribute name="content" value="/WEB-INF/views/user/chinhsachvathongbao.jsp" />
+	</definition>
+
+	<definition name="dexuathoatdong" extends="TemplateUser">
+		<put-attribute name="title" value="Đề xuất hoạt động" />
+		<put-attribute name="content" value="/WEB-INF/views/user/hd_dexuat.jsp" />
 	</definition>
 	
 	<definition name="donggopvaphanhoi" extends="TemplateUser">
@@ -54,5 +79,24 @@
 		<put-attribute name="title" value="Khen thưởng - kỷ luật" />
 		<put-attribute name="content" value="/WEB-INF/views/user/khenthuong_kyluat.jsp" />
 	</definition>
-	
+
+	<definition name="sqdkhenthuongkyluat" extends="TemplateUser">
+		<put-attribute name="title" value="Các thông tin về khen thưởng kỷ luật" />
+		<put-attribute name="content" value="/WEB-INF/views/user/sqd_khenthuong_kyluat.jsp" />
+	</definition>
+
+	<definition name="soanbaocao" extends="TemplateUser">
+		<put-attribute name="title" value="Soạn báo cáo" />
+		<put-attribute name="content" value="/WEB-INF/views/user/soanbaocao.jsp" />
+	</definition>
+
+	<definition name="baocaodagui" extends="TemplateUser">
+		<put-attribute name="title" value="Báo cáo đã gửi" />
+		<put-attribute name="content" value="/WEB-INF/views/user/baocaodagui.jsp" />
+	</definition>
+
+	<definition name="baocaodaxoa" extends="TemplateUser">
+		<put-attribute name="title" value="Báo cáo đã xóa" />
+		<put-attribute name="content" value="/WEB-INF/views/user/baocaodaxoa.jsp" />
+	</definition>
 </tiles-definitions>
