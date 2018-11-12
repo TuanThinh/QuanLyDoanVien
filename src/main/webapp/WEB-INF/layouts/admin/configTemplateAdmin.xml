@@ -4,9 +4,46 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
         
 <tiles-definitions>
-	<definition name="TemplateAdmin" template="/WEB-INF/layouts/user/template_admin.jsp">
-		
+	<definition name="TemplateAdmin" template="/WEB-INF/layouts/admin/template_admin.jsp">
+		<put-attribute name="top" value="/WEB-INF/layouts/admin/_top.jsp" />
+		<put-attribute name="left" value="/WEB-INF/layouts/admin/_left.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="footer" value="/WEB-INF/layouts/admin/_footer.jsp" />
 	</definition>
 	
+	<!-- <definition name="notification" extends="">
+		<put-attribute 
+	</definition>
+	-->
+	<definition name="home-admin" extends="TemplateAdmin">
+		<put-attribute name="content" value="/WEB-INF/views/admin/home.jsp"/>
+	</definition>
+	
+	<definition name="tai-khoan-admin" extends="TemplateAdmin">
+		<put-attribute name="content" value="/WEB-INF/views/admin/taikhoan.jsp"/>
+	</definition>
+	
+	<definition name="doan-co-so-admin" extends="TemplateAdmin">
+		<put-attribute name="content" value="/WEB-INF/views/admin/doancoso.jsp"/>
+	</definition>
+	
+	<definition name="tb-cs-admin" extends="TemplateAdmin">
+		<put-attribute name="content" value="/WEB-INF/views/admin/thongbao.jsp"/>
+	</definition>
+	
+	<definition name="hd-duyet-admin" extends="TemplateAdmin">
+		<put-attribute name="title" value="Danh sách hoạt động đã phê duyệt"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/hoatdong.jsp"/>
+	</definition>
+	
+	<definition name="hd-de-xuat-admin" extends="TemplateAdmin">
+		<put-attribute name="title" value="Danh sách hoạt động được đề xuất"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/hoatdong.jsp"/>
+	</definition>
+	
+	<definition name="hd-huy-admin" extends="TemplateAdmin">
+		<put-attribute name="title" value="Danh sách hoạt động đã hủy bỏ"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/hoatdong.jsp"/>
+	</definition>
 	
 </tiles-definitions>
