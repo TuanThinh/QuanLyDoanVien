@@ -1,16 +1,17 @@
 package mta.qldv.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "quyen")
-public class Quyen {
+public class Quyen implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false)
-	private int id;
+	private Long id;
 
 	@Column(name = "ten")
 	private String tenQuyen;
@@ -18,14 +19,14 @@ public class Quyen {
 	@Column(name = "chuc_nang")
 	private String chucNang;
 
-	@OneToMany(mappedBy = "quyen")
-	private List<Quyen> listQuyen = new ArrayList<Quyen>();
+//	@OneToMany(mappedBy = "quyen", fetch = FetchType.LAZY)
+//	private List<TaiKhoan> listTaiKhoan = new ArrayList<TaiKhoan>();
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -45,11 +46,11 @@ public class Quyen {
 		this.chucNang = chucNang;
 	}
 
-	public List<Quyen> getListQuyen() {
-		return listQuyen;
-	}
-
-	public void setListQuyen(List<Quyen> listQuyen) {
-		this.listQuyen = listQuyen;
-	}
+//	public List<TaiKhoan> getListTaiKhoan() {
+//		return listTaiKhoan;
+//	}
+//
+//	public void setListTaiKhoan(List<TaiKhoan> listTaiKhoan) {
+//		this.listTaiKhoan = listTaiKhoan;
+//	}
 }

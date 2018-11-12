@@ -1,56 +1,94 @@
 package mta.qldv.entity;
 
-import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class HoatDong {
-	private int id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+
+@Entity
+@Table(name = "hoat_dong")
+public class HoatDong implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", nullable = false)
+	private Long id;
+
+	@Column(name = "ten_hd")
 	private String tenHoatDong;
-	private LocalDate thoiGian;
+
+	@Column(name = "thoi_gian")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private Date thoiGian;
+
+	@Column(name = "dia_diem")
 	private String diaDiem;
+
+	@Column(name = "dv_to_chuc")
 	private String dvToChuc;
+
+	@Column(name = "doi_tuong_tham_gia")
 	private String doiTuongThamGia;
-	private boolean trangThai;
-	public int getId() {
+
+	@Column(name = "trang_thai")
+	private String trangThai;
+
+//	@OneToMany(mappedBy = "hoatDong")
+//    private List<ThamGia> listThamGia = new ArrayList<ThamGia>();
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getTenHoatDong() {
 		return tenHoatDong;
 	}
+
 	public void setTenHoatDong(String tenHoatDong) {
 		this.tenHoatDong = tenHoatDong;
 	}
-	public LocalDate getThoiGian() {
+
+	public Date getThoiGian() {
 		return thoiGian;
 	}
-	public void setThoiGian(LocalDate thoiGian) {
+
+	public void setThoiGian(Date thoiGian) {
 		this.thoiGian = thoiGian;
 	}
+
 	public String getDiaDiem() {
 		return diaDiem;
 	}
+
 	public void setDiaDiem(String diaDiem) {
 		this.diaDiem = diaDiem;
 	}
+
 	public String getDvToChuc() {
 		return dvToChuc;
 	}
+
 	public void setDvToChuc(String dvToChuc) {
 		this.dvToChuc = dvToChuc;
 	}
+
 	public String getDoiTuongThamGia() {
 		return doiTuongThamGia;
 	}
+
 	public void setDoiTuongThamGia(String doiTuongThamGia) {
 		this.doiTuongThamGia = doiTuongThamGia;
 	}
-	public boolean isTrangThai() {
+
+	public String getTrangThai() {
 		return trangThai;
 	}
-	public void setTrangThai(boolean trangThai) {
+
+	public void setTrangThai(String trangThai) {
 		this.trangThai = trangThai;
 	}
-	
 }

@@ -1,15 +1,16 @@
 package mta.qldv.entity;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "tai_khoan")
-public class TaiKhoan {
+public class TaiKhoan implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false)
-	private int id;
+	private Long id;
 
 	@Column(name = "ten_tk", unique = true)
 	private String tenTaiKhoan;
@@ -18,17 +19,28 @@ public class TaiKhoan {
 	private String matKhau;
 
 	@Column(name = "ngay_lap")
-	private LocalDate ngayLap;
+	private Date ngayLap;
 
 	@ManyToOne
 	@JoinColumn(name = "id_quyen")
 	private Quyen quyen;
 
-	public int getId() {
+//	@OneToOne(mappedBy = "taiKhoan")
+//    private HoSo hoSo;
+
+//    public HoSo getHoSo() {
+//        return hoSo;
+//    }
+//
+//    public void setHoSo(HoSo hoSo) {
+//        this.hoSo = hoSo;
+//    }
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -48,11 +60,11 @@ public class TaiKhoan {
 		this.matKhau = matKhau;
 	}
 
-	public LocalDate getNgayLap() {
+	public Date getNgayLap() {
 		return ngayLap;
 	}
 
-	public void setNgayLap(LocalDate ngayLap) {
+	public void setNgayLap(Date ngayLap) {
 		this.ngayLap = ngayLap;
 	}
 

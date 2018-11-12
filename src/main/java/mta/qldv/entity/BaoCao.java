@@ -1,42 +1,70 @@
 package mta.qldv.entity;
 
-import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class BaoCao {
-	private int id;
-	private int idHoSo;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+
+@Entity
+@Table(name = "bao_cao")
+public class BaoCao implements Serializable {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", nullable = false)
+	private Long id;
+
+	@ManyToOne
+	@JoinColumn(name = "id_hs")
+	private HoSo hoSo;
+
+	@Column(name = "tieu_de")
 	private String tieuDe;
+
+	@Column(name = "noi_dung")
 	private String noiDung;
-	private LocalDate ngayGui;
-	public int getId() {
+
+	@Column(name = "ngay_gui")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private Date ngayGui;
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getIdHoSo() {
-		return idHoSo;
+
+	public HoSo getHoSo() {
+		return hoSo;
 	}
-	public void setIdHoSo(int idHoSo) {
-		this.idHoSo = idHoSo;
+
+	public void setHoSo(HoSo hoSo) {
+		this.hoSo = hoSo;
 	}
+
 	public String getTieuDe() {
 		return tieuDe;
 	}
+
 	public void setTieuDe(String tieuDe) {
 		this.tieuDe = tieuDe;
 	}
+
 	public String getNoiDung() {
 		return noiDung;
 	}
+
 	public void setNoiDung(String noiDung) {
 		this.noiDung = noiDung;
 	}
-	public LocalDate getNgayGui() {
+
+	public Date getNgayGui() {
 		return ngayGui;
 	}
-	public void setNgayGui(LocalDate ngayGui) {
+
+	public void setNgayGui(Date ngayGui) {
 		this.ngayGui = ngayGui;
 	}
-	
 }
