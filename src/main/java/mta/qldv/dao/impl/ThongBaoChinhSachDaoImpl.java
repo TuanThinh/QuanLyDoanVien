@@ -14,10 +14,44 @@ public class ThongBaoChinhSachDaoImpl implements ThongBaoChinhSachDao {
     @Autowired
     private HibernateUtil hibernateUtil;
 
+    @Override
     public List<ThongBaoChinhSach> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from ThongBaoChinhSach";
         List<ThongBaoChinhSach> listThongBaoChinhSach = session.createQuery(sql).list();
         return listThongBaoChinhSach;
     }
+
+	@Override
+	public boolean addThongBaoChinhsSach(ThongBaoChinhSach newTBCS) {
+		try {
+			hibernateUtil.getCurrentSession().persist(newTBCS);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean updateThongBaoChinhsSach(ThongBaoChinhSach newTBCS) {
+		try {
+			hibernateUtil.getCurrentSession().update(newTBCS);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean deleteThongBaoChinhsSach(ThongBaoChinhSach tBCS) {
+		try {
+			hibernateUtil.getCurrentSession().delete(tBCS);
+		} catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
 }

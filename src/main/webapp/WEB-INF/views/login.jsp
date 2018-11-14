@@ -5,10 +5,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Login</title>
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/font-awesome.min.css">
-    <script type="text/javascript" src="resources/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="resources/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/resources/css/font-awesome.min.css">
+    <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="${pageContext.servletContext.contextPath}/resources/js/main.js"></script>
 </head>
 <body>
 	<div class="container">
