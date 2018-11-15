@@ -36,7 +36,10 @@
 
 <!-- onoffcanvas stylesheet -->
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/user/onoffcanvas.css">
+	<script src="${pageContext.servletContext.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
 
+	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/datepicker.css">
+	<script src="${pageContext.servletContext.contextPath}/resources/js/datepicker.js"></script>
 <!-- animate.css stylesheet -->
 <!-- <link rel="stylesheet" href="assets/lib/animate.css/animate.css"> -->
 
@@ -45,6 +48,12 @@
 
 	<script src="${pageContext.servletContext.contextPath}/resources/tinymce/tinymce.min.js"></script>
 	<script>tinymce.init({ selector: 'textarea' });</script>
+
+    <style>
+        .datepicker-container {
+            z-index: 1051 !important;
+        }
+    </style>
 </head>
 <body class="  ">
 	<div class="bg-dark dk" id="wrap">
@@ -125,11 +134,10 @@
                 };
             </script> -->
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.js"></script> -->
-	<script src="${pageContext.servletContext.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
-
 
 	<!--Bootstrap -->
 	<script src="${pageContext.servletContext.contextPath}/resources/js/bootstrap.min.js"></script>
+
 	<!-- MetisMenu -->
 	<script src="${pageContext.servletContext.contextPath}/resources/js/user/metisMenu.js"></script>
 	<!-- onoffcanvas -->
@@ -145,6 +153,12 @@
 
 
 	<!-- <script src="assets/js/style-switcher.js"></script> -->
+
+    <script>
+        $('.input-datepicker').datepicker({
+            format: 'yyyy-MM-dd'
+        })
+    </script>
 </body>
 
 </html>

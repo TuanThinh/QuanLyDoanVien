@@ -17,7 +17,12 @@ public class ChiDoanDaoImpl implements ChiDoanDao {
     public List<ChiDoan> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from ChiDoan";
-        List<ChiDoan> listChiDoan = session.createQuery(sql).list();
-        return listChiDoan;
+        try {
+            List<ChiDoan> listChiDoan = session.createQuery(sql).list();
+            return listChiDoan;
+        } catch (Exception ex){
+
+        }
+        return null;
     }
 }

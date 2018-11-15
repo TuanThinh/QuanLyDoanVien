@@ -17,7 +17,12 @@ public class PhanHoiDaoImpl implements PhanHoiDao {
     public List<PhanHoi> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from PhanHoi";
-        List<PhanHoi> listPhanHoi = session.createQuery(sql).list();
-        return listPhanHoi;
+        try {
+            List<PhanHoi> listPhanHoi = session.createQuery(sql).list();
+            return listPhanHoi;
+        } catch (Exception ex){
+
+        }
+        return null;
     }
 }

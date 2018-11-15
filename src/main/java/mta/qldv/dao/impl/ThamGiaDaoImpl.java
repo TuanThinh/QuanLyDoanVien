@@ -17,7 +17,12 @@ public class ThamGiaDaoImpl implements ThamGiaDao {
     public List<ThamGia> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql ="from ThamGia";
-        List<ThamGia> listThamGia = session.createQuery(sql).list();
-        return listThamGia;
+        try {
+            List<ThamGia> listThamGia = session.createQuery(sql).list();
+            return listThamGia;
+        } catch (Exception ex){
+
+        }
+        return null;
     }
 }

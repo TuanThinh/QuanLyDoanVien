@@ -104,7 +104,7 @@
 					<div class="form-group">
 						<label class="col-md-4 custom">Thời gian</label>
 						<div class="col-md-8 custom">
-							<input type="text" name="" class="form-control" />
+							<input type="text" name="" class="form-control input-datepicker" readonly="readonly"/>
 						</div>
 					</div>
 
@@ -161,7 +161,7 @@
 				<div class="form-group">
 					<label class="col-md-4 custom">Thời gian</label>
 					<div class="col-md-8 custom">
-						<input type="text" name="" class="form-control" />
+						<input type="text" name="" class="form-control input-datepicker" readonly="readonly"/>
 					</div>
 				</div>
 	
@@ -245,7 +245,7 @@
 				<hr>
 				<div class="form-group">
 					<div class="col-md-offset-10 col-md-2">
-						<button type="button" id="btnEdit" class="btn btn-default" data-dismiss="modal">Đóng</button>
+						<button type="button" id="btnDetail" class="btn btn-default" data-dismiss="modal">Đóng</button>
 					</div>
 				</div>
 			</div>

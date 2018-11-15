@@ -17,7 +17,12 @@ public class DiemDaoImpl implements DiemDao {
     public List<Diem> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from Diem";
-        List<Diem> listDiem = session.createQuery(sql).list();
-        return listDiem;
+        try {
+            List<Diem> listDiem = session.createQuery(sql).list();
+            return listDiem;
+        } catch (Exception ex){
+
+        }
+        return null;
     }
 }

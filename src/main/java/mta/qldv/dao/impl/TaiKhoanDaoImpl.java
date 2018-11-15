@@ -17,7 +17,12 @@ public class TaiKhoanDaoImpl implements TaiKhoanDao {
     public List<TaiKhoan> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from TaiKhoan";
-        List<TaiKhoan> listTaiKhoan = session.createQuery(sql).list();
-        return listTaiKhoan;
+        try {
+            List<TaiKhoan> listTaiKhoan = session.createQuery(sql).list();
+            return listTaiKhoan;
+        } catch (Exception ex){
+
+        }
+        return null;
     }
 }
