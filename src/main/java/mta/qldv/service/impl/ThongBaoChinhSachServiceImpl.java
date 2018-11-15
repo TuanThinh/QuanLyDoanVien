@@ -16,4 +16,19 @@ public class ThongBaoChinhSachServiceImpl implements ThongBaoChinhSachService {
     public List<ThongBaoChinhSach> getList() {
         return thongBaoChinhSachDao.getList();
     }
+
+	@Override
+	public boolean addThongBaoChinhSach(ThongBaoChinhSach newTBCS) {
+		return thongBaoChinhSachDao.addThongBaoChinhsSach(newTBCS);
+	}
+
+	@Override
+	public boolean updateThongBaoChinhSach(ThongBaoChinhSach newTBCS) {
+		return thongBaoChinhSachDao.updateThongBaoChinhsSach(newTBCS);
+	}
+
+	@Override
+	public boolean deleteThongBaoChinhSach(ThongBaoChinhSach tBCS) {
+		return thongBaoChinhSachDao.deleteThongBaoChinhsSach(tBCS);
+	}
 }

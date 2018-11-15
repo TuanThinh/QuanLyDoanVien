@@ -13,7 +13,13 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
     @Autowired
     private TaiKhoanDao taiKhoanDao;
 
+    @Override
     public List<TaiKhoan> getList() {
         return taiKhoanDao.getList();
     }
+
+	@Override
+	public boolean createAccount(TaiKhoan newAccount) {
+		return taiKhoanDao.createAccount(newAccount);
+	}
 }
