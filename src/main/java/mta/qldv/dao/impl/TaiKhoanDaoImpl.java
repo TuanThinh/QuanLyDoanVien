@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("taiKhoanDao")
+@Repository()
 public class TaiKhoanDaoImpl implements TaiKhoanDao {
     @Autowired
     private HibernateUtil hibernateUtil;

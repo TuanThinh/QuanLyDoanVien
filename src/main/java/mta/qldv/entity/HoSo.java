@@ -87,7 +87,7 @@ public class HoSo implements Serializable {
 //    private List<ThamGia> listThamGia = new ArrayList<ThamGia>();
 
     @OneToOne
-    @JoinColumn(name = "id_taikhoan")
+    @JoinColumn(name = "id")
     private TaiKhoan taiKhoan;
 
 

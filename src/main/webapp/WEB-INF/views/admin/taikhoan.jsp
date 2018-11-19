@@ -24,13 +24,105 @@
 			<tr>
 				<th scope="col">STT<i class="fa fa-sort icon-float-right"></i></th>
 				<th scope="col">Tài khoản<i class="fa fa-sort icon-float-right"></i></th>
-				<th scope="col">Đoàn viên<i class="fa fa-sort icon-float-right"></i></th>
-				<th scope="col">Đơn vị<i class="fa fa-sort icon-float-right"></i></th>
-				<th scope="col">Quyền hạn<i class="fa fa-sort icon-float-right"></i></th>
-				<th scope="col">Tác vụ</th>
+				<!-- <th scope="col">Mã sinh viên<i class="fa fa-sort icon-float-right"></i></th> -->
+				<th scope="col">Mật khẩu<i class="fa fa-sort icon-float-right"></i></th>
+				<!-- <th scope="col">Đơn vị<i class="fa fa-sort icon-float-right"></i></th> -->
+				<!-- <th scope="col">Quyền hạn<i class="fa fa-sort icon-float-right"></i></th> -->
+				<th scope="col">Ngày lập<i class="fa fa-sort icon-float-right"></i></th>
+				<!-- <th scope="col">Tác vụ</th> -->
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+				<th scope="row">1</th>
+				<td>1Column content</td>
+				<td>2Column content</td>
+				<td>3Column content</td>
+				<td>4Column content</td>
+				<td>
+					<button class="btn btn-outline-success" data-toggle="tooltip" title="Chi tiết">
+						<i class="fa fa-info-circle btn-table"></i>
+					</button>
+					<button class="btn btn-outline-primary" data-toggle="tooltip" title="Sửa">
+						<i class="fa fa-wrench btn-table"></i>
+					</button>
+					<button class="btn btn-outline-danger" data-toggle="tooltip" title="Xóa">
+						<i class="fa fa-trash btn-table"></i>
+					</button>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">1</th>
+				<td>1Column content</td>
+				<td>2Column content</td>
+				<td>3Column content</td>
+				<td>4Column content</td>
+				<td>
+					<button class="btn btn-outline-success" data-toggle="tooltip" title="Chi tiết">
+						<i class="fa fa-info-circle btn-table"></i>
+					</button>
+					<button class="btn btn-outline-primary" data-toggle="tooltip" title="Sửa">
+						<i class="fa fa-wrench btn-table"></i>
+					</button>
+					<button class="btn btn-outline-danger" data-toggle="tooltip" title="Xóa">
+						<i class="fa fa-trash btn-table"></i>
+					</button>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">1</th>
+				<td>1Column content</td>
+				<td>2Column content</td>
+				<td>3Column content</td>
+				<td>4Column content</td>
+				<td>
+					<button class="btn btn-outline-success" data-toggle="tooltip" title="Chi tiết">
+						<i class="fa fa-info-circle btn-table"></i>
+					</button>
+					<button class="btn btn-outline-primary" data-toggle="tooltip" title="Sửa">
+						<i class="fa fa-wrench btn-table"></i>
+					</button>
+					<button class="btn btn-outline-danger" data-toggle="tooltip" title="Xóa">
+						<i class="fa fa-trash btn-table"></i>
+					</button>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">1</th>
+				<td>1Column content</td>
+				<td>2Column content</td>
+				<td>3Column content</td>
+				<td>4Column content</td>
+				<td>
+					<button class="btn btn-outline-success" data-toggle="tooltip" title="Chi tiết">
+						<i class="fa fa-info-circle btn-table"></i>
+					</button>
+					<button class="btn btn-outline-primary" data-toggle="tooltip" title="Sửa">
+						<i class="fa fa-wrench btn-table"></i>
+					</button>
+					<button class="btn btn-outline-danger" data-toggle="tooltip" title="Xóa">
+						<i class="fa fa-trash btn-table"></i>
+					</button>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">1</th>
+				<td>1Column content</td>
+				<td>2Column content</td>
+				<td>3Column content</td>
+				<td>4Column content</td>
+				<td>
+					<button class="btn btn-outline-success" data-toggle="tooltip" title="Chi tiết">
+						<i class="fa fa-info-circle btn-table"></i>
+					</button>
+					<button class="btn btn-outline-primary" data-toggle="tooltip" title="Sửa">
+						<i class="fa fa-wrench btn-table"></i>
+					</button>
+					<button class="btn btn-outline-danger" data-toggle="tooltip" title="Xóa">
+						<i class="fa fa-trash btn-table"></i>
+					</button>
+				</td>
+			</tr>
 			<tr>
 				<th scope="row">1</th>
 				<td>1Column content</td>

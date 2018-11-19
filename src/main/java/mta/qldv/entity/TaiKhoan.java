@@ -1,12 +1,18 @@
 package mta.qldv.entity;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "tai_khoan")
+@JsonIgnoreProperties("hoSo")
 public class TaiKhoan implements Serializable {
+	//private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false)
@@ -25,16 +31,16 @@ public class TaiKhoan implements Serializable {
 	@JoinColumn(name = "id_quyen")
 	private Quyen quyen;
 
-//	@OneToOne(mappedBy = "taiKhoan")
-//    private HoSo hoSo;
+	@OneToOne(mappedBy = "taiKhoan")
+    private HoSo hoSo;
 
-//    public HoSo getHoSo() {
-//        return hoSo;
-//    }
-//
-//    public void setHoSo(HoSo hoSo) {
-//        this.hoSo = hoSo;
-//    }
+    public HoSo getHoSo() {
+        return hoSo;
+    }
+
+    public void setHoSo(HoSo hoSo) {
+        this.hoSo = hoSo;
+    }
 
 	public Long getId() {
 		return id;

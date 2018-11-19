@@ -1,68 +1,144 @@
-body {
-    transition: background-color .5s;
+#content {
+    width: 100%;
 }
-
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0px;
-    position: fixed;
-    z-index: 1;
-    top: 121px;
-    left: 0;
-    background-color: #4582EC;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 10px 8px 8px 28px;
-    text-decoration: none;
-    font-size: 15px;
-    color: #fff;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    background: #165ad0;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 20px;
-}
-
-.active-dropdown {
-    background-color: ;
+p {
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
     color: white;
 }
 
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-.dropdown-container {
-    display: none;
-    background-color: #4582EC;
-    padding-left: 8px;
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
 }
 
-/* Optional: Style the caret down icon */
-.fa-caret-down {
-    float: right;
-    margin-top: 4px;
-}
-
-.dropdown-btn{
-    text-align: left;
+.wrapper {
+    display: flex;
     width: 100%;
+    align-items: stretch;
 }
 
-.a-sidebar {
-    margin-left: 
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    background: #4582EC;
+    color: #ffffff;
+    transition: all 0.3s;
+    border-image: linear-gradient(to right, black 0%, white 100%);
+    border-image-silce: 1;
+    border-width: 3px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+}
+
+#sidebar ul p {
+    color: #ffffff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1em;
+    display: block;
+    color: #ffffff;
+}
+
+#sidebar ul li a:hover {
+    color: #4582ec;
+    background: #ffffff; 
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: white;
+   background: #2f73e9; 
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #4582EC;
+}
+
+a[data-toggle="collapse"]{
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+#sidebar.active {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+}
+
+#sidebar.active .sidebar-header #smallImg{
+    padding-left: 0px;
+    display: block;
+    width: 45px;
+}
+
+#sidebar.active .sidebar-header #bigImg {
+    display: none;
+}
+
+#sidebar .sidebar-header #smallImg {
+    display: none;
+
+}
+
+#bigImg {
+    padding-left: 60px;
+}
+
+/*#sidebar.active .sidebar-header h3 {
+    display: block;
+}*/
+
+/*#sidebar.active .sidebar-header strong {
+    display: block;
+}*/
+
+#sidebar ul li a {
+    text-align: left;
+}
+
+#sidebar.active ul li a {
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.85em;
+}
+
+#sidebar.active ul li a i {
+    margin-right: 0;
+    display: block;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+#sidebar.active ul ul a {
+    padding: 10px !important;
+}
+
+#sidebar.active .dropdown-toggle::after {
+    top: auto;
+    bottom: 10px;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
 }

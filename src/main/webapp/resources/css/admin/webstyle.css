@@ -1,5 +1,6 @@
 .container-fluid {
-    background-color: #4582EC;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .search-container {
@@ -47,8 +48,8 @@
 
 .number-label {
     position: absolute;
-    right: 95px;
-    top: 40px;
+    right: 55px;
+    top: 10px;
     background: #d9534f;
     color: #fff;
     font-size: 10px;
@@ -103,7 +104,7 @@
     margin-left: 5px;
     padding: 6px 10px;
     width: 250px;
-    font-size: 15pt;
+    font-size: 14pt;
 }
 
 .page-title {
@@ -126,6 +127,11 @@
 
 .pagination-pos {
     margin-top: 30px;
+}
+
+.required-field {
+    margin-left: 3px;
+    color: red;
 }
 
 footer {
