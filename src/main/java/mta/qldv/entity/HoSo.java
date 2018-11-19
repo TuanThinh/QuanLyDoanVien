@@ -63,6 +63,9 @@ public class HoSo implements Serializable {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date ngayVaoDang;
 
+	@Column(name = "id_nguoiquanly")
+	private Long idQuanLy;
+
 //	@OneToMany(mappedBy = "hoSo")
 //	private List<BaoCao> listBaoCao = new ArrayList<BaoCao>();
 
@@ -213,6 +216,14 @@ public class HoSo implements Serializable {
 
 	public void setNgayVaoDang(Date ngayVaoDang) {
 		this.ngayVaoDang = ngayVaoDang;
+	}
+
+	public Long getIdQuanLy() {
+		return idQuanLy;
+	}
+
+	public void setIdQuanLy(Long idQuanLy) {
+		this.idQuanLy = idQuanLy;
 	}
 
 	public ChiDoan getChiDoan() {
