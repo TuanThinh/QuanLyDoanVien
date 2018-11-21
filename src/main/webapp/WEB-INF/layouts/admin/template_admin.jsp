@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Quản lý đoàn viên - Ban Thanh niên</title>
+<title>Admin - <tiles:getAsString name="title"></tiles:getAsString></title>
 
 <!-- Bootstrap -->
 <link rel="stylesheet"
@@ -23,24 +24,15 @@
 </head>
 <body>
 	<div class="wrapper">
-		<div class="container-fluid">
-			<div id="top" class="row">
-				<tiles:insertAttribute name="top" />
-			</div>
-		</div>
-			<!-- Sidebar -->
-		<div class="container-fluid">
-			<div id="left">
-				<tiles:insertAttribute name="left" />
-			</div>
-			<div id="content">
-			</div>
-			<!-- Main content -->
-			<div id="main-content">
-				<tiles:insertAttribute name="content" />
+		<tiles:insertAttribute name="left"></tiles:insertAttribute>
+		<div id="content">	
+			<div class="container-fluid">
+				<tiles:insertAttribute name="top"></tiles:insertAttribute>
+				<tiles:insertAttribute name="content"></tiles:insertAttribute>
 			</div>
 		</div>
 	</div>
+	
 	<script
 		src="${pageContext.servletContext.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
 	<script
@@ -57,6 +49,9 @@
 		src="${pageContext.servletContext.contextPath}/resources/js/admin/dataTables.bootstrap4.js"></script>
 
 	<!-- Page JS -->
+	<script>
+		window.contextRoot = '${pageContext.servletContext.contextPath}'
+	</script>
 	<script
 		src="${pageContext.servletContext.contextPath}/resources/js/admin/sidebar.js"></script>
 	<script

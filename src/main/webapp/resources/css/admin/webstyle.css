@@ -3,6 +3,10 @@
     padding-right: 0px;
 }
 
+#notify-list a {
+	color: black;
+}
+
 .search-container {
     float: right;
     border-radius: 25px;
@@ -122,6 +126,10 @@
 }
 
 .btn-table {
+	margin-right: 3px;
+}
+
+.icon-btn-table {
     padding: 0.1rem 0.2rem;
 }
 

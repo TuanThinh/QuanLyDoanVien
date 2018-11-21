@@ -3,7 +3,7 @@
 <div id="main">
 	<div class="col-md-12">
 		<h3 class="page-title">
-			<tiles:getAsString name="title"></tiles:getAsString>
+			Danh sách
 		</h3>
 	</div>
 	<!-- Search -->

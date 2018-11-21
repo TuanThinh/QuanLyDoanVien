@@ -1,5 +1,7 @@
 #content {
     width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
 }
 p {
     font-size: 1.1em;
@@ -9,7 +11,7 @@ p {
 }
 
 a, a:hover, a:focus {
-    color: inherit;
+    color: #ffffff;
     text-decoration: none;
     transition: all 0.3s;
 }

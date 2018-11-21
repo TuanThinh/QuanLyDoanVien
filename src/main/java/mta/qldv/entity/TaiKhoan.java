@@ -9,7 +9,6 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tai_khoan")
-@JsonIgnoreProperties("hoSo")
 public class TaiKhoan implements Serializable {
 	//private static final long serialVersionUID = 1L;
 
@@ -31,7 +30,7 @@ public class TaiKhoan implements Serializable {
 	@JoinColumn(name = "id_quyen")
 	private Quyen quyen;
 
-	@OneToOne(mappedBy = "taiKhoan")
+	/*@OneToOne(mappedBy = "taiKhoan")
     private HoSo hoSo;
 
     public HoSo getHoSo() {
@@ -40,7 +39,7 @@ public class TaiKhoan implements Serializable {
 
     public void setHoSo(HoSo hoSo) {
         this.hoSo = hoSo;
-    }
+    }*/
 
 	public Long getId() {
 		return id;

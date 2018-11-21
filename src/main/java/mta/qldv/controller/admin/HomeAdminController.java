@@ -12,33 +12,53 @@ public class HomeAdminController {
 		return "home-admin";
 	}
 	
-	@GetMapping("/tai-khoan")
+	@GetMapping("/tai-khoan/them")
+	public String themTaiKhoanAdmin() {
+		return "them-tai-khoan";
+	}
+	
+	@GetMapping("/tai-khoan/danh-sach")
 	public String taiKhoanAdmin() {
-		return "tai-khoan-admin";
+		return "danh-sach-tai-khoan";
 	}
 	
-	@GetMapping("/doan-co-so")
+	@GetMapping("/doan-co-so/them")
+	public String themDoanCoSoAdmin() {
+		return "them-doan-co-so";
+	}
+	
+	@GetMapping("/doan-co-so/danh-sach")
 	public String doanCoSoAdmin() {
-		return "doan-co-so-admin";
+		return "danh-sach-doan-co-so";
 	}
 	
-	@GetMapping("/tb-cs")
+	@GetMapping("/tb-cs/them")
+	public String themThongBaoChinhSachAdmin() {
+		return "them-tb-cs";
+	}
+	
+	@GetMapping("/tb-cs/danh-sach")
 	public String thongBaoChinhSachAdmin() {
-		return "tb-cs-admin";
+		return "danh-sach-tb-cs";
 	}
 	
-	@GetMapping("/hd-duyet")
+	@GetMapping("hoat-dong/them")
+	public String themHoatDongAdmin() {
+		return "them-hd";
+	}
+	
+	@GetMapping("hoat-dong/danh-sach-duoc-duyet")
 	public String hoatDongDuocDuyetAdmin() {
-		return "hd-duyet-admin";
+		return "danh-sach-hd-duyet";
 	}
 	
-	@GetMapping("/hd-de-xuat")
+	@GetMapping("hoat-dong/danh-sach-de-xuat")
 	public String hoatDongDeXuatAdmin() {
-		return "hd-de-xuat-admin";
+		return "danh-sach-hd-de-xuat";
 	}
 	
-	@GetMapping("/hd-huy")
+	@GetMapping("hoat-dong/danh-sach-hd-huy")
 	public String hoatDongHuyBoAdmin() {
-		return "hd-huy-admin";
+		return "danh-sach-hd-huy";
 	}
 }
