@@ -18,7 +18,12 @@ public class DonViDaoImpl implements DonViDao {
         public List<DonVi> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from DonVi";
-        List<DonVi> listDonVi = session.createQuery(sql).list();
-        return listDonVi;
+        try {
+            List<DonVi> listDonVi = session.createQuery(sql).list();
+            return listDonVi;
+        }catch (Exception ex){
+
+        }
+        return null;
     }
 }

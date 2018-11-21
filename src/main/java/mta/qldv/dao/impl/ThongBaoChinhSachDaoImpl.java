@@ -18,8 +18,13 @@ public class ThongBaoChinhSachDaoImpl implements ThongBaoChinhSachDao {
     public List<ThongBaoChinhSach> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from ThongBaoChinhSach";
-        List<ThongBaoChinhSach> listThongBaoChinhSach = session.createQuery(sql).list();
-        return listThongBaoChinhSach;
+        try {
+            List<ThongBaoChinhSach> listThongBaoChinhSach = session.createQuery(sql).list();
+            return listThongBaoChinhSach;
+        } catch (Exception ex){
+
+        }
+        return null;
     }
 
 	@Override

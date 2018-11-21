@@ -36,12 +36,14 @@
         <th style="width: 30px;"></th>
         <th>Tiêu đề</th>
         <th>Nội dung</th>
+        <th>Ngày gửi</th>
         <th></th>
     </tr>
     </thead>
     <tbody>
     <tr>
         <td><input type="checkbox" name=""/></td>
+        <td></td>
         <td></td>
         <td></td>
         <td>

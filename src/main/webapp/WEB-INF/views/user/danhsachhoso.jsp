@@ -119,7 +119,7 @@
 					<div class="form-group">
 						<label class="col-md-5 custom">Ngày sinh</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+							<input type="text" name="" class="form-control input-datepicker" readonly="readonly"/>
 						</div>
 					</div>
 
@@ -171,14 +171,14 @@
 					<div class="form-group">
 						<label class="col-md-5 custom">Ngày vào đoàn</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+							<input type="text" name="" class="form-control input-datepicker" readonly="readonly"/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-5 custom">Ngày vào đảng</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+							<input type="text" name="" class="form-control input-datepicker" readonly="readonly"/>
 						</div>
 					</div>
 					
@@ -277,7 +277,7 @@
 					<div class="form-group">
 						<label class="col-md-5 custom">Ngày sinh</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+							<input type="text" name="" class="form-control input-datepicker" readonly="readonly"/>
 						</div>
 					</div>
 
@@ -329,14 +329,14 @@
 					<div class="form-group">
 						<label class="col-md-5 custom">Ngày vào đoàn</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+							<input type="text" name="" class="form-control input-datepicker" readonly="readonly"/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label class="col-md-5 custom">Ngày vào đảng</label>
 						<div class="col-md-7 custom">
-							<input type="text" name="" class="form-control" />
+							<input type="text" name="" class="form-control input-datepicker" readonly="readonly"/>
 						</div>
 					</div>
 					
@@ -555,7 +555,7 @@
 
 				<div class="form-group">
 					<div class="col-md-offset-2 col-md-10">
-						<button type="button" id="btnAdd" class="btn btn-default" data-dismiss="modal">Đóng</button>
+						<button type="button" id="btnDetail" class="btn btn-default" data-dismiss="modal">Đóng</button>
 					</div>
 				</div>
 
@@ -703,7 +703,7 @@
 				
 				<div class="form-group">
 					<div class="col-md-offset-5 col-md-7">
-						<button type="submit" id="btnAdd" class="btn btn-primary">Tìm kiếm</button>
+						<button type="submit" id="btnSearch" class="btn btn-primary">Tìm kiếm</button>
 						<span class="closeModalAdd btn btn-primary" data-dismiss="modal">Hủy</span>
 					</div>
 				</div>
@@ -711,7 +711,6 @@
 		</div>
 	</div>
 </div>
-
 
 <style>
 	.inner-top {
@@ -756,7 +755,7 @@
 	
 	.img-avatar {
 		overflow: hidden;
-		width: 91px;
+		width: 74px;
 	}
 	
 	.img-avatar img {

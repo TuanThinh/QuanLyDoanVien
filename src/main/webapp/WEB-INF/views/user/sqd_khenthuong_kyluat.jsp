@@ -159,7 +159,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" id="btnAdd" class="btn btn-primary">Thêm</button>
+                    <button type="submit" id="btnDetail" class="btn btn-primary">Thêm</button>
                     <span class="closeModalAdd btn btn-primary" data-dismiss="modal">Hủy</span>
                 </div>
         </div>

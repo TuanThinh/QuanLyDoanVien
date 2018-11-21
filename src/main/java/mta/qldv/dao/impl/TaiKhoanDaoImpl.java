@@ -18,8 +18,13 @@ public class TaiKhoanDaoImpl implements TaiKhoanDao {
     @Override
 	public List<TaiKhoan> getList() {
         String sql = "from TaiKhoan";
-        List<TaiKhoan> listTaiKhoan = hibernateUtil.getCurrentSession().createQuery(sql).list();
-        return listTaiKhoan;
+        try {
+            List<TaiKhoan> listTaiKhoan = hibernateUtil.getCurrentSession().createQuery(sql).list();
+            return listTaiKhoan;
+        } catch (Exception ex){
+
+        }
+        return null;
     }
 
 	@Override

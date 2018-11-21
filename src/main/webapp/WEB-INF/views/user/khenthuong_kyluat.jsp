@@ -117,7 +117,7 @@
 					<div class="form-group">
 						<label class="col-md-4 custom">Thời gian</label>
 						<div class="col-md-8 custom">
-							<input type="text" name="" class="form-control" />
+							<input type="text" name="" class="form-control input-datepicker" readonly="readonly"/>
 						</div>
 					</div>
 
@@ -181,7 +181,7 @@
 				<div class="form-group">
 					<label class="col-md-4 custom">Thời gian</label>
 					<div class="col-md-8 custom">
-						<input type="text" name="" class="form-control" />
+						<input type="text" name="" class="form-control input-datepicker" readonly="readonly"/>
 					</div>
 				</div>
 	

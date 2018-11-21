@@ -3,7 +3,9 @@ package mta.qldv.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "quyen")
@@ -18,6 +20,9 @@ public class Quyen implements Serializable {
 
 	@Column(name = "chuc_nang")
 	private String chucNang;
+
+//	@ManyToMany(mappedBy = "listQuyen", fetch = FetchType.LAZY)
+//	private List<TaiKhoan> listTaiKhoan = new ArrayList<>();
 
 //	@OneToMany(mappedBy = "quyen", fetch = FetchType.LAZY)
 //	private List<TaiKhoan> listTaiKhoan = new ArrayList<TaiKhoan>();
@@ -46,11 +51,4 @@ public class Quyen implements Serializable {
 		this.chucNang = chucNang;
 	}
 
-//	public List<TaiKhoan> getListTaiKhoan() {
-//		return listTaiKhoan;
-//	}
-//
-//	public void setListTaiKhoan(List<TaiKhoan> listTaiKhoan) {
-//		this.listTaiKhoan = listTaiKhoan;
-//	}
 }

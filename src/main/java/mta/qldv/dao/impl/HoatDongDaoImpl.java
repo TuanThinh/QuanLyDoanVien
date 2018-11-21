@@ -20,8 +20,13 @@ public class HoatDongDaoImpl implements HoatDongDao {
     public List<HoatDong> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from HoatDong";
-        List<HoatDong> listHoatDong = session.createQuery(sql).list();
-        return listHoatDong;
+        try {
+            List<HoatDong> listHoatDong = session.createQuery(sql).list();
+            return listHoatDong;
+        } catch (Exception ex){
+
+        }
+        return null;
     }
 
 	@Override

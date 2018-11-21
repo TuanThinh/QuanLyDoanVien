@@ -17,7 +17,13 @@ public class QuyenDaoImpl implements QuyenDao {
     public List<Quyen> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from Quyen";
-        List<Quyen> listQuyen = session.createQuery(sql).list();
-        return listQuyen;
+        try {
+            List<Quyen> listQuyen = session.createQuery(sql).list();
+            return listQuyen;
+        } catch (Exception e){
+
+        }
+
+        return null;
     }
 }

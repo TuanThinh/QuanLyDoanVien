@@ -40,7 +40,7 @@
                                        placeholder="nhập địa điểm dự kiến" required="required">
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="message">Đơn vị tổ chức dự kiến</label>
+                                <label class="control-label">Đơn vị tổ chức dự kiến</label>
                                 <select name="DV" id="sport" class="validate[required] form-control">
                                     <option value="">Chọn đơn vị tổ chức dự kiến</option>
                                     <option value="option1">Đoàn Cơ sở</option>
@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label" for="message">Đối tượng dự kiến</label>
+                                <label class="control-label">Đối tượng dự kiến</label>
                                 <select name="DV" id="sport" class="validate[required] form-control">
                                     <option value="">Chọn đối tượng dự kiến</option>
                                     <option value="option1">Sinh viên dân sự</option>

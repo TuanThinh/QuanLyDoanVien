@@ -18,7 +18,12 @@ public class HoSoDaoImpl implements HoSoDao {
     public List<HoSo> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from HoSo";
-        List<HoSo> listHoSo = session.createQuery(sql).list();
-        return listHoSo;
+        try {
+            List<HoSo> listHoSo = session.createQuery(sql).list();
+            return listHoSo;
+        } catch (Exception ex){
+
+        }
+        return null;
     }
 }

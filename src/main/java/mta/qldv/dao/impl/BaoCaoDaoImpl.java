@@ -17,7 +17,12 @@ public class BaoCaoDaoImpl implements BaoCaoDao {
     public List<BaoCao> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from BaoCao";
-        List<BaoCao> listBaoCao = session.createQuery(sql).list();
-        return listBaoCao;
+        try {
+            List<BaoCao> listBaoCao = session.createQuery(sql).list();
+            return listBaoCao;
+        } catch (Exception ex){
+
+        }
+        return null;
     }
 }

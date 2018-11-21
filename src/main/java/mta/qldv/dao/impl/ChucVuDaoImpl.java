@@ -17,7 +17,12 @@ public class ChucVuDaoImpl implements ChucVuDao {
     public List<ChucVu> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from ChucVu";
-        List<ChucVu> listChucVu = session.createQuery(sql).list();
-        return listChucVu;
+        try {
+            List<ChucVu> listChucVu = session.createQuery(sql).list();
+            return listChucVu;
+        } catch (Exception ex) {
+
+        }
+        return null;
     }
 }

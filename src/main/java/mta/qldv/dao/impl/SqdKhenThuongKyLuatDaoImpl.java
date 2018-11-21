@@ -17,7 +17,12 @@ public class SqdKhenThuongKyLuatDaoImpl implements SqdKhenThuongKyLuatDao {
     public List<SqdKhenThuongKyLuat> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from SqdKhenThuongKyLuat";
-        List<SqdKhenThuongKyLuat> listSqd = session.createQuery(sql).list();
-        return listSqd;
+        try {
+            List<SqdKhenThuongKyLuat> listSqd = session.createQuery(sql).list();
+            return listSqd;
+        } catch (Exception ex){
+
+        }
+        return null;
     }
 }

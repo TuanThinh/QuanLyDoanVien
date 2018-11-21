@@ -74,14 +74,14 @@
 				<div class="form-group">
 					<label class="col-md-5 custom">Ngày vào đoàn</label>
 					<div class="col-md-7 custom">
-						<input type="text" name="" class="form-control">
+						<input type="text" name="" class="form-control input-datepicker" readonly="readonly">
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label class="col-md-5 custom">Ngày vào đảng</label>
 					<div class="col-md-7 custom">
-						<input type="text" name="" class="form-control">
+						<input type="text" name="" class="form-control input-datepicker" readonly="readonly">
 					</div>
 				</div>
 			</div>
@@ -128,22 +128,24 @@
 						<input type="text" name="" class="form-control">
 					</div>
 				</div>
-				
-				<div class="form-group btn-magn">
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-10 col-md-2">
 					<button type="submit" id="btnAdd" class="btn btn-primary">Lưu</button>
 					<!-- <button type="submit" id="btnHuy" class="btn btn-primary">Hủy</button> -->
-					<span class="btn btn-primary" data-dismiss="modal">Hủy</span>
+					<span class="btn btn-primary">Hủy</span>
 				</div>
 			</div>
-			
 			
 		</div>
 		
 	</div>
 </div>
-	
 
 <style>
+	.col-md-offset-10 {
+		margin-left: 86.333333%;
+	}
 	.capnhathoso{
 	width: 20%;
 	float: left;
@@ -240,8 +242,8 @@
     border-radius: 4px;
 	}
 	
-	.btn-magn{
-	margin-left:330px;
-	margin-top: 320px;
-	}
+	/*.btn-magn{*/
+	/*margin-left:330px;*/
+	/*margin-top: 320px;*/
+	/*}*/
 </style>
