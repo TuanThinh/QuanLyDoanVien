@@ -6,12 +6,12 @@
 		<form action="" method="post" accept-charset="utf-8">
 			<div class="form-group">
 				<label>Họ tên</label>
-				<input class="form-control" id="" type="text" name="" placeholder="Nhập họ tên"/>
+				<input class="form-control" type="text" name="" placeholder="Nhập họ tên"/>
 			</div>
 	
 			<div class="form-group">
 				<label>Điểm</label>
-				<input class="form-control" id="" type="text" name="" placeholder="Nhập điểm"/>
+				<input class="form-control" type="text" name="" placeholder="Nhập điểm"/>
 			</div>
 			
 			<div class="form-group">
@@ -27,11 +27,14 @@
 </div>
 
 <div class="inner-right">
-		<table class="table table-striped table-bordered table-hover">
+		<table class="table table-striped table-bordered table-hover" id="diem-ho-so">
 			<thead>
 				<tr>
 					<th width="120px;">Mã đoàn viên</th>
 					<th>Họ tên</th>
+					<th class="column-hidden">Ngày sinh</th>
+					<th class="column-hidden">Chi đoàn</th>
+					<th class="column-hidden">Đơn vị</th>
 					<th>Điểm</th>
 					<th>Thời gian</th>
 					<th>Ghi chú</th>
@@ -40,11 +43,14 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td class="hs-ma"></td>
+					<td class="hs-hoten"></td>
+					<td class="hs-ngaysinh column-hidden"></td>
+					<td class="hs-chidoan column-hidden"></td>
+					<td class="hs-donvi column-hidden"></td>
+					<td class="hs-diem"></td>
+					<td class="hs-thoigian"></td>
+					<td class="hs-ghichu"></td>
 					<td>
 						<span data-toggle="modal" data-target="#modalDetail">
 							<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
@@ -253,7 +259,11 @@
 	</div>
 </div>
 
-<style>	
+<style>
+	.column-hidden{
+		display: none;
+	}
+
 	i.fa:hover {
 		cursor: pointer;
 		color: blue;
@@ -298,3 +308,4 @@
         padding: 0px;
     }
 </style>
+<script src="${pageContext.servletContext.contextPath}/resources/js/user/diem.js"></script>

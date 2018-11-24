@@ -15,7 +15,7 @@
 		<put-attribute name="help" value="/WEB-INF/layouts/user/_help.jsp" />
 	</definition>
 	
-	<definition name="home" extends="TemplateUser">
+	<definition name="user-home" extends="TemplateUser">
 		<put-attribute name="title" value="Trang chủ" />
 		<put-attribute name="content" value="/WEB-INF/views/user/home.jsp" />
 	</definition>
@@ -83,6 +83,11 @@
 	<definition name="sqdkhenthuongkyluat" extends="TemplateUser">
 		<put-attribute name="title" value="Các thông tin về khen thưởng kỷ luật" />
 		<put-attribute name="content" value="/WEB-INF/views/user/sqd_khenthuong_kyluat.jsp" />
+	</definition>
+
+	<definition name="thongke" extends="TemplateUser">
+		<put-attribute name="title" value="Thống kê" />
+		<put-attribute name="content" value="/WEB-INF/views/user/thongke.jsp" />
 	</definition>
 
 	<definition name="soanbaocao" extends="TemplateUser">

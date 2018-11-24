@@ -12,6 +12,16 @@ public class HibernateUtil {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	private Session session;
+
+	public Session getSession() {
+		return session;
+	}
+
+	public void setSession(Session session) {
+		this.session = session;
+	}
+
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
@@ -21,7 +31,6 @@ public class HibernateUtil {
 	}
 
 	public Session getCurrentSession() {
-		Session session = null;
 		try {
 			session = this.sessionFactory.getCurrentSession();
 		} catch (HibernateException e) {

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <div class="inner-top">
-	<a href="${pageContext.servletContext.contextPath}/user/thong-tin-khen-thuong-ky-luat">Các thông tin về khen thưởng kỷ luật</a>
+	<a href="${pageContext.servletContext.contextPath}/user/dcs/thong-tin-khen-thuong-ky-luat">Các thông tin về khen thưởng kỷ luật</a>
 </div>
 
 <div class="inner-bottom">
@@ -11,17 +11,17 @@
 		<form action="" method="post" accept-charset="utf-8">
 			<div class="form-group">
 				<label>Họ tên</label>
-				<input class="form-control" id="" type="text" name="" placeholder="Nhập họ tên"/>
+				<input class="form-control" type="text" name="" placeholder="Nhập họ tên"/>
 			</div>
 
 			<div class="form-group">
 				<label>Tiêu đề</label>
-				<input class="form-control" id="" type="text" name="" placeholder="Nhập điểm"/>
+				<input class="form-control" type="text" name="" placeholder="Nhập điểm"/>
 			</div>
 
 			<div class="form-group">
 				<label>Thời gian</label>
-				<input class="form-control" id="" type="text" name="" placeholder="Nhập thời gian"/>
+				<input class="form-control" type="text" name="" placeholder="Nhập thời gian"/>
 			</div>
 
 			<div class="button">
@@ -32,45 +32,48 @@
 	</div>
 
 	<div class="inner-right">
-		<table class="table table-striped table-bordered table-hover">
+		<table class="table table-striped table-bordered table-hover" id="khen-thuong-ky-luat">
 			<thead>
 			<tr>
 				<th width="120px;">Mã đoàn viên</th>
 				<th>Họ tên</th>
+				<th class="column-hidden">Ngày sinh</th>
+				<th class="column-hidden">Chi đoàn</th>
+				<th class="column-hidden">Đơn vị</th>
 				<th>Tiêu đề</th>
 				<th>Nội dung</th>
 				<th>Thời gian</th>
-				<th>Ghi chú</th>
 				<th width="101px;"></th>
 			</tr>
 			</thead>
 			<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>
-						<span data-toggle="modal" data-target="#modalDetail">
-							<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
-						</span> |
+				<tr>
+					<td class="hs-ma"></td>
+					<td class="hs-hoten"></td>
+					<td class="hs-ngaysinh column-hidden"></td>
+					<td class="hs-chidoan column-hidden"></td>
+					<td class="hs-donvi column-hidden"></td>
+					<td class="hs-tieude"></td>
+					<td class="hs-noidung"></td>
+					<td class="hs-thoigian"></td>
+					<td>
+							<span data-toggle="modal" data-target="#modalDetail">
+								<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
+							</span> |
 
-					<span data-toggle="modal" data-target="#modalAdd">
-							<i class="fa fa-plus-circle" data-toggle="tooltip" data-original-title="Thêm" data-placement="top" ></i>
-						</span> |
+						<span data-toggle="modal" data-target="#modalAdd">
+								<i class="fa fa-plus-circle" data-toggle="tooltip" data-original-title="Thêm" data-placement="top" ></i>
+							</span> |
 
-					<span data-toggle="modal" data-target="#modalEdit">
-							<i class="fa fa-wrench" data-toggle="tooltip" data-original-title="Sửa" data-placement="top"></i>
-						</span> |
+						<span data-toggle="modal" data-target="#modalEdit">
+								<i class="fa fa-wrench" data-toggle="tooltip" data-original-title="Sửa" data-placement="top"></i>
+							</span> |
 
-					<span data-toggle="modal" data-target="#modalDelete">
-							<i class="fa fa-trash" data-toggle="tooltip" data-original-title="Xóa" data-placement="top"></i>
-						</span>
-
-				</td>
-			</tr>
+						<span data-toggle="modal" data-target="#modalDelete">
+								<i class="fa fa-trash" data-toggle="tooltip" data-original-title="Xóa" data-placement="top"></i>
+							</span>
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -272,7 +275,7 @@
 				<hr>
 				<div class="form-group">
 					<div class="col-md-offset-10 col-md-2">
-						<button type="button" id="btnEdit" class="btn btn-default" data-dismiss="modal">Đóng</button>
+						<button type="button" id="btnDetail" class="btn btn-default" data-dismiss="modal">Đóng</button>
 					</div>
 				</div>
 			</div>
@@ -280,12 +283,16 @@
 	</div>
 </div>
   
-  <style>	
+  <style>
+    .column-hidden {
+	  	display: none;
+    }
+
 	i.fa:hover {
 		cursor: pointer;
 		color: blue;
 	}
-	
+
 	.modal-content {
 		width: 50%;
 	    margin: auto;
@@ -294,7 +301,7 @@
 	.modal-body {
 		padding: 25px 50px;
 	}
-	
+
 	.custom {
 		padding: 0px;
 	}
@@ -309,21 +316,21 @@
 	.inner-bottom {
 	    display: flex;
 	}
-	
+
 	.inner-left {
 	    width: 23%;
 	    padding: 5px 20px;
 	    background-color: #847c7c47;
 	    margin-right: 30px;
 	}
-	
+
 	.inner-left h4 {
 	    background-color: #403535;
 	    text-align: center;
 	    color: white;
 	    padding: 5px 0px;
 	}
-	
+
 	.inner-right {
 	    width: 74%;
 	}
@@ -333,5 +340,4 @@
 	}
 		
 </style>
-  
-  
+<script src="${pageContext.servletContext.contextPath}/resources/js/user/khenthuongkyluat.js"></script>

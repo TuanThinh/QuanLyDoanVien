@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,34 +17,37 @@
                 <i class="fa fa-user"></i>
                 Đăng nhập hệ thống
             </div>
-            <form action="" method="post" accept-charset="utf-8">
+            <form action="/j_spring_security_check" method="post" accept-charset="utf-8">
             	<fieldset>
             		<div class="label">E-mail</div>
 	                <div class="input">
-	                    <input id="txtEmail" class="txt" type="email" name="" placeholder="Nhập địa chỉ email" onblur="checkEmail()">
+	                    <input id="txtEmail" class="txt" type="text" name="username" placeholder="Nhập địa chỉ email" >
 	                    <i class="icon-append fa fa-user" id="infEmail"></i>
                         <!-- <span class="glyphicon glyphicon-user" id="infEmail"></span> -->
 	                </div>
 	                <div class="label">Mật khẩu</div>
 	                <div class="input">
-	                   <input id="txtPassword" class="txt" type="password" name="" placeholder="Nhập mật khẩu" onblur="checkPassword()">
+	                   <input id="txtPassword" class="txt" type="password" name="password" placeholder="Nhập mật khẩu">
 	                    <i class="icon-append fa fa-lock" id="infPassword"></i>
-                        <!-- <span class="glyphicon glyphicon-lock" id="infPassword"></span> -->
 	                </div>
 	                <div class="note">	
-	                	<input type="checkbox" name=""> Lưu mật khẩu
+	                	<input type="checkbox" name="remember-me"> Lưu đăng nhập
 	                    <a href="">Quên mật khẩu?</a>
 
 	                </div>
             	</fieldset>
+				<c:if test="${param.error == 'true'}">
+					<div style="color:red;margin:10px 20px;">
+						Tài khoản hoặc mật khẩu không chính xác
+					</div>
+				</c:if>
             	<div class="footer">
-                    <button id="btnButton" type="submit" onclick="return formValidate()">
+                    <button id="btnButton" type="submit">
                         <i class="fa fa-sign-in"></i>
                         Đăng nhập
                     </button>
                 </div>
             </form>
-
         </div>
     </div>
 </body>

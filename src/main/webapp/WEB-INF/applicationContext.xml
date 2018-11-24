@@ -37,15 +37,10 @@
         <property name="packagesToScan" value="mta.qldv.*"/>
     </bean>
 
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="txManager"/>
     <!-- Transaction manager for a single Hibernate SessionFactory -->
-    <bean id="transactionManager"
+    <bean id="txManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="dataSource" ref="dataSource" />
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-
-    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
-        <constructor-arg name="sessionFactory" ref="sessionFactory" />
-    </bean>
-    <tx:annotation-driven transaction-manager="transactionManager" />
 </beans>

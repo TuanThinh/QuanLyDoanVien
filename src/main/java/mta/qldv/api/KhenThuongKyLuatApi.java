@@ -1,5 +1,6 @@
 package mta.qldv.api;
 
+import mta.qldv.dto.KhenThuongKyLuatDto;
 import mta.qldv.entity.KhenThuongKyLuat;
 import mta.qldv.service.KhenThuongKyLuatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,12 @@ public class KhenThuongKyLuatApi {
     @RequestMapping(value = "/list", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<KhenThuongKyLuat> getList(){
         List<KhenThuongKyLuat> listKtkl = khenThuongKyLuatService.getList();
+        return listKtkl;
+    }
+
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+    public List<KhenThuongKyLuatDto> findAll(){
+        List<KhenThuongKyLuatDto> listKtkl = khenThuongKyLuatService.findAll();
         return listKtkl;
     }
 }

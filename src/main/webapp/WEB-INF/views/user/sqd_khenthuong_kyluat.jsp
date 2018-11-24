@@ -33,7 +33,7 @@
 </div>
 <!-- inner-top -->
 
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover" id="sqd-ktkl">
     <thead>
     <tr>
         <th>Tiêu đề</th>
@@ -42,13 +42,9 @@
     </thead>
     <tbody>
     <tr>
-        <td></td>
-        <td></td>
+        <td class="sqd-tieude"></td>
+        <td class="sqd-noidung"></td>
         <td>
-				<span data-toggle="modal" data-target="#modalDetail">
-					<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top"></i>
-				</span> |
-
             <span data-toggle="modal" data-target="#modalEdit">
 					<i class="fa fa-wrench" data-toggle="tooltip" data-original-title="Sửa" data-placement="top"></i>
 				</span> |
@@ -63,7 +59,7 @@
 </table>
 
 <div class="inner-bottom">
-    <a href="${pageContext.servletContext.contextPath}/user/khen-thuong-ky-luat">Quay lại</a>
+    <a href="${pageContext.servletContext.contextPath}/user/dcs/khen-thuong-ky-luat">Quay lại</a>
 </div>
 
 <div id="modalAdd" class="modal" role="dialog">
@@ -83,7 +79,7 @@
 
                 <div class="form-group">
                     <label>Nội dung</label>
-                    <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="" cols="30" rows="10"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -112,7 +108,7 @@
 
                 <div class="form-group">
                     <label>Nội dung</label>
-                    <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="" cols="30" rows="10"></textarea>
                 </div>
 
                 <div class="form-group">
@@ -231,3 +227,5 @@
         flex-direction: row-reverse;
     }
 </style>
+
+<script src="${pageContext.servletContext.contextPath}/resources/js/user/sqd_ktkl.js"></script>

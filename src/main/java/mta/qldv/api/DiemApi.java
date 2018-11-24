@@ -1,5 +1,6 @@
 package mta.qldv.api;
 
+import mta.qldv.dto.DiemHoSoDto;
 import mta.qldv.entity.Diem;
 import mta.qldv.service.DiemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,9 @@ public class DiemApi {
         return listDiem;
     }
 
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public List<DiemHoSoDto> findAll(){
+        List<DiemHoSoDto> listDiem = diemService.findAll();
+        return listDiem;
+    }
 }

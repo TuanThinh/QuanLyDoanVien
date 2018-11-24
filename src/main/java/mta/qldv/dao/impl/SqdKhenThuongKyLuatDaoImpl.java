@@ -21,7 +21,7 @@ public class SqdKhenThuongKyLuatDaoImpl implements SqdKhenThuongKyLuatDao {
             List<SqdKhenThuongKyLuat> listSqd = session.createQuery(sql).list();
             return listSqd;
         } catch (Exception ex){
-
+            ex.printStackTrace();
         }
         return null;
     }

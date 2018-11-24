@@ -1,6 +1,7 @@
 package mta.qldv.service.impl;
 
 import mta.qldv.dao.KhenThuongKyLuatDao;
+import mta.qldv.dto.KhenThuongKyLuatDto;
 import mta.qldv.entity.KhenThuongKyLuat;
 import mta.qldv.service.KhenThuongKyLuatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +16,9 @@ public class KhenThuongKyLuatServiceImpl implements KhenThuongKyLuatService {
 
     public List<KhenThuongKyLuat> getList() {
         return khenThuongKyLuatDao.getList();
+    }
+
+    public List<KhenThuongKyLuatDto> findAll(){
+        return khenThuongKyLuatDao.findAll();
     }
 }

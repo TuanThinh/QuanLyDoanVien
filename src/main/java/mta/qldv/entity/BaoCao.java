@@ -25,7 +25,7 @@ public class BaoCao implements Serializable {
 	private String noiDung;
 
 	@Column(name = "ngay_gui")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
 	private Date ngayGui;
 
 	public Long getId() {

@@ -34,7 +34,7 @@
 					</a>
 				</div>
 				<div class="btn-group">
-					<a href="login" data-toggle="tooltip"
+					<a href="/logout" data-toggle="tooltip"
 						data-original-title="Đăng xuất" data-placement="bottom"
 						class="btn btn-metis-1 btn-sm"> <i class="fa fa-power-off"></i>
 					</a>

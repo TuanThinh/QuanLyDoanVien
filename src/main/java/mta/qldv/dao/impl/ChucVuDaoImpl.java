@@ -21,7 +21,7 @@ public class ChucVuDaoImpl implements ChucVuDao {
             List<ChucVu> listChucVu = session.createQuery(sql).list();
             return listChucVu;
         } catch (Exception ex) {
-
+            ex.printStackTrace();
         }
         return null;
     }

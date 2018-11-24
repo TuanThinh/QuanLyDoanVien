@@ -1,5 +1,6 @@
 package mta.qldv.controller.user;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,89 +10,98 @@ import java.util.ArrayList;
 @Controller
 @RequestMapping("/user")
 public class HomeUserController {
-	@GetMapping
-	public String home() {
-		return "home";
-	}
-	
-	@GetMapping("/danh-sach-ho-so")
-	public String danhSachHoSo() {
-		return "danhsachhoso";
-	}
 
-	@GetMapping("/ho-so-ca-nhan")
-	public String hoSoCaNhan() {
-		return "hosocanhan";
-	}
-	
-	@GetMapping("/cap-nhat-ho-so")
-	public String capNhatHoSo() {
-		return "capnhathoso";
-	}
+    @GetMapping
+    public String home() {
+        return "user-home";
+    }
 
-	@GetMapping("/hoat-dong")
-	public String hoatDong() {
-		return "hoatdong";
-	}
+    @GetMapping("/ho-so-ca-nhan")
+    public String hoSoCaNhan() {
+        return "hosocanhan";
+    }
 
-	@GetMapping("/hoat-dong-da-qua")
-	public String hoatDongDaQua() {
-		return "hoatdongdaqua";
-	}
+    @GetMapping("/cap-nhat-ho-so")
+    public String capNhatHoSo() {
+        return "capnhathoso";
+    }
 
-	@GetMapping("/hoat-dong-sap-toi")
-	public String hoatDongSapToi() {
-		return "hoatdongsaptoi";
-	}
+    @GetMapping("/hoat-dong")
+    public String hoatDong() {
+        return "hoatdong";
+    }
 
-	@GetMapping("/hoat-dong-da-tham-gia")
-	public String hoatDongDaThamGia() {
-		return "hoatdongdathamgia";
-	}
+    @GetMapping("/hoat-dong-da-qua")
+    public String hoatDongDaQua() {
+        return "hoatdongdaqua";
+    }
 
-	@GetMapping("/de-xuat-hoat-dong")
-	public String hoatDongDeXuat() {
-		return "dexuathoatdong";
-	}
+    @GetMapping("/hoat-dong-sap-toi")
+    public String hoatDongSapToi() {
+        return "hoatdongsaptoi";
+    }
 
-	@GetMapping("/chinh-sach-va-thong-bao")
-	public String chinhSachVaThongBao() {
-		return "chinhsachvathongbao";
-	}
-	
-	@GetMapping("/dong-gop-va-phan-hoi")
-	public String dongGopVaPhanHoi() {
-		return "donggopvaphanhoi";
-	}
-	@GetMapping("/diem")
-	public String diem() {
-		return "diem";
-	}
-	
-	@GetMapping("/khen-thuong-ky-luat")
-	public String khenthong_kyluat() {
-		return "khenthuongkyluat";
+    @GetMapping("/hoat-dong-da-tham-gia")
+    public String hoatDongDaThamGia() {
+        return "hoatdongdathamgia";
+    }
 
-	}
+    @GetMapping("/de-xuat-hoat-dong")
+    public String hoatDongDeXuat() {
+        return "dexuathoatdong";
+    }
 
-	@GetMapping("/thong-tin-khen-thuong-ky-luat")
-	public String sdk_kt_kl() {
-		return "sqdkhenthuongkyluat";
+    @GetMapping("/chinh-sach-va-thong-bao")
+    public String chinhSachVaThongBao() {
+        return "chinhsachvathongbao";
+    }
 
-	}
+    @GetMapping("/dong-gop-va-phan-hoi")
+    public String dongGopVaPhanHoi() {
+        return "donggopvaphanhoi";
+    }
 
-	@GetMapping("/soan-bao-cao")
-	public String soanbaocao() {
-		return "soanbaocao";
-	}
+//    Đoàn cơ sở
 
-	@GetMapping("/bao-cao-da-gui")
-	public String baocaodagui() {
-		return "baocaodagui";
-	}
+    @GetMapping("/dcs/danh-sach-ho-so")
+    public String danhSachHoSo() {
+        return "danhsachhoso";
+    }
 
-	@GetMapping("/bao-cao-da-xoa")
-	public String baocaodaxoa() {
-		return "baocaodaxoa";
-	}
+    @GetMapping("/dcs/diem")
+    public String diem() {
+        return "diem";
+    }
+
+    @GetMapping("/dcs/khen-thuong-ky-luat")
+    public String khenthong_kyluat() {
+        return "khenthuongkyluat";
+
+    }
+
+    @GetMapping("/dcs/thong-tin-khen-thuong-ky-luat")
+    public String sdk_kt_kl() {
+        return "sqdkhenthuongkyluat";
+
+    }
+
+    @GetMapping("/dcs/thong-ke")
+    public String thongke() {
+        return "thongke";
+    }
+
+    @GetMapping("/dcs/soan-bao-cao")
+    public String soanbaocao() {
+        return "soanbaocao";
+    }
+
+    @GetMapping("/dcs/bao-cao-da-gui")
+    public String baocaodagui() {
+        return "baocaodagui";
+    }
+
+    @GetMapping("/dcs/bao-cao-da-xoa")
+    public String baocaodaxoa() {
+        return "baocaodaxoa";
+    }
 }

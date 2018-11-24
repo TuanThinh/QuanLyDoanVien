@@ -21,7 +21,7 @@ public class QuyenDaoImpl implements QuyenDao {
             List<Quyen> listQuyen = session.createQuery(sql).list();
             return listQuyen;
         } catch (Exception e){
-
+            e.printStackTrace();
         }
 
         return null;

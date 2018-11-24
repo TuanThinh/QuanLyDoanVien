@@ -22,7 +22,7 @@ public class ThongBaoChinhSachDaoImpl implements ThongBaoChinhSachDao {
             List<ThongBaoChinhSach> listThongBaoChinhSach = session.createQuery(sql).list();
             return listThongBaoChinhSach;
         } catch (Exception ex){
-
+			ex.printStackTrace();
         }
         return null;
     }

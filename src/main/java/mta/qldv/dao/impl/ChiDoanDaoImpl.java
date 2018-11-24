@@ -19,12 +19,12 @@ public class ChiDoanDaoImpl implements ChiDoanDao {
     @Override
     public List<ChiDoan> getList() {
         Session session = hibernateUtil.getCurrentSession();
-        String sql = "from ChiDoan";
+        String sql = "from ChiDoan cd order by cd.tenChiDoan";
         try {
             List<ChiDoan> listChiDoan = session.createQuery(sql).list();
             return listChiDoan;
         } catch (Exception ex){
-
+			ex.printStackTrace();
         }
         return null;
     }

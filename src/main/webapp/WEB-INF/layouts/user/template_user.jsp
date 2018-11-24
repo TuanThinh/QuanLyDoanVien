@@ -22,38 +22,28 @@
 <meta name="msapplication-TileImage"
 	content="${pageContext.servletContext.contextPath}/resources/imgs/metis-tile.png" />
 
-<!-- Bootstrap -->
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/bootstrap.min.css">
 
-<!-- Font Awesome -->
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/font-awesome.min.css">
 
-	<!-- Metis core stylesheet -->
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/user/main.css">
 
-<!-- metisMenu stylesheet -->
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/user/metisMenu.css">
 
-<!-- onoffcanvas stylesheet -->
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/user/onoffcanvas.css">
-	<script src="${pageContext.servletContext.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
+<script src="${pageContext.servletContext.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
 
-	<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/datepicker.css">
-	<script src="${pageContext.servletContext.contextPath}/resources/js/datepicker.js"></script>
-<!-- animate.css stylesheet -->
-<!-- <link rel="stylesheet" href="assets/lib/animate.css/animate.css"> -->
+<link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/datepicker.css">
+<script src="${pageContext.servletContext.contextPath}/resources/js/datepicker.js"></script>
+<script src="${pageContext.servletContext.contextPath}/resources/js/highcharts.js"></script>
+<script src="${pageContext.servletContext.contextPath}/resources/tinymce/tinymce.min.js"></script>
+<script>tinymce.init({ selector: 'textarea' });</script>
 
-<!-- <link rel="stylesheet" href="assets/css/style-switcher.css"> -->
-<!-- <link rel="stylesheet/less" type="text/css" href="assets/less/theme.less"> -->
-
-	<script src="${pageContext.servletContext.contextPath}/resources/tinymce/tinymce.min.js"></script>
-	<script>tinymce.init({ selector: 'textarea' });</script>
-
-    <style>
-        .datepicker-container {
-            z-index: 1051 !important;
-        }
-    </style>
+<style>
+	.datepicker-container {
+		z-index: 1051 !important;
+	}
+</style>
 </head>
 <body class="  ">
 	<div class="bg-dark dk" id="wrap">

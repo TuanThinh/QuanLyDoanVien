@@ -21,7 +21,7 @@ public class BaoCaoDaoImpl implements BaoCaoDao {
             List<BaoCao> listBaoCao = session.createQuery(sql).list();
             return listBaoCao;
         } catch (Exception ex){
-
+            ex.printStackTrace();
         }
         return null;
     }
