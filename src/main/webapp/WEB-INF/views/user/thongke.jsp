@@ -1,6 +1,237 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 
+
+
+<div class="row">
+    <!-- .col-lg-12 -->
+    <div class="col-md-12">
+        <div class="box">
+            <header>
+                <h5>Danh sách đoàn viên - điểm</h5>
+                <div class="toolbar">
+                    <div class="btn-group">
+                        <a href="#ds-doanvien-diem" data-toggle="collapse" class="btn btn-default btn-sm minimize-box">
+                            <i class="fa fa-angle-up"></i>
+                        </a>
+
+                    </div>
+                </div>
+            </header>
+            <div id="ds-doanvien-diem" class="body collapse in ds-doanvien">
+                <div class="col-md-3 form-horizontal">
+                    <h4>Thống kê</h4>
+                    <div class="form-group">
+                        <label class="col-md-4">Số lượng</label>
+                        <div class="col-md-8">
+                            <select id="diem-soluong" class="soluong">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                            <select id="diem-top" class="xephang">
+                                <option value="desc" selected>Top đầu</option>
+                                <option value="asc">Top dưới</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4">Thời gian</label>
+                        <div class="col-md-8">
+                            <select id="diem-thoigian" class="form-control select-date previous-datenow">
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4">Học lực</label>
+                        <div class="col-md-8">
+                            <select id="diem-hocluc" class="form-control">
+                                <option value="NaN">--- Tất cả ---</option>
+                                <option value="XS">Xuất sắc (3.60 - 4.00)</option>
+                                <option value="G">Giỏi (3.20 - 3.59)</option>
+                                <option value="K" selected>Khá (2.50 - 3.19)</option>
+                                <option value="TBK">TB khá (2.30 - 2.49)</option>
+                                <option value="TB">Trung bình (2.00 - 2.29)</option>
+                                <option value="TBY">TB yếu (1.50 - 1.99)</option>
+                                <option value="Y">Yếu (1.00 - 1.49)</option>
+                                <option value="K">Kém (Dưới 1.00)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4">Chi đoàn</label>
+                        <div class="col-md-8">
+                            <select id="diem-chidoan" class="form-control ten-chi-doan">
+                                <option value="-1">--- Tất cả ---</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4">Đơn vị</label>
+                        <div class="col-md-8">
+                            <select id="diem-donvi" class="form-control ten-don-vi">
+                                <option value="-1">--- Tất cả ---</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="button form-group">
+                        <button id="hoso-diem" class="btn btn-primary">Tìm</button>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <input class="form-control" id="search-hoso-diem" type="text" placeholder="Search"/>
+                    <button class="btn btn-info">Xuất ra excel</button>
+                    <input type="hidden" class="sort"/>
+                    <table class="table table-striped table-bordered table-hover" id="danh-sach-diem-doan-vien">
+                        <thead>
+                        <tr>
+                            <th width="120px;">Mã đoàn viên</th>
+                            <th>Họ tên</th>
+                            <th class="column-hidden">Ngày sinh</th>
+                            <th class="column-hidden">Chi đoàn</th>
+                            <th class="column-hidden">Đơn vị</th>
+                            <th>Điểm</th>
+                            <th>Thời gian</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="diem-ma"></td>
+                            <td class="diem-hoten"></td>
+                            <td class="diem-ngaysinh column-hidden"></td>
+                            <td class="diem-chidoan column-hidden"></td>
+                            <td class="diem-donvi column-hidden"></td>
+                            <td class="diem"></td>
+                            <td class="diem-thoigian"></td>
+                            <td>
+                                <span data-toggle="modal" data-target="#modalDetail">
+                                    <i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
+                                </span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-lg-6 -->
+</div>
+
+<div class="row">
+    <!-- .col-lg-12 -->
+    <div class="col-md-12">
+        <div class="box">
+            <header>
+                <h5>Danh sách đoàn viên - hoạt động</h5>
+                <div class="toolbar">
+                    <div class="btn-group">
+                        <a href="#ds-doanvien-hd" data-toggle="collapse" class="btn btn-default btn-sm minimize-box">
+                            <i class="fa fa-angle-up"></i>
+                        </a>
+
+                    </div>
+                </div>
+            </header>
+            <div id="ds-doanvien-hd" class="body collapse in ds-doanvien">
+                <div class="col-md-3 form-horizontal">
+                    <h4>Thống kê</h4>
+                    <div class="form-group">
+                        <label class="col-md-4">Số lượng</label>
+                        <div class="col-md-8">
+                            <select id="hd-soluong" class="soluong">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                            <select id="hd-top" class="xephang">
+                                <option value="desc" selected>Top đầu</option>
+                                <option value="asc">Top dưới</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4">Thời gian</label>
+                        <div class="col-md-8">
+                            <select id="hd-thoigian" class="form-control select-date previous-datenow">
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4">Chi đoàn</label>
+                        <div class="col-md-8">
+                            <select id="hd-chidoan" class="form-control ten-chi-doan">
+                                <option value="-1">--- Tất cả ---</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4">Đơn vị</label>
+                        <div class="col-md-8">
+                            <select id="hd-donvi" class="form-control ten-don-vi">
+                                <option value="-1">--- Tất cả ---</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="button form-group">
+                        <button id="hoso-hoatdong" class="btn btn-primary">Tìm</button>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <input class="form-control" id="search-hoso-hd" type="text" placeholder="Search"/>
+                    <button class="btn btn-info">Xuất ra excel</button>
+                    <table class="table table-striped table-bordered table-hover" id="danh-sach-hoat-dong-doan-vien">
+                        <thead>
+                        <tr>
+                            <th width="120px;">Mã đoàn viên</th>
+                            <th>Họ tên</th>
+                            <th class="column-hidden">Ngày sinh</th>
+                            <th class="column-hidden">Chi đoàn</th>
+                            <th class="column-hidden">Đơn vị</th>
+                            <th>Thời gian</th>
+                            <th>Số HĐ</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="hd-ma"></td>
+                            <td class="hd-hoten"></td>
+                            <td class="hd-ngaysinh column-hidden"></td>
+                            <td class="hd-chidoan column-hidden"></td>
+                            <td class="hd-donvi column-hidden"></td>
+                            <td class="hd-thoigian"></td>
+                            <td class="hd-sohoatdongthamgia"></td>
+                            <td>
+						<span data-toggle="modal" data-target="#modalDetail">
+							<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
+						</span>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-lg-6 -->
+</div>
+
+
 <div class="row">
     <!-- .col-lg-12 -->
     <div class="col-md-12">
@@ -105,226 +336,13 @@
     </div>
 </div>
 
-<div class="row">
-    <!-- .col-lg-12 -->
-    <div class="col-md-12">
-        <div class="box">
-            <header>
-                <h5>Danh sách đoàn viên - điểm</h5>
-                <div class="toolbar">
-                    <div class="btn-group">
-                        <a href="#ds-doanvien-diem" data-toggle="collapse" class="btn btn-default btn-sm minimize-box">
-                            <i class="fa fa-angle-up"></i>
-                        </a>
-
-                    </div>
-                </div>
-            </header>
-            <div id="ds-doanvien-diem" class="body collapse in ds-doanvien">
-                <div class="col-md-3 form-horizontal">
-                    <h4>Thống kê</h4>
-                    <div class="form-group">
-                        <label class="col-md-4">Số lượng</label>
-                        <div class="col-md-8">
-                            <select id="diem-soluong" class="form-control">
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4">Thời gian</label>
-                        <div class="col-md-8">
-                            <select id="diem-thoigian" class="form-control select-date previous-datenow">
-
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4">Học lực</label>
-                        <div class="col-md-8">
-                            <select id="diem-hocluc" class="form-control">
-                                <option value="NaN">--- Tất cả ---</option>
-                                <option value="XS">Xuất sắc (3.60 - 4.00)</option>
-                                <option value="G">Giỏi (3.20 - 3.59)</option>
-                                <option value="K" selected>Khá (2.50 - 3.19)</option>
-                                <option value="TBK">TB khá (2.30 - 2.49)</option>
-                                <option value="TB">Trung bình (2.00 - 2.29)</option>
-                                <option value="TBY">TB yếu (1.50 - 1.99)</option>
-                                <option value="Y">Yếu (1.00 - 1.49)</option>
-                                <option value="K">Kém (Dưới 1.00)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4">Chi đoàn</label>
-                        <div class="col-md-8">
-                            <select id="diem-chidoan" class="form-control ten-chi-doan">
-                                <option value="-1">--- Tất cả ---</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4">Đơn vị</label>
-                        <div class="col-md-8">
-                            <select id="diem-donvi" class="form-control ten-don-vi">
-                                <option value="-1">--- Tất cả ---</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="button form-group">
-                        <button id="hoso-diem" class="btn btn-primary">Tìm</button>
-                    </div>
-                </div>
-
-                <div class="col-md-9">
-                    <table class="table table-striped table-bordered table-hover" id="danh-sach-diem-doan-vien">
-                        <thead>
-                        <tr>
-                            <th width="120px;">Mã đoàn viên</th>
-                            <th>Họ tên</th>
-                            <th class="column-hidden">Ngày sinh</th>
-                            <th class="column-hidden">Chi đoàn</th>
-                            <th class="column-hidden">Đơn vị</th>
-                            <th>Điểm</th>
-                            <th>Thời gian</th>
-                            <th>Ghi chú</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="diem-ma"></td>
-                            <td class="diem-hoten"></td>
-                            <td class="diem-ngaysinh column-hidden"></td>
-                            <td class="diem-chidoan column-hidden"></td>
-                            <td class="diem-donvi column-hidden"></td>
-                            <td class="diem"></td>
-                            <td class="diem-thoigian"></td>
-                            <td class="diem-ghichu"></td>
-                            <td>
-                                <span data-toggle="modal" data-target="#modalDetail">
-                                    <i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
-                                </span>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.col-lg-6 -->
-</div>
-
-<div class="row">
-    <!-- .col-lg-12 -->
-    <div class="col-md-12">
-        <div class="box">
-            <header>
-                <h5>Danh sách đoàn viên - hoạt động</h5>
-                <div class="toolbar">
-                    <div class="btn-group">
-                        <a href="#ds-doanvien-hd" data-toggle="collapse" class="btn btn-default btn-sm minimize-box">
-                            <i class="fa fa-angle-up"></i>
-                        </a>
-
-                    </div>
-                </div>
-            </header>
-            <div id="ds-doanvien-hd" class="body collapse in ds-doanvien">
-                <div class="col-md-3 form-horizontal">
-                    <h4>Thống kê</h4>
-                    <div class="form-group">
-                        <label class="col-md-4">Số lượng</label>
-                        <div class="col-md-8">
-                            <select id="hd-soluong" class="form-control">
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4">Thời gian</label>
-                        <div class="col-md-8">
-                            <select id="hd-thoigian" class="form-control select-date previous-datenow">
-
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4">Chi đoàn</label>
-                        <div class="col-md-8">
-                            <select id="hd-chidoan" class="form-control ten-chi-doan">
-                                <option value="-1">--- Tất cả ---</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-md-4">Đơn vị</label>
-                        <div class="col-md-8">
-                            <select id="hd-donvi" class="form-control ten-don-vi">
-                                <option value="-1">--- Tất cả ---</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="button form-group">
-                        <button id="hoso-hoatdong" class="btn btn-primary">Tìm</button>
-                    </div>
-                </div>
-
-                <div class="col-md-9">
-                    <table class="table table-striped table-bordered table-hover" id="danh-sach-hoat-dong-doan-vien">
-                        <thead>
-                        <tr>
-                            <th width="120px;">Mã đoàn viên</th>
-                            <th>Họ tên</th>
-                            <th class="column-hidden">Ngày sinh</th>
-                            <th class="column-hidden">Chi đoàn</th>
-                            <th class="column-hidden">Đơn vị</th>
-                            <th>Thời gian</th>
-                            <th>Số hoạt động tham gia</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="hd-ma"></td>
-                            <td class="hd-hoten"></td>
-                            <td class="hd-ngaysinh column-hidden"></td>
-                            <td class="hd-chidoan column-hidden"></td>
-                            <td class="hd-donvi column-hidden"></td>
-                            <td class="hd-thoigian"></td>
-                            <td class="hd-sohoatdongthamgia"></td>
-                            <td>
-						<span data-toggle="modal" data-target="#modalDetail">
-							<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
-						</span>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.col-lg-6 -->
-</div>
-
 <style>
     .column-hidden {
 
+    }
+
+    .collapse.in {
+        display: flow-root;
     }
 
     .pie label {
@@ -339,7 +357,17 @@
     }
 
     .ds-doanvien {
-        min-height: 380px;
+
+    }
+
+    .ds-doanvien input {
+        width: 25%;
+        margin-bottom: 10px;
+        float: left;
+    }
+
+    .ds-doanvien button {
+        float: right;
     }
 
     .ds-doanvien label {
@@ -354,12 +382,27 @@
     .ds-doanvien .col-md-3 {
         background-color: whitesmoke;
         padding: 10px;
+        min-height: 400px;
     }
 
     .ds-doanvien h4 {
         background-color: #e6e6e6;
         text-align: center;
         padding: 10px 0px;
+    }
+
+    select.soluong {
+        height: 34px;
+        border: 1px solid #cccccc;
+        border-radius: 10%;
+        padding-left: 9px;
+    }
+
+    select.xephang {
+        height: 34px;
+        border: 1px solid #cccccc;
+        border-radius: 10%;
+        padding-left: 8px;
     }
 
     .toolbar label {
@@ -378,7 +421,7 @@
     }
 
     .button.form-group .btn.btn-primary {
-        width: 190px;
+        width: 95%;
     }
 </style>
 

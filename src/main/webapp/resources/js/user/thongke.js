@@ -29,7 +29,6 @@ $(document).ready(function () {
                 html += '<td class="diem-donvi column-hidden">' + item.donVi + '</td>';
                 html += '<td class="diem">' + item.diem + '</td>';
                 html += '<td class="diem-thoigian">' + item.thoiGian + '</td>';
-                html += '<td class="diem-ghichu">' + item.ghiChu + '</td>';
             html += '</tr>'
         });
         $('#danh-sach-diem-doan-vien tbody').html(html);
@@ -37,7 +36,8 @@ $(document).ready(function () {
 
     function tkDanhSachDiem(){
         var data = {};
-        data.soLuong = 5;
+        data.soLuong = 8;
+        data.xepHang = "desc";
         data.thoiGian = 2017;
         data.hocLuc = "K";
         data.idChiDoan = 1;
@@ -78,6 +78,7 @@ $(document).ready(function () {
     function tkDanhSachHoatDong(){
         var data = {};
         data.soLuong = 5;
+        data.xepHang = "desc";
         data.thoiGian = 2017;
         data.idChiDoan = 1;
         data.idDonVi = 1;
@@ -129,6 +130,7 @@ $(document).ready(function () {
             }
         })
     ).then(function () {
+        // $('#danh-sach-diem-doan-vien').DataTable();
         //---------------------------------------------------------------------------------------------------------------
         function loadDataSeason(data){
             $('#doanvien-dangvien-tk').highcharts({
@@ -457,6 +459,7 @@ $(document).ready(function () {
     $('#hoso-diem').click(function () {
         var data = {};
         data.soLuong = $('#diem-soluong').val();
+        data.xepHang = $('#diem-top').val();
         data.thoiGian = $('#diem-thoigian').val();
         data.hocLuc = $('#diem-hocluc').val();
         data.idChiDoan = $('#diem-chidoan').val();
@@ -476,11 +479,82 @@ $(document).ready(function () {
         })
     });
 
+    $('#search-hoso-diem').keyup(function() {
+        var value = $(this).val().toLowerCase();
+        $("#danh-sach-diem-doan-vien tbody tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    // $('#danh-sach-diem-doan-vien').DataTable();
+
+    // $('#hoso-diem').click(function () {
+    //     $('#danh-sach-diem-doan-vien').DataTable({
+    //         ajax : {
+    //             url: '/ho-so/danh-sach-diem',
+    //             type: 'POST',
+    //             contentType: 'application/json; charset=utf-8',
+    //             data: function(data){
+    //                 data.soLuong = $('#diem-soluong').val();
+    //                 data.thoiGian = $('#diem-thoigian').val();
+    //                 data.hocLuc = $('#diem-hocluc').val();
+    //                 data.idChiDoan = $('#diem-chidoan').val();
+    //                 data.idDonVi = $('#diem-donvi').val();
+    //                 return JSON.stringify(data);
+    //             },
+    //             dataSrc: ''
+    //         },
+    //         columns: [
+    //             {
+    //                 data: 'maSv',
+    //                 className: 'diem-ma'
+    //             },
+    //             {
+    //                 data: 'hoTen',
+    //                 className: 'diem-hoten'
+    //             },
+    //             {
+    //                 data: 'ngaySinh',
+    //                 className: 'diem-ngaysinh column-hidden'
+    //             },
+    //             {
+    //                 data: 'chiDoan',
+    //                 className: 'diem-chidoan column-hidden'
+    //             },
+    //             {
+    //                 data: 'donVi',
+    //                 className: 'diem-donvi column-hidden'
+    //             },
+    //             {
+    //                 data: 'diem',
+    //                 className: 'diem'
+    //             },
+    //             {
+    //                 data: 'thoiGian',
+    //                 className: 'diem-thoigian'
+    //             },
+    //             {
+    //                 data: 'ghiChu',
+    //                 className: 'diem-ghichu'
+    //             },
+    //             {
+    //                 render: function () {
+    //                     return '<span data-toggle="modal" data-target="#modalDetail">' +
+    //                         '<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>' +
+    //                         '</span>'
+    //                 }
+    //             }
+    //         ],
+    //         order: [[1, 'desc']]
+    //     });
+    // });
+
     //-----------------------------------------------------------------------------------------------------------
 
     $('#hoso-hoatdong').click(function () {
         var data = {};
         data.soLuong = $('#hd-soluong').val();
+        data.xepHang = $('#hd-top').val();
         data.thoiGian = $('#hd-thoigian').val();
         data.idChiDoan = $('#hd-chidoan').val();
         data.idDonVi = $('#hd-donvi').val();
@@ -497,6 +571,13 @@ $(document).ready(function () {
                 console.log(e);
             }
         })
+    });
+
+    $('#search-hoso-hd').keyup(function() {
+        var value = $(this).val().toLowerCase();
+        $("#danh-sach-hoat-dong-doan-vien tbody tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
     });
 
     //
