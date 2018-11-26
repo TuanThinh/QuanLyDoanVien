@@ -1,6 +1,7 @@
 package mta.qldv.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -42,6 +43,10 @@ public class TaiKhoan implements Serializable {
 			inverseJoinColumns = { @JoinColumn(name = "id_quyen") }
 	)
 	private List<Quyen> listQuyen = new ArrayList<>();
+
+	@OneToOne(fetch = FetchType.EAGER, mappedBy = "taiKhoan")
+	@JsonIgnoreProperties("taiKhoan")
+	private HoSo hoSo;
 
 //	@OneToOne(mappedBy = "taiKhoan")
 //    private HoSo hoSo;
@@ -108,5 +113,13 @@ public class TaiKhoan implements Serializable {
 
 	public void setTruyCapLanCuoi(Date truyCapLanCuoi) {
 		this.truyCapLanCuoi = truyCapLanCuoi;
+	}
+
+	public HoSo getHoSo() {
+		return hoSo;
+	}
+
+	public void setHoSo(HoSo hoSo) {
+		this.hoSo = hoSo;
 	}
 }

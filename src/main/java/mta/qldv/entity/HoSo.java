@@ -1,6 +1,7 @@
 package mta.qldv.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -89,8 +90,9 @@ public class HoSo implements Serializable {
 //	@OneToMany(mappedBy = "hoSo")
 //    private List<ThamGia> listThamGia = new ArrayList<ThamGia>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_taikhoan")
+	@JsonIgnoreProperties("hoSo")
     private TaiKhoan taiKhoan;
 
 
