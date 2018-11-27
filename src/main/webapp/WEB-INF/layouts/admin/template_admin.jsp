@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -21,20 +22,22 @@
 <!-- Font awesome -->
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/font-awesome.min.css">
+<script
+	src="${pageContext.servletContext.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 	<div class="wrapper">
 		<tiles:insertAttribute name="left"></tiles:insertAttribute>
-		<div id="content">	
+		<div id="content">
 			<div class="container-fluid">
 				<tiles:insertAttribute name="top"></tiles:insertAttribute>
-				<tiles:insertAttribute name="content"></tiles:insertAttribute>
+				<div class="container">
+					<tiles:insertAttribute name="content"></tiles:insertAttribute>
+				</div>
 			</div>
 		</div>
 	</div>
 	
-	<script
-		src="${pageContext.servletContext.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
 	<script
 		src="${pageContext.servletContext.contextPath}/resources/js/admin/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript">
@@ -54,7 +57,5 @@
 	</script>
 	<script
 		src="${pageContext.servletContext.contextPath}/resources/js/admin/sidebar.js"></script>
-	<script
-		src="${pageContext.servletContext.contextPath}/resources/js/admin/taikhoan.js"></script>
 </body>
 </html>

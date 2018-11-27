@@ -78,7 +78,7 @@ public class HoatDongDaoImpl implements HoatDongDao {
 	@Override
 	public List<HoatDong> getApprovedList() {
 		try {
-			String query = "from HoatDong where trangThai = 'Chấp nhận'";
+			String query = "from HoatDong where trangThai = 'Đã duyệt'";
 			return hibernateUtil.getCurrentSession().createQuery(query).list();
 		} catch(Exception e) {
 			e.printStackTrace();

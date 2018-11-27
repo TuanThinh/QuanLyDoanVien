@@ -32,7 +32,7 @@
 				<li><a href="${pageContext.servletContext.contextPath}/admin/hoat-dong/them">Hoạt động mới</a></li>
 				<li><a href="${pageContext.servletContext.contextPath}/admin/hoat-dong/danh-sach-de-xuat">Hoạt động đề xuất</a></li>
 				<li><a href="${pageContext.servletContext.contextPath}/admin/hoat-dong/danh-sach-duoc-duyet">Hoạt động được phê duyệt</a></li>
-				<li><a href="${pageContext.servletContext.contextPath}/admin/hoat-dong/danh-sach-huy">Hoạt động bị hủy bỏ</a></li>
+				<li><a href="${pageContext.servletContext.contextPath}/admin/hoat-dong/danh-sach-hd-huy">Hoạt động bị hủy bỏ</a></li>
 			</ul></li>
 		<li><a href="#tbcsMenu" data-toggle="collapse"
 			aria-expanded="false" class="dropdown-toggle"> <i

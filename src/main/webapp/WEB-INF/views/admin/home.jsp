@@ -143,7 +143,7 @@
 						</button>
 				</a></li>
 				<li class="li-group-btn col-md-3"><a
-					href="${pageContext.servletContext.contextPath}/admin/hoat-dong/danh-sach-huy">
+					href="${pageContext.servletContext.contextPath}/admin/hoat-dong/danh-sach-hd-huy">
 						<button type="button" class="btn btn-outline-success group-btn">
 							<i class="fa fa-list-alt icon-margin-right"></i>Hoạt động bị hủy
 							bỏ

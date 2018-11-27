@@ -13,27 +13,29 @@ import java.util.List;
 
 @Repository
 public class ChiDoanDaoImpl implements ChiDoanDao {
-    @Autowired
-    private HibernateUtil hibernateUtil;
+	@Autowired
+	private HibernateUtil hibernateUtil;
 
-    @Override
-    public List<ChiDoan> getList() {
-        Session session = hibernateUtil.getCurrentSession();
-        String sql = "from ChiDoan";
-        try {
-            List<ChiDoan> listChiDoan = session.createQuery(sql).list();
-            return listChiDoan;
-        } catch (Exception ex){
+	@Override
+	public List<ChiDoan> getList() {
+		Session session = hibernateUtil.getCurrentSession();
+		String sql = "select hs.chiDoan.tenChiDoan, hs.hoTen, hs.chiDoan.donVi.tenDonVi, hs.chiDoan.id "
+				+ "from HoSo hs where hs.chucVu.tenChucVu = :tenChucVu "
+				+ "order by hs.chiDoan.tenChiDoan";
+		try {
+			List<ChiDoan> listChiDoan = session.createQuery(sql).setParameter("tenChucVu", "Bí thư chi đoàn").list();
+			return listChiDoan;
+		} catch (Exception ex) {
 
-        }
-        return null;
-    }
+		}
+		return null;
+	}
 
 	@Override
 	public boolean addChiDoan(ChiDoan newChiDoan) {
 		try {
 			hibernateUtil.getCurrentSession().persist(newChiDoan);
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
@@ -44,7 +46,7 @@ public class ChiDoanDaoImpl implements ChiDoanDao {
 	public boolean updateChiDoan(ChiDoan newChiDoan) {
 		try {
 			hibernateUtil.getCurrentSession().update(newChiDoan);
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
@@ -55,7 +57,7 @@ public class ChiDoanDaoImpl implements ChiDoanDao {
 	public boolean deleteChiDoan(ChiDoan chiDoan) {
 		try {
 			hibernateUtil.getCurrentSession().delete(chiDoan);
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
@@ -67,7 +69,7 @@ public class ChiDoanDaoImpl implements ChiDoanDao {
 		String query = "from ChiDoan where id = " + id;
 		try {
 			return hibernateUtil.getCurrentSession().createQuery(query).list();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;

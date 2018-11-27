@@ -19,3 +19,5 @@
 		</thead>
 	</table>
 </div>
+<script src="${pageContext.servletContext.contextPath}/resources/js/admin/taikhoan.js"></script>
+
