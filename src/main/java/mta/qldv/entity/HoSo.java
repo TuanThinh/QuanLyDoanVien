@@ -1,6 +1,7 @@
 package mta.qldv.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -28,7 +29,7 @@ public class HoSo implements Serializable {
 	private String hoTen;
 
 	@Column(name = "ngay_sinh", nullable = false)
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
 	private Date ngaySinh;
 
 	@Column(name = "gioi_tinh", nullable = false)
@@ -56,11 +57,11 @@ public class HoSo implements Serializable {
 	private String doiTuongChinhSach;
 
 	@Column(name = "ngay_vao_doan")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
 	private Date ngayVaoDoan;
 
 	@Column(name = "ngay_vao_dang")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
 	private Date ngayVaoDang;
 
 	@Column(name = "id_nguoiquanly")
@@ -89,8 +90,9 @@ public class HoSo implements Serializable {
 //	@OneToMany(mappedBy = "hoSo")
 //    private List<ThamGia> listThamGia = new ArrayList<ThamGia>();
 
-    @OneToOne
-    @JoinColumn(name = "id")
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_taikhoan")
+	@JsonIgnoreProperties("hoSo")
     private TaiKhoan taiKhoan;
 
 

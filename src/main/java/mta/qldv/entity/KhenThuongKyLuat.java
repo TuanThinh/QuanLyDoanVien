@@ -23,7 +23,7 @@ public class KhenThuongKyLuat implements Serializable {
     private SqdKhenThuongKyLuat sqdKhenThuongKyLuat;
 
 	@Column(name = "thoi_gian")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
 	private Date thoiGian;
 
     public Long getId() {

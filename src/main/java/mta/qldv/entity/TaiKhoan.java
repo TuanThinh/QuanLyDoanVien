@@ -1,5 +1,7 @@
 package mta.qldv.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -27,14 +29,15 @@ public class TaiKhoan implements Serializable {
 	private String matKhau;
 
 	@Column(name = "ngay_lap")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
 	private Date ngayLap;
 
 	@Column(name = "kichhoat")
 	private Boolean kichHoat;
 
 	@Column(name= "truycaplancuoi")
-	@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
-	private LocalDateTime truyCapLanCuoi;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
+	private Date truyCapLanCuoi;
 
 	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
 	@JoinTable(
@@ -44,16 +47,12 @@ public class TaiKhoan implements Serializable {
 	)
 	private List<Quyen> listQuyen = new ArrayList<>();
 
-	/*@OneToOne(mappedBy = "taiKhoan")
-    private HoSo hoSo;
+	@OneToOne(fetch = FetchType.EAGER, mappedBy = "taiKhoan")
+	@JsonIgnoreProperties("taiKhoan")
+	private HoSo hoSo;
 
-    public HoSo getHoSo() {
-        return hoSo;
-    }
-
-    public void setHoSo(HoSo hoSo) {
-        this.hoSo = hoSo;
-    }*/
+//	@OneToOne(mappedBy = "taiKhoan")
+//    private HoSo hoSo;
 
 	public Long getId() {
 		return id;
@@ -103,11 +102,19 @@ public class TaiKhoan implements Serializable {
 		this.kichHoat = kichHoat;
 	}
 
-	public LocalDateTime getTruyCapLanCuoi() {
+	public Date getTruyCapLanCuoi() {
 		return truyCapLanCuoi;
 	}
 
-	public void setTruyCapLanCuoi(LocalDateTime truyCapLanCuoi) {
+	public void setTruyCapLanCuoi(Date truyCapLanCuoi) {
 		this.truyCapLanCuoi = truyCapLanCuoi;
+	}
+
+	public HoSo getHoSo() {
+		return hoSo;
+	}
+
+	public void setHoSo(HoSo hoSo) {
+		this.hoSo = hoSo;
 	}
 }

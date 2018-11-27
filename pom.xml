@@ -12,6 +12,16 @@
 		<spring-security>4.2.3.RELEASE</spring-security>
 		<hibernate-version>4.3.11.Final</hibernate-version>
 		<tiles-version>3.0.7</tiles-version>
+		<persistence-api>1.0</persistence-api>
+		<commons-dbcp>1.4</commons-dbcp>
+		<mysql-connector>8.0.11</mysql-connector>
+		<javassist>3.19.0-GA</javassist>
+		<junit>4.12</junit>
+		<javax.servlet-api>3.1.0</javax.servlet-api>
+		<jstl>1.2</jstl>
+		<jsp-api>2.1</jsp-api>
+        <jackson>2.8.6</jackson>
+		<json>20180130</json>
 	</properties>
 
 	<dependencies>
@@ -58,6 +68,12 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
 			<version>${spring-version}</version>
 		</dependency>
 
@@ -119,43 +135,57 @@
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
+			<version>${commons-dbcp}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.11</version>
+			<version>${mysql-connector}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
-			<version>3.19.0-GA</version>
+			<version>${javassist}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${junit}</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
+			<version>${javax.servlet-api}</version>
 			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
-			<version>2.1</version>
+			<version>${jsp-api}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -195,27 +225,27 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>2.8.6</version>
+			<version>${jackson}</version>
 		</dependency>
 		<!--jackson-databind -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.8.6</version>
+			<version>${jackson}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.json/json -->
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
-			<version>20180130</version>
+			<version>${json}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>javax.servlet.jsp.jstl</groupId>
-			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
-			<version>1.2.1</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>javax.servlet.jsp.jstl</groupId>-->
+			<!--<artifactId>javax.servlet.jsp.jstl-api</artifactId>-->
+			<!--<version>1.2.1</version>-->
+		<!--</dependency>-->
 		
 		<dependency>
 			<groupId>jstl</groupId>

@@ -21,7 +21,7 @@ public class PhanHoiDaoImpl implements PhanHoiDao {
             List<PhanHoi> listPhanHoi = session.createQuery(sql).list();
             return listPhanHoi;
         } catch (Exception ex){
-
+            ex.printStackTrace();
         }
         return null;
     }

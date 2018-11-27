@@ -16,6 +16,7 @@ public class ChiDoanDaoImpl implements ChiDoanDao {
 	@Autowired
 	private HibernateUtil hibernateUtil;
 
+<<<<<<< HEAD
 	@Override
 	public List<ChiDoan> getList() {
 		Session session = hibernateUtil.getCurrentSession();
@@ -30,6 +31,20 @@ public class ChiDoanDaoImpl implements ChiDoanDao {
 		}
 		return null;
 	}
+=======
+    @Override
+    public List<ChiDoan> getList() {
+        Session session = hibernateUtil.getCurrentSession();
+        String sql = "from ChiDoan cd order by cd.tenChiDoan";
+        try {
+            List<ChiDoan> listChiDoan = session.createQuery(sql).list();
+            return listChiDoan;
+        } catch (Exception ex){
+			ex.printStackTrace();
+        }
+        return null;
+    }
+>>>>>>> refs/remotes/origin/tuanthinh
 
 	@Override
 	public boolean addChiDoan(ChiDoan newChiDoan) {

@@ -5,10 +5,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/login")
 public class LoginController {
-	@GetMapping
-	public String Default() {
+
+	@RequestMapping("/login")
+	public String login() {
 		return "login";
 	}
+
+	@RequestMapping("/logout")
+	public String logout() {
+		return "login";
+	}
+
+	@RequestMapping("/403")
+	public String denied() {
+		return "403";
+	}
+
+
 }

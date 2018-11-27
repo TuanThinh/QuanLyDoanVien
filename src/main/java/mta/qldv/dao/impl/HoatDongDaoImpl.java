@@ -24,7 +24,7 @@ public class HoatDongDaoImpl implements HoatDongDao {
             List<HoatDong> listHoatDong = session.createQuery(sql).list();
             return listHoatDong;
         } catch (Exception ex){
-
+			ex.printStackTrace();
         }
         return null;
     }

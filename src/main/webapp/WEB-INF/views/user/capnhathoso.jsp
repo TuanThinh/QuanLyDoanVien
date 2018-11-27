@@ -6,22 +6,22 @@
 			
 			<div class="capnhathoso-h">
 				<label class="custom">Mã đoàn viên: </label>
-				<label class="custom">15150217</label>
+				<label class="custom"></label>
 			</div>
 			
 			<div class="capnhathoso-h">
 				<label class="custom">Họ và tên: </label>
-				<label class="custom">Nguyễn Quang Huy</label>
+				<label class="custom"></label>
 			</div>
 			
 			<div class="capnhathoso-h">
 				<label class="custom">Ngày sinh: </label>
-				<label class="custom">10/07/1997</label>
+				<label class="custom"></label>
 			</div>
 			
 			<div class="capnhathoso-h">
 				<label class="custom">Giới tính: </label>
-				<label class="custom">Nam</label>
+				<label class="custom"></label>
 			</div>
 		</div>
 			

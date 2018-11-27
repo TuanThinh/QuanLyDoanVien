@@ -37,7 +37,7 @@
 </div>
 <!-- inner-top -->
 
-<table class="table table-striped table-bordered table-hover">
+<table class="table table-striped table-bordered table-hover" id="danh-sach-ho-so">
 	<thead>
 		<tr>
 			<th width="70px;">Hình ảnh</th>
@@ -48,34 +48,23 @@
 			<th>Địa chỉ</th>
 			<th>Chi đoàn</th>
 			<th>Đơn vị</th>
+
+			<th class="column-hidden">Số điện thoại</th>
+			<th class="column-hidden">Email</th>
+			<th class="column-hidden">Quốc tịch</th>
+			<th class="column-hidden">Dân tộc</th>
+			<th class="column-hidden">Tôn giáo</th>
+			<th class="column-hidden">Đối tượng chính sách</th>
+			<th class="column-hidden">Ngày vào đoàn</th>
+			<th class="column-hidden">Ngày vào đảng</th>
+			<th class="column-hidden">Chức vụ</th>
+			<th class="column-hidden">Tài khoản</th>
+			<th class="column-hidden">Mã người quản lý</th>
 			<th width="80px;"></th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>
-				<span data-toggle="modal" data-target="#modalDetail">
-					<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
-				</span> |
-				
-				<span data-toggle="modal" data-target="#modalEdit">
-					<i class="fa fa-wrench" data-toggle="tooltip" data-original-title="Sửa" data-placement="top"></i>
-				</span> |  
-				
-				<span data-toggle="modal" data-target="#modalDelete">
-					<i class="fa fa-trash" data-toggle="tooltip" data-original-title="Xóa" data-placement="top"></i>
-				</span>
-				
-			</td>
-		</tr>
+
 	</tbody>
 </table>
 
@@ -713,6 +702,9 @@
 </div>
 
 <style>
+	.column-hidden{
+		display: none;
+	}
 	.inner-top {
 	    display: flex;
         padding-top: 10px;
@@ -770,3 +762,5 @@
 	    padding-right: 40px;
 	}
 </style>
+
+<script src="${pageContext.servletContext.contextPath}/resources/js/user/danhsachhoso.js"></script>

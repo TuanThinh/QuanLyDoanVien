@@ -21,7 +21,7 @@ public class ThamGiaDaoImpl implements ThamGiaDao {
             List<ThamGia> listThamGia = session.createQuery(sql).list();
             return listThamGia;
         } catch (Exception ex){
-
+            ex.printStackTrace();
         }
         return null;
     }
