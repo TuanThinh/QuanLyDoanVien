@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -96,8 +98,9 @@ public class HoSo implements Serializable {
     private TaiKhoan taiKhoan;
 
 
-	public Date getNgaySinh() {
-		return ngaySinh;
+	public String getNgaySinh() {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		return df.format(ngaySinh);
 	}
 
 	public void setNgaySinh(Date ngaySinh) {
@@ -204,16 +207,24 @@ public class HoSo implements Serializable {
 		return serialVersionUID;
 	}
 
-	public Date getNgayVaoDoan() {
-		return ngayVaoDoan;
+	public String getNgayVaoDoan() {
+		if (ngayVaoDoan == null){
+			return null;
+		}
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		return df.format(ngayVaoDoan);
 	}
 
 	public void setNgayVaoDoan(Date ngayVaoDoan) {
 		this.ngayVaoDoan = ngayVaoDoan;
 	}
 
-	public Date getNgayVaoDang() {
-		return ngayVaoDang;
+	public String getNgayVaoDang() {
+		if(ngayVaoDang == null){
+			return null;
+		}
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		return df.format(ngayVaoDang);
 	}
 
 	public void setNgayVaoDang(Date ngayVaoDang) {

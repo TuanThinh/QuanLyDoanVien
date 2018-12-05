@@ -3,31 +3,14 @@
 
 <div class="inner-top">
     <div class="inner-top__left">
-        <form action="" method="get" accept-charset="utf-8">
-            <label class="col-md-1 search">Tìm theo</label>
-            <div class="form-group">
-                <div class="col-md-2 search-key">
-                    <select name="" class="form-control">
-                        <option value="">Tiêu đề</option>
-                        <option value="">Có các từ</option>
-                    </select>
-                </div>
-
-                <div class="col-md-2 search-value">
-                    <input type="text" class="form-control" name="">
-                </div>
-
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
-        </form>
-    </div>
-
-    <div class="inner-top__right">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAdd">
             <i class="">Thêm</i>
         </button>
+    </div>
+
+    <div class="inner-top__right">
+        <label>Tìm kiếm</label>
+        <input type="text" class="form-control" id="search" placeholder="Enter value">
     </div>
 
 </div>
@@ -168,27 +151,24 @@
     .inner-top {
         display: flex;
         padding-top: 10px;
+        position: relative;
+        height: 50px;
     }
 
     .inner-top__left {
-        width: 100%;
+        position: absolute;
+        left: 0px;
     }
 
-    label.col-md-1.search {
-        width: 85px;
+    .inner-top__right {
+        display: flex;
+        position: absolute;
+        right: 0px;
+    }
+
+    .inner-top__right label {
+        width: 100px;
         line-height: 34px;
-        font-size: 16px;
-        padding: 0px;
-    }
-
-    .col-md-2.search-key {
-        width: 16%;
-        padding: 0px 1px;
-    }
-
-    .col-md-2.search-value {
-        width: 16%;
-        padding: 0px 2px;
     }
 
     i.fa:hover {

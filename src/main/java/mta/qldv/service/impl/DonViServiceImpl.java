@@ -16,4 +16,9 @@ public class DonViServiceImpl implements DonViService {
     public List<DonVi> getList(){
         return donViDao.getList();
     }
+
+    @Override
+    public DonVi getById(Long id) {
+        return donViDao.getById(id);
+    }
 }

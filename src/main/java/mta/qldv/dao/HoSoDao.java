@@ -1,18 +1,30 @@
 package mta.qldv.dao;
 
 import mta.qldv.dto.DiemHoSoDto;
+import mta.qldv.dto.DiemHoSoIdDto;
 import mta.qldv.dto.HoatDongHoSoDto;
+import mta.qldv.dto.KtklHoSoId;
 import mta.qldv.entity.HoSo;
 import mta.qldv.form.DiemHoSoForm;
 import mta.qldv.form.HoatDongHoSoForm;
+import mta.qldv.utils.Paging;
 
 import java.math.BigInteger;
 import java.util.List;
 
 public interface HoSoDao {
-    List<HoSo> getList();
-    List<HoSo> findAll();
-    HoSo getId(int id);
+    Boolean addHoSo(HoSo hs);
+    Boolean updateHoSo(HoSo hs);
+    Boolean deleteHoSo(Long id);
+
+    int totalRecord(String parameter);
+    List<HoSo> getList(Paging paging);
+
+    Long getCurrentIdHoSo(String tenTaiKhoan);
+    HoSo getHoSoById(Long id);
+    List<DiemHoSoIdDto> getDiemHoSoId(Long id);
+    List<KtklHoSoId> getKtklHoSoId(Long id);
+
     List<HoSo> getHoTen(String hoten);
     List<HoSo> getDiaChi(String diachi);
     List<HoSo> getChiDoan(String chidoan);

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface DonViDao {
     List<DonVi> getList();
+    DonVi getById(Long id);
 }

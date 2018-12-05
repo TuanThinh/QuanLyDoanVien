@@ -1,81 +1,92 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div class="inner-top">
-	<a href="${pageContext.servletContext.contextPath}/user/dcs/thong-tin-khen-thuong-ky-luat">Các thông tin về khen thưởng kỷ luật</a>
+<div class="row header">
+	<div class="col-md-12">
+		<a href="${pageContext.servletContext.contextPath}/user/dcs/thong-tin-khen-thuong-ky-luat">Các thông tin về khen thưởng kỷ luật</a>
+	</div>
 </div>
 
-<div class="inner-bottom">
-	<div class="inner-left">
-		<h4>Tìm kiếm</h4>
-		<form action="" method="post" accept-charset="utf-8">
-			<div class="form-group">
-				<label>Họ tên</label>
-				<input class="form-control" type="text" name="" placeholder="Nhập họ tên"/>
-			</div>
-
-			<div class="form-group">
-				<label>Tiêu đề</label>
-				<input class="form-control" type="text" name="" placeholder="Nhập điểm"/>
-			</div>
-
-			<div class="form-group">
-				<label>Thời gian</label>
-				<input class="form-control" type="text" name="" placeholder="Nhập thời gian"/>
-			</div>
-
-			<div class="button">
-				<button type="submit" class="btn btn-primary" onclick="return validateFormLogin()">Tìm</button>
-				<button type="reset" class="btn btn-default">Đặt lại</button>
-			</div>
-		</form>
+<div class="row inner-top">
+	<div class="col-md-6 inner-top__left">
+		<span>Hiển thị</span>
+		<select class="form-control">
+			<option>10</option>
+			<option>20</option>
+			<option>30</option>
+		</select>
+		<span>bản ghi</span>
 	</div>
+	<div class="col-md-6 inner-top__right">
+		<input type="text" class="form-control" placeholder="Enter value"/>
+		<span>Tìm kiếm:</span>
+	</div>
+</div>
 
-	<div class="inner-right">
+<div class="row">
+	<div class="col-md-12">
 		<table class="table table-striped table-bordered table-hover" id="khen-thuong-ky-luat">
 			<thead>
 			<tr>
 				<th width="120px;">Mã đoàn viên</th>
 				<th>Họ tên</th>
-				<th class="column-hidden">Ngày sinh</th>
+				<th>Ngày sinh</th>
 				<th class="column-hidden">Chi đoàn</th>
 				<th class="column-hidden">Đơn vị</th>
 				<th>Tiêu đề</th>
 				<th>Nội dung</th>
 				<th>Thời gian</th>
-				<th width="101px;"></th>
+				<th width="110px;"></th>
 			</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td class="hs-ma"></td>
-					<td class="hs-hoten"></td>
-					<td class="hs-ngaysinh column-hidden"></td>
-					<td class="hs-chidoan column-hidden"></td>
-					<td class="hs-donvi column-hidden"></td>
-					<td class="hs-tieude"></td>
-					<td class="hs-noidung"></td>
-					<td class="hs-thoigian"></td>
-					<td>
+			<tr>
+				<td class="hs-ma"></td>
+				<td class="hs-hoten"></td>
+				<td class="hs-ngaysinh"></td>
+				<td class="hs-chidoan column-hidden"></td>
+				<td class="hs-donvi column-hidden"></td>
+				<td class="hs-tieude"></td>
+				<td class="hs-noidung"></td>
+				<td class="hs-thoigian"></td>
+				<td>
 							<span data-toggle="modal" data-target="#modalDetail">
 								<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
 							</span> |
 
-						<span data-toggle="modal" data-target="#modalAdd">
+					<span data-toggle="modal" data-target="#modalAdd">
 								<i class="fa fa-plus-circle" data-toggle="tooltip" data-original-title="Thêm" data-placement="top" ></i>
 							</span> |
 
-						<span data-toggle="modal" data-target="#modalEdit">
+					<span data-toggle="modal" data-target="#modalEdit">
 								<i class="fa fa-wrench" data-toggle="tooltip" data-original-title="Sửa" data-placement="top"></i>
 							</span> |
 
-						<span data-toggle="modal" data-target="#modalDelete">
+					<span data-toggle="modal" data-target="#modalDelete">
 								<i class="fa fa-trash" data-toggle="tooltip" data-original-title="Xóa" data-placement="top"></i>
 							</span>
-					</td>
-				</tr>
+				</td>
+			</tr>
 			</tbody>
 		</table>
+	</div>
+</div>
+
+<div class="row inner-bottom">
+	<div class="col-md-6 inner-bottom__left">
+		<span>Hiển thị từ a đến b của c bản ghi</span>
+	</div>
+
+	<div class="col-md-6 inner-bottom__right">
+		<ul class="pagination">
+			<li><a href = "">&laquo;</a></li>
+			<li><a href = "">1</a></li>
+			<li><a href = "">2</a></li>
+			<li><a href = "">3</a></li>
+			<li><a href = "">4</a></li>
+			<li><a href = "">5</a></li>
+			<li><a href = "">&raquo;</a></li>
+		</ul>
 	</div>
 </div>
 
@@ -288,6 +299,12 @@
 	  	display: none;
     }
 
+	.row.header {
+		line-height: 36px;
+		background-color: #cccc;
+		margin: 10px 0px;
+	}
+
 	i.fa:hover {
 		cursor: pointer;
 		color: blue;
@@ -306,38 +323,62 @@
 		padding: 0px;
 	}
 
-	.inner-top {
-		padding: 10px 0px;
-		font-weight: 600;
-		background-color: #f1f1f1;
-		margin: 10px 0px;
-	}
-
 	.inner-bottom {
 	    display: flex;
-	}
-
-	.inner-left {
-	    width: 23%;
-	    padding: 5px 20px;
-	    background-color: #847c7c47;
-	    margin-right: 30px;
-	}
-
-	.inner-left h4 {
-	    background-color: #403535;
-	    text-align: center;
-	    color: white;
-	    padding: 5px 0px;
-	}
-
-	.inner-right {
-	    width: 74%;
 	}
 
 	.col-md-offset-4.col-md-8 {
 		padding: 0px;
 	}
-		
+	  /*---------*/
+	.inner-top__right span {
+		line-height: 34px;
+	}
+
+	.inner-top {
+		margin: 10px 0px;
+	}
+
+	.inner-top .col-md-6 {
+		padding: 0PX;
+	}
+
+	.inner-top__left select {
+		width: 70px;
+		margin: 0px 5px;
+	}
+
+	.inner-top__left {
+		display: flex;
+	}
+
+	.inner-top__left span {
+		line-height: 34px;
+	}
+
+	.inner-top__right {
+		display: flex;
+		flex-flow: row-reverse;
+	}
+
+	.inner-top__right input {
+		width: 40%;
+		margin-left: 5px;
+	}
+
+	.inner-bottom {font-size: 16px;}
+
+	.inner-bottom__left {
+		line-height: 35px;
+	}
+
+	.inner-bottom__right {
+		display: flex;
+		flex-flow: row-reverse;
+	}
+
+	.inner-bottom__right .pagination {
+		margin: 0px 0px 15px 0px;
+	}
 </style>
 <script src="${pageContext.servletContext.contextPath}/resources/js/user/khenthuongkyluat.js"></script>

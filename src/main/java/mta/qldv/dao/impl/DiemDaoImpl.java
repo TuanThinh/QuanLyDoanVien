@@ -35,7 +35,7 @@ public class DiemDaoImpl implements DiemDao {
         String sql = "select hs.ma_sv as maSv, hs.ho_ten as hoTen, hs.ngay_sinh as ngaySinh, l.ten_lop as chiDoan, k.ten_khoa as donVi, d.diem as diem, d.thoi_gian as thoiGian, d.ghi_chu as ghiChu " +
                 "from ho_so hs inner join lop l on hs.id_lop = l.id " +
                 "inner join khoa k on k.id = l.id_khoa " +
-                "inner join diem_ren_luyen d on d.id_hs = hs.id";
+                "left join diem_ren_luyen d on d.id_hs = hs.id";
         try {
             List<DiemHoSoDto> listDiem = session.createSQLQuery(sql)
                     .addScalar("maSv")
@@ -46,8 +46,6 @@ public class DiemDaoImpl implements DiemDao {
                     .addScalar("diem")
                     .addScalar("thoiGian")
                     .addScalar("ghiChu")
-                    .setFirstResult(0)
-                    .setMaxResults(20)
                     .setResultTransformer(Transformers.aliasToBean(DiemHoSoDto.class))
                     .list();
             return listDiem;

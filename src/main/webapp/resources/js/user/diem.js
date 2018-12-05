@@ -17,9 +17,6 @@ $(document).ready(function () {
                     html += '<td class="hs-thoigian">' + item.thoiGian + '</td>';
                     html += '<td class="hs-ghichu">' + item.ghiChu + '</td>';
                     html += '<td>' +
-                        '<span data-toggle="modal" data-target="#modalDetail">' +
-                        '<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>' +
-                        '</span> | ' +
                         '<span data-toggle="modal" data-target="#modalAdd">' +
                         '<i class="fa fa-plus-circle" data-toggle="tooltip" data-original-title="Thêm" data-placement="top" ></i>' +
                         '</span> | ' +

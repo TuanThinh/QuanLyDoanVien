@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div>
+
+<div class="row hoso">
 	<div class="modal-content">
 		<div class=modal-header>
 			
@@ -127,20 +128,64 @@
 						<input type="text" name="" class="form-control" disabled="disabled">
 					</div>
 				</div>
-				
 			</div>
-			
-			
 		</div>
-		
 	</div>
 </div>
-	
+
+<div class="row">
+	<div class="col-md-12">
+		<fieldset>
+			<legend>
+				Thông tin rèn luyện
+			</legend>
+		</fieldset>
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th class="stt">STT</th>
+					<th>Thời gian</th>
+					<th>Điểm rèn luyện</th>
+					<th>Xếp loại</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<fieldset>
+			<legend>
+				Thông tin khen thưởng - kỷ luật
+			</legend>
+		</fieldset>
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+			<tr>
+				<th class="stt">STT</th>
+				<th>Thời gian</th>
+				<th>Tiêu đề</th>
+				<th>Nội dung</th>
+			</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
+</div>
 
 <style>
-	.capnhathoso{
-	width: 20%;
-	float: left;
+	.row.hoso {
+		height: 500px;
+	}
+
+	th.stt {
+		width: 45px;
 	}
 	
 	.capnhathoso-h{
@@ -173,9 +218,9 @@
 	}
 	
 	.modal-content {
-		width: 100%;
+		width: 98%;
 	    margin: auto;
-	    top: 50px;
+	    top: 30px;
 	}
 	.modal-body {
 		padding: 25px;
