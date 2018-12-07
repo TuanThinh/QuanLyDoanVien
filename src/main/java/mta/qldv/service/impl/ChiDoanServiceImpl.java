@@ -34,7 +34,7 @@ public class ChiDoanServiceImpl implements ChiDoanService {
 	}
 
 	@Override
-	public List<ChiDoan> getListById(int id) {
-		return chiDoanDao.getListById(id);
+	public ChiDoan getChiDoanById(Long id) {
+		return chiDoanDao.getChiDoanById(id);
 	}
 }

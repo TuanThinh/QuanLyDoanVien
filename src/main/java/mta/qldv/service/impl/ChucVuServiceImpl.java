@@ -16,4 +16,9 @@ public class ChucVuServiceImpl implements ChucVuService {
     public List<ChucVu> getList() {
         return chucVuDao.getList();
     }
+
+    @Override
+    public ChucVu getById(Long id) {
+        return chucVuDao.getById(id);
+    }
 }

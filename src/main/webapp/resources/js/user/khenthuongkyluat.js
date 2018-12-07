@@ -10,7 +10,7 @@ $(document).ready(function () {
                     html += '<tr>';
                     html += '<td class="hs-ma">' + item.maSv + '</td>';
                     html += '<td class="hs-hoten">' + item.hoTen + '</td>';
-                    html += '<td class="hs-ngaysinh column-hidden">' + item.ngaySinh + '</td>';
+                    html += '<td class="hs-ngaysinh">' + item.ngaySinh + '</td>';
                     html += '<td class="hs-chidoan column-hidden">' + item.chiDoan + '</td>';
                     html += '<td class="hs-donvi column-hidden">' + item.donVi + '</td>';
                     html += '<td class="hs-tieude">' + item.tieuDe + '</td>';

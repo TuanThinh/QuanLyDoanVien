@@ -1,64 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-
-<div class="inner-top">
-    <div class="inner-top__left">
-        <form action="" method="get" accept-charset="utf-8">
-            <label class="col-md-1 search">Tìm theo</label>
-            <div class="form-group">
-                <div class="col-md-2 search-key">
-                    <select name="" class="form-control">
-                        <option value="">Tiêu đề</option>
-                        <option value="">Có các từ</option>
-                    </select>
-                </div>
-
-                <div class="col-md-5 search-value">
-                    <input type="text" class="form-control" name="">
-                </div>
-                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-            </div>
-        </form>
+<div class="row inner-top">
+    <div class="col-md-6 inner-top__left">
+        <span>Hiển thị</span>
+        <select class="form-control">
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+        </select>
+        <span>bản ghi</span>
     </div>
-
-    <div class="inner-top__right">
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">
-            <i class="">Xóa</i>
-        </button>
+    <div class="col-md-6 inner-top__right">
+        <input type="text" class="form-control" placeholder="Enter value"/>
+        <span>Tìm kiếm:</span>
     </div>
-
 </div>
-<!-- inner-top -->
 
-<table class="table table-striped table-bordered table-hover">
-    <thead>
-    <tr>
-        <th style="width: 30px;"></th>
-        <th>Tiêu đề</th>
-        <th>Nội dung</th>
-        <th>Ngày gửi</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td><input type="checkbox" name=""/></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
+<div class="row">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-danger" style="margin-bottom: 10px;">Xóa</button>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th style="width: 30px;"></th>
+                <th>Tiêu đề</th>
+                <th>Nội dung</th>
+                <th>Ngày gửi</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox" name=""/></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
 				<span data-toggle="modal" data-target="#modalDetail">
 					<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
 				</span> |
 
-            <span data-toggle="modal" data-target="#modalEdit">
+                    <span data-toggle="modal" data-target="#modalEdit">
 					<i class="fa fa-refresh" data-toggle="tooltip" data-original-title="Phục hồi" data-placement="top"></i>
 				</span>
 
-        </td>
-    </tr>
-    </tbody>
-</table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row inner-bottom">
+    <div class="col-md-6 inner-bottom__left">
+        <span>Hiển thị từ a đến b của c bản ghi</span>
+    </div>
+
+    <div class="col-md-6 inner-bottom__right">
+        <ul class="pagination">
+            <li><a href = "">&laquo;</a></li>
+            <li><a href = "">1</a></li>
+            <li><a href = "">2</a></li>
+            <li><a href = "">3</a></li>
+            <li><a href = "">4</a></li>
+            <li><a href = "">5</a></li>
+            <li><a href = "">&raquo;</a></li>
+        </ul>
+    </div>
+</div>
 
 <div id="modalDelete" class="modal" role="dialog">
     <!-- Modal content -->
@@ -107,32 +116,6 @@
 
 
 <style>
-    .inner-top {
-        display: flex;
-        padding-top: 10px;
-    }
-
-    .inner-top__left {
-        width: 100%;
-    }
-
-    label.col-md-1.search {
-        width: 85px;
-        line-height: 34px;
-        font-size: 16px;
-        padding: 0px;
-    }
-
-    .col-md-2.search-key {
-        width: 16%;
-        padding: 0px 1px;
-    }
-
-    .col-md-2.search-value {
-        width: 16%;
-        padding: 0px 2px;
-    }
-
     i.fa:hover {
         cursor: pointer;
         color: blue;
@@ -147,20 +130,62 @@
         padding: 25px;
     }
 
-    .img-avatar {
-        overflow: hidden;
-        width: 91px;
-    }
-
     .img-avatar img {
         margin: auto;
     }
 
-    .custom {
-        padding: 0px;
-    }
-
     .form-group {
         padding-right: 40px;
+    }
+
+    /*--------*/
+    .inner-top__right span {
+        line-height: 34px;
+    }
+
+    .inner-top {
+        margin: 10px 0px;
+    }
+
+    .inner-top .col-md-6 {
+        padding: 0PX;
+    }
+
+    .inner-top__left select {
+        width: 70px;
+        margin: 0px 5px;
+    }
+
+    .inner-top__left {
+        display: flex;
+    }
+
+    .inner-top__left span {
+        line-height: 34px;
+    }
+
+    .inner-top__right {
+        display: flex;
+        flex-flow: row-reverse;
+    }
+
+    .inner-top__right input {
+        width: 40%;
+        margin-left: 5px;
+    }
+
+    .inner-bottom {font-size: 16px;}
+
+    .inner-bottom__left {
+        line-height: 35px;
+    }
+
+    .inner-bottom__right {
+        display: flex;
+        flex-flow: row-reverse;
+    }
+
+    .inner-bottom__right .pagination {
+        margin: 0px 0px 15px 0px;
     }
 </style>

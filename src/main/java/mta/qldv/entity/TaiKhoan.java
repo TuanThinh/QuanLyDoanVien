@@ -52,9 +52,9 @@ public class TaiKhoan implements Serializable {
 	)
 	private List<Quyen> listQuyen = new ArrayList<>();
 
-	@OneToOne(fetch = FetchType.EAGER, mappedBy = "taiKhoan")
-	@JsonIgnoreProperties("taiKhoan")
-	private HoSo hoSo;
+//	@OneToOne(fetch = FetchType.EAGER, mappedBy = "taiKhoan")
+//	@JsonIgnoreProperties("taiKhoan")
+//	private HoSo hoSo;
 
 //	@OneToOne(mappedBy = "taiKhoan")
 //    private HoSo hoSo;
@@ -115,11 +115,4 @@ public class TaiKhoan implements Serializable {
 		this.truyCapLanCuoi = truyCapLanCuoi;
 	}
 
-	public HoSo getHoSo() {
-		return hoSo;
-	}
-
-	public void setHoSo(HoSo hoSo) {
-		this.hoSo = hoSo;
-	}
 }

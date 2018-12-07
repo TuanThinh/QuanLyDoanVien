@@ -130,7 +130,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="col-md-offset-10 col-md-2">
+				<div class="col-md-offset-10 col-md-2" style="padding-left: 40px;">
 					<button type="submit" id="btnAdd" class="btn btn-primary">Lưu</button>
 					<!-- <button type="submit" id="btnHuy" class="btn btn-primary">Hủy</button> -->
 					<span class="btn btn-primary">Hủy</span>

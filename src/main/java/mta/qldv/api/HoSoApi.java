@@ -3,9 +3,11 @@ package mta.qldv.api;
 import mta.qldv.dto.DiemHoSoDto;
 import mta.qldv.dto.HoatDongHoSoDto;
 import mta.qldv.entity.HoSo;
+import mta.qldv.form.HoSoForm;
 import mta.qldv.form.DiemHoSoForm;
 import mta.qldv.form.HoatDongHoSoForm;
 import mta.qldv.service.HoSoService;
+import mta.qldv.utils.Paging;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,21 +23,34 @@ public class HoSoApi {
     private HoSoService hoSoService;
     private JSONObject jsonObject;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public List<HoSo> getList(){
-        List<HoSo> listHoSo = hoSoService.getList();
-        return listHoSo;
+    @PostMapping(value = "/add", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Boolean addHoSo(@RequestBody HoSoForm form){
+        return hoSoService.addHoSo(form);
     }
 
-    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public List<HoSo> findAll(){
-        List<HoSo> listHoSo = hoSoService.findAll();
-        return listHoSo;
+    @PutMapping(value = "/update", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Boolean updateHoSo(@RequestBody HoSoForm form){
+        return hoSoService.updateHoSo(form);
     }
 
-    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public HoSo hoSo(@PathVariable int id){
-        return null;
+    @PostMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Boolean deleteHoSo(@RequestParam Long id){
+        return hoSoService.deleteHoSo(id);
+    }
+
+    @RequestMapping(value = "/list", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+    public String getList(@RequestBody Paging paging){
+        return hoSoService.getList(paging).toString();
+    }
+
+    @RequestMapping(value = "/id", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+    public HoSo getById(@RequestParam Long id){
+        return hoSoService.getHoSoById(id);
+    }
+
+    @RequestMapping(value = "/detail", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+    public String getHoSoDetailId(@RequestParam("id") Long id){
+        return hoSoService.getHoSoDetailId(id).toString();
     }
 
     @RequestMapping(value = "/name/{name}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })

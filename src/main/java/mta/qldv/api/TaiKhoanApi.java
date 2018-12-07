@@ -52,7 +52,7 @@ public class TaiKhoanApi {
 		taiKhoan.setNgayLap(new Date());
 
 		Long lastId = taiKhoanService.createAccount(taiKhoan);
-		HoSo hoSo = hoSoService.getHoSoById(taiKhoanDto.getIdHoSo()).get(0);
+		HoSo hoSo = hoSoService.getHoSoById(taiKhoanDto.getIdHoSo());
 		taiKhoan.setId(lastId);
 		hoSo.setTaiKhoan(taiKhoan);
 		hoSoService.updateTaiKhoan(hoSo);

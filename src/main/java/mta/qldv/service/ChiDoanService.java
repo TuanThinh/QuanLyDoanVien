@@ -7,7 +7,7 @@ import java.util.List;
 public interface ChiDoanService {
     List<ChiDoan> getList();
 
-	List<ChiDoan> getListById(int id);
+	ChiDoan getChiDoanById(Long id);
 
 	boolean addChiDoan(ChiDoan newChiDoan);
 

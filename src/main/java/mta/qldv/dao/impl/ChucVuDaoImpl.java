@@ -25,4 +25,14 @@ public class ChucVuDaoImpl implements ChucVuDao {
         }
         return null;
     }
+
+    @Override
+    public ChucVu getById(Long id) {
+        try {
+            return (ChucVu) hibernateUtil.getCurrentSession().get(ChucVu.class, id);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }

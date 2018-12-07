@@ -2,6 +2,7 @@ package mta.qldv.form;
 
 public class DiemHoSoForm {
     private int soLuong;
+    private String xepHang;
     private String hocLuc;
     private int thoiGian;
     private int idChiDoan;
@@ -13,6 +14,14 @@ public class DiemHoSoForm {
 
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
+    }
+
+    public String getXepHang() {
+        return xepHang;
+    }
+
+    public void setXepHang(String xepHang) {
+        this.xepHang = xepHang;
     }
 
     public String getHocLuc() {

@@ -2,11 +2,16 @@ package mta.qldv.dao.impl;
 
 import mta.qldv.dao.HoSoDao;
 import mta.qldv.dto.DiemHoSoDto;
+import mta.qldv.dto.DiemHoSoIdDto;
 import mta.qldv.dto.HoatDongHoSoDto;
+import mta.qldv.dto.KtklHoSoId;
 import mta.qldv.entity.HoSo;
 import mta.qldv.form.DiemHoSoForm;
 import mta.qldv.form.HoatDongHoSoForm;
+import mta.qldv.security.CustomUserDetail;
 import mta.qldv.utils.HibernateUtil;
+import mta.qldv.utils.Paging;
+import mta.qldv.utils.SecurityUtil;
 import org.hibernate.Session;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,27 +25,88 @@ public class HoSoDaoImpl implements HoSoDao {
     @Autowired
     private HibernateUtil hibernateUtil;
 
-
-    public List<HoSo> getList() {
-        Session session = hibernateUtil.getCurrentSession();
-        String sql = "from HoSo";
+    @Override
+    public Boolean addHoSo(HoSo hs) {
         try {
-            List<HoSo> listHoSo = session.createQuery(sql).list();
-            return listHoSo;
+            hibernateUtil.getCurrentSession().save(hs);
+            return true;
         } catch (Exception ex){
             ex.printStackTrace();
         }
-        return null;
+        return false;
     }
 
     @Override
-    public List<HoSo> findAll() {
+    public Boolean updateHoSo(HoSo hs) {
         Session session = hibernateUtil.getCurrentSession();
-        String sql = "from HoSo";
         try {
+            session.saveOrUpdate(hs);
+            session.flush();
+//            session.update(hs);
+//            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public Boolean deleteHoSo(Long id) {
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            HoSo hoSo = (HoSo) session.byId(HoSo.class).load(id);
+            session.delete(hoSo);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public int totalRecord(String parameter) {
+        String sql = "select count(hs.id) from HoSo as hs " +
+                "where hs.maSv like '%" + parameter + "%' or " +
+                "hs.hoTen like '%" + parameter + "%' or " +
+                "hs.ngaySinh like '%" + parameter + "%' or " +
+                "hs.gioiTinh like '%" + parameter + "%' or " +
+                "hs.diaChi like '%" + parameter + "%' or " +
+                "hs.chiDoan.tenChiDoan like '%" + parameter + "%' or " +
+                "hs.chiDoan.donVi.tenDonVi like '%" + parameter + "%'";
+        try {
+            Long totalRecord = (Long) hibernateUtil.getCurrentSession()
+                    .createQuery(sql)
+                    .uniqueResult();
+            return Math.toIntExact(totalRecord);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return 0;
+    }
+
+    public List<HoSo> getList(Paging paging) {
+        String parameter = paging.getTxtSearch();
+        paging.setTotalRecord(totalRecord(parameter));
+        Session session = hibernateUtil.getCurrentSession();
+        StringBuilder str = new StringBuilder();
+        str.append("from HoSo as hs " +
+                "where hs.maSv like '%" + parameter + "%' or " +
+                "hs.hoTen like '%" + parameter + "%' or " +
+                "hs.ngaySinh like '%" + parameter + "%' or " +
+                "hs.gioiTinh like '%" + parameter + "%' or " +
+                "hs.diaChi like '%" + parameter + "%' or " +
+                "hs.chiDoan.tenChiDoan like '%" + parameter + "%' or " +
+                "hs.chiDoan.donVi.tenDonVi like '%" + parameter + "%' ");
+        if(!paging.getColumnName().equals("")){
+            str.append("order by " + paging.getColumnName() + " " + paging.getSort());
+        }
+        try {
+            String sql = str.toString();
             List<HoSo> listHoSo = session.createQuery(sql)
-                    .setFirstResult(0)
-                    .setMaxResults(20)
+                    .setFirstResult(paging.getFirstResult())
+                    .setMaxResults(paging.getNumberRecord())
                     .list();
             return listHoSo;
         } catch (Exception ex){
@@ -50,11 +116,80 @@ public class HoSoDaoImpl implements HoSoDao {
     }
 
     @Override
-    public HoSo getId(int id) {
-        String sql = "from HoSo where id = :id";
+    public Long getCurrentIdHoSo(String tenTaiKhoan) {
+        String sql = "select hs.id from ho_so as hs inner join tai_khoan as tk on hs.id_taikhoan = tk.id " +
+                "where tk.ten_tk = :tenTaiKhoan";
         try {
-            HoSo hoSo = (HoSo) hibernateUtil.getCurrentSession().createQuery(sql).setParameter("id", id).uniqueResult();
+            Integer id = (Integer) hibernateUtil.getCurrentSession().createSQLQuery(sql)
+                    .setParameter("tenTaiKhoan", tenTaiKhoan)
+                    .uniqueResult();
+            return Long.valueOf(id);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public HoSo getHoSoById(Long id) {
+        if(id == -1){
+            CustomUserDetail userDetail = SecurityUtil.getCurrentUser();
+            id = getCurrentIdHoSo(userDetail.getUsername());
+        }
+//        String sql = "from HoSo where id = :id";
+        try {
+//            HoSo hoSo = (HoSo) hibernateUtil.getCurrentSession().createQuery(sql).setParameter("id", id).uniqueResult();
+            HoSo hoSo = (HoSo) hibernateUtil.getCurrentSession().get(HoSo.class, id);
             return hoSo;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<DiemHoSoIdDto> getDiemHoSoId(Long id) {
+        if(id == -1){
+            CustomUserDetail userDetail = SecurityUtil.getCurrentUser();
+            id = getCurrentIdHoSo(userDetail.getUsername());
+        }
+        String sql = "select d.thoi_gian as thoiGian, d.diem as diem from ho_so as hs " +
+                "inner join diem_ren_luyen as d on hs.id = d.id_hs " +
+                "where hs.id = :id";
+        try {
+            List<DiemHoSoIdDto> listDiem = hibernateUtil.getCurrentSession()
+                    .createSQLQuery(sql)
+                    .addScalar("thoiGian")
+                    .addScalar("diem")
+                    .setParameter("id", id)
+                    .setResultTransformer(Transformers.aliasToBean(DiemHoSoIdDto.class))
+                    .list();
+            return listDiem;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<KtklHoSoId> getKtklHoSoId(Long id) {
+        if(id == -1){
+            CustomUserDetail userDetail = SecurityUtil.getCurrentUser();
+            id = getCurrentIdHoSo(userDetail.getUsername());
+        }
+        String sql = "select kt.thoi_gian as thoiGian, sqd.tieu_de as tieuDe, sqd.noi_dung as noiDung " +
+                "from ho_so as hs inner join kt_kl as kt on hs.id = kt.id_hs " +
+                "inner join sqd_kt_kl as sqd on sqd.id = kt.id_sqd " +
+                "where hs.id = :id";
+        try {
+            List<KtklHoSoId> listKtkl = hibernateUtil.getCurrentSession().createSQLQuery(sql)
+                    .addScalar("thoiGian")
+                    .addScalar("tieuDe")
+                    .addScalar("noiDung")
+                    .setParameter("id", id)
+                    .setResultTransformer(Transformers.aliasToBean(KtklHoSoId.class))
+                    .list();
+            return listKtkl;
         } catch (Exception ex){
             ex.printStackTrace();
         }
@@ -523,7 +658,7 @@ public class HoSoDaoImpl implements HoSoDao {
         if(form.getIdDonVi() != -1){
             str.append("and k.id = " + form.getIdDonVi() + " ");
         }
-        str.append("order by d.diem desc");
+        str.append("order by d.diem " + form.getXepHang());
         String sql = str.toString();
         try {
             List<DiemHoSoDto> listDs = hibernateUtil.getCurrentSession()
@@ -564,7 +699,7 @@ public class HoSoDaoImpl implements HoSoDao {
             str.append("and k.id = " + form.getIdDonVi() + " ");
         }
         str.append("group by maSv ");
-        str.append("order by soLuong desc");
+        str.append("order by soLuong " + form.getXepHang());
         String sql = str.toString();
         try {
             List<HoatDongHoSoDto> listHd = hibernateUtil.getCurrentSession()
@@ -587,20 +722,20 @@ public class HoSoDaoImpl implements HoSoDao {
         return null;
     }
 
-	@Override
-	public List<HoSo> getHoSoById(Long idHoSo) {
-		try {
-			String queryString = "from HoSo where id = :id";
-			List<HoSo> hoSo = hibernateUtil.getCurrentSession()
-					.createQuery(queryString)
-					.setParameter("id", idHoSo)
-					.list();
-			return hoSo;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+//	@Override
+//	public List<HoSo> getHoSoById(Long idHoSo) {
+//		try {
+//			String queryString = "from HoSo where id = :id";
+//			List<HoSo> hoSo = hibernateUtil.getCurrentSession()
+//					.createQuery(queryString)
+//					.setParameter("id", idHoSo)
+//					.list();
+//			return hoSo;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
 
 	@Override
 	public boolean updateTaiKhoan(HoSo hoSo) {

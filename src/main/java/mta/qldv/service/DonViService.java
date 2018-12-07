@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface DonViService {
     List<DonVi> getList();
-    List<DonVi> getListById(int id);
+    DonVi getById(Long id);
 }

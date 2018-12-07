@@ -23,9 +23,8 @@ public class DonViApi {
         return listDonVi;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public List<DonVi> getListById(@PathVariable int id){
-        List<DonVi> listDonVi = donViService.getListById(id);
-        return listDonVi;
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+    public DonVi getById(@PathVariable Long id){
+        return donViService.getById(id);
     }
 }

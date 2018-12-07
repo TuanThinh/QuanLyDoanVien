@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ChucVuService {
     List<ChucVu> getList();
+    ChucVu getById(Long id);
 }

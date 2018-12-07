@@ -4,6 +4,7 @@ import mta.qldv.entity.ChucVu;
 import mta.qldv.service.ChucVuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,4 +23,8 @@ public class ChucVuApi {
         return listChucVu;
     }
 
+    @RequestMapping(value = "/id/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ChucVu getChiDoanById(@PathVariable Long id) {
+        return chucVuService.getById(id);
+    }
 }

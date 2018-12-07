@@ -35,11 +35,10 @@ public class ChiDoanApi {
         List<ChiDoan> listChiDoan = chiDoanService.getList();
         return listChiDoan;
     }
-    
-    @GetMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
-    @ResponseBody
-    public List<ChiDoan> getListById(@PathVariable int id){
-    	return chiDoanService.getListById(id);
+
+    @GetMapping(value = "/id/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ChiDoan getChiDoanById(@PathVariable Long id){
+    	return chiDoanService.getChiDoanById(id);
     }
     
     @PostMapping(value = "/add", produces = { MediaType.APPLICATION_JSON_VALUE })

@@ -14,14 +14,6 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title><tiles:getAsString name="title" /></title>
 
-<meta name="description"
-	content="Free Admin Template Based On Twitter Bootstrap 3.x">
-<meta name="author" content="">
-
-<meta name="msapplication-TileColor" content="#5bc0de" />
-<meta name="msapplication-TileImage"
-	content="${pageContext.servletContext.contextPath}/resources/imgs/metis-tile.png" />
-
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/font-awesome.min.css">
@@ -36,6 +28,8 @@
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/resources/css/datepicker.css">
 <script src="${pageContext.servletContext.contextPath}/resources/js/datepicker.js"></script>
 <script src="${pageContext.servletContext.contextPath}/resources/js/highcharts.js"></script>
+<script src="${pageContext.servletContext.contextPath}/resources/js/datatables.min.js"></script>
+<script src="${pageContext.servletContext.contextPath}/resources/js/dataTables.bootstrap.min.js"></script>
 <script src="${pageContext.servletContext.contextPath}/resources/tinymce/tinymce.min.js"></script>
 <script>tinymce.init({ selector: 'textarea' });</script>
 

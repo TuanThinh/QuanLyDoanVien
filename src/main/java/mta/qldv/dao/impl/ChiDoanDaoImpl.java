@@ -31,6 +31,18 @@ public class ChiDoanDaoImpl implements ChiDoanDao {
 		return null;
 	}
 
+
+	@Override
+	public ChiDoan getChiDoanById(Long id) {
+//		String query = "from ChiDoan where id = " + id;
+		try {
+			return (ChiDoan) hibernateUtil.getCurrentSession().get(ChiDoan.class, id);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	@Override
 	public boolean addChiDoan(ChiDoan newChiDoan) {
 		try {
@@ -62,16 +74,5 @@ public class ChiDoanDaoImpl implements ChiDoanDao {
 			return false;
 		}
 		return true;
-	}
-
-	@Override
-	public List<ChiDoan> getListById(int id) {
-		String query = "from ChiDoan where id = " + id;
-		try {
-			return hibernateUtil.getCurrentSession().createQuery(query).list();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
 	}
 }

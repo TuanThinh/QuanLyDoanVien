@@ -1,12 +1,19 @@
 package mta.qldv.service.impl;
 
+import mta.qldv.dao.ChiDoanDao;
+import mta.qldv.dao.ChucVuDao;
+import mta.qldv.dao.DonViDao;
 import mta.qldv.dao.HoSoDao;
 import mta.qldv.dto.DiemHoSoDto;
+import mta.qldv.dto.DiemHoSoIdDto;
 import mta.qldv.dto.HoatDongHoSoDto;
-import mta.qldv.entity.HoSo;
+import mta.qldv.dto.KtklHoSoId;
+import mta.qldv.entity.*;
+import mta.qldv.form.HoSoForm;
 import mta.qldv.form.DiemHoSoForm;
 import mta.qldv.form.HoatDongHoSoForm;
 import mta.qldv.service.HoSoService;
+import mta.qldv.utils.Paging;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,15 +26,123 @@ public class HoSoServiceImpl implements HoSoService {
 
     @Autowired
     private HoSoDao hoSoDao;
+    @Autowired
+    private DonViDao donViDao;
+    @Autowired
+    private ChiDoanDao chiDoanDao;
+    @Autowired
+    private ChucVuDao chucVuDao;
 
     @Override
-    public List<HoSo> getList() {
-        return hoSoDao.getList();
+    public Boolean addHoSo(HoSoForm form) {
+        DonVi donVi = new DonVi();
+        donVi.setId(form.getIdDonVi());
+        ChiDoan chiDoan = new ChiDoan();
+        chiDoan.setId(form.getIdChiDoan());
+        chiDoan.setDonVi(donVi);
+        ChucVu chucVu = new ChucVu();
+        chucVu.setId(form.getIdChucVu());
+        HoSo hoSo = new HoSo();
+        hoSo.setHinhAnh(form.getHinhAnh());
+        hoSo.setMaSv(form.getMaSv());
+        hoSo.setHoTen(form.getHoTen());
+        hoSo.setNgaySinh(form.getNgaySinh());
+        hoSo.setGioiTinh(form.getGioiTinh()!=0);
+        hoSo.setDiaChi(form.getDiaChi());
+        hoSo.setChiDoan(chiDoan);
+        hoSo.setChucVu(chucVu);
+        hoSo.setSdt(form.getSoDienThoai());
+        hoSo.setEmail(form.getEmail());
+        hoSo.setNgayVaoDoan(form.getNgayVaoDoan());
+        hoSo.setNgayVaoDang(form.getNgayVaoDang());
+        hoSo.setDanToc(form.getDanToc());
+        hoSo.setQuocTich(form.getQuocTich());
+        hoSo.setTonGiao(form.getTonGiao());
+        hoSo.setDoiTuongChinhSach(form.getDoiTuongChinhSach());
+        Boolean check = hoSoDao.addHoSo(hoSo);
+        return check;
     }
 
     @Override
-    public List<HoSo> findAll(){
-        return hoSoDao.findAll();
+    public Boolean updateHoSo(HoSoForm form) {
+        DonVi donVi = donViDao.getById(form.getIdDonVi());
+        ChiDoan chiDoan = chiDoanDao.getChiDoanById(form.getIdChiDoan());
+        chiDoan.setDonVi(donVi);
+        ChucVu chucVu = chucVuDao.getById(form.getIdChucVu());
+        HoSo hoSo = hoSoDao.getHoSoById(form.getId());
+        hoSo.setHinhAnh(form.getHinhAnh());
+        hoSo.setMaSv(form.getMaSv());
+        hoSo.setHoTen(form.getHoTen());
+        hoSo.setNgaySinh(form.getNgaySinh());
+        hoSo.setGioiTinh(form.getGioiTinh()!=0);
+        hoSo.setDiaChi(form.getDiaChi());
+        hoSo.setChiDoan(chiDoan);
+        hoSo.setChucVu(chucVu);
+        hoSo.setSdt(form.getSoDienThoai());
+        hoSo.setEmail(form.getEmail());
+        hoSo.setNgayVaoDoan(form.getNgayVaoDoan());
+        hoSo.setNgayVaoDang(form.getNgayVaoDang());
+        hoSo.setDanToc(form.getDanToc());
+        hoSo.setQuocTich(form.getQuocTich());
+        hoSo.setTonGiao(form.getTonGiao());
+        hoSo.setDoiTuongChinhSach(form.getDoiTuongChinhSach());
+        Boolean check = hoSoDao.updateHoSo(hoSo);
+        return check;
+    }
+
+    @Override
+    public Boolean deleteHoSo(Long id) {
+        return hoSoDao.deleteHoSo(id);
+    }
+
+    @Override
+    public JSONObject getList(Paging paging) {
+        JSONObject jsonObject = new JSONObject();
+        List<HoSo> listHoSo = hoSoDao.getList(paging);
+        List<Paging> pagings = new ArrayList<Paging>();
+        pagings.add(paging);
+        jsonObject.put("listHoSo", listHoSo);
+        jsonObject.put("paging", pagings);
+        return jsonObject;
+    }
+
+    @Override
+    public HoSo getHoSoById(Long id){
+        return hoSoDao.getHoSoById(id);
+    }
+
+    @Override
+    public JSONObject getHoSoDetailId(Long idHoSo) {
+        JSONObject jsonObject = new JSONObject();
+        HoSo hoSo = hoSoDao.getHoSoById(idHoSo);
+        List<DiemHoSoIdDto> listDiem = hoSoDao.getDiemHoSoId(idHoSo);
+        listDiem.forEach(i -> {
+            Double diem = i.getDiem();
+            if (diem <= 4 && diem >= 3.6){
+                i.setXepLoai("Xuất sắc");
+            } else if (diem <= 3.59 && diem >= 3.2){
+                i.setXepLoai("Giỏi");
+            } else if (diem <= 3.19 && diem >= 2.5){
+                i.setXepLoai("Khá");
+            } else if (diem <= 2.49 && diem >= 2.3){
+                i.setXepLoai("Trung bình khá");
+            } else if (diem <= 2.29 && diem >= 2.00){
+                i.setXepLoai("Trung binh");
+            } else if (diem <= 1.99 && diem >= 1.5){
+                i.setXepLoai("Trung bình yếu");
+            } else if (diem <= 1.49 && diem >= 1.0){
+                i.setXepLoai("Yếu");
+            } else {
+                i.setXepLoai("Kém");
+            }
+        });
+        List<KtklHoSoId> listKtkl = hoSoDao.getKtklHoSoId(idHoSo);
+        List<HoSo> listHoSo = new ArrayList<HoSo>();
+        listHoSo.add(hoSo);
+        jsonObject.put("hoSo", listHoSo);
+        jsonObject.put("listDiem", listDiem);
+        jsonObject.put("listKtkl", listKtkl);
+        return jsonObject;
     }
 
     @Override
@@ -151,11 +266,6 @@ public class HoSoServiceImpl implements HoSoService {
     public List<HoatDongHoSoDto> getTkDanhSachHoatDong(HoatDongHoSoForm form){
         return hoSoDao.getTkDanhSachHoatDong(form);
     }
-
-	@Override
-	public List<HoSo> getHoSoById(Long idHoSo) {
-		return hoSoDao.getHoSoById(idHoSo);
-	}
 
 	@Override
 	public boolean updateTaiKhoan(HoSo hoSo) {

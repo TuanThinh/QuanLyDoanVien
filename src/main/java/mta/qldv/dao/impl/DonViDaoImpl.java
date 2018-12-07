@@ -16,12 +16,10 @@ import java.util.List;
 public class DonViDaoImpl implements DonViDao {
 
     @Autowired
-    private SessionFactory sessionFactory;
-    @Autowired
-	private HibernateUtil hibernateUtil;
+    private HibernateUtil hibernateUtil;
 
     public List<DonVi> getList() {
-        Session session = sessionFactory.getCurrentSession();
+        Session session = hibernateUtil.getCurrentSession();
         String sql = "from DonVi dv order by dv.tenDonVi";
         List<DonVi> listDonVis = session.createQuery(sql).list();
         try {
@@ -32,15 +30,14 @@ public class DonViDaoImpl implements DonViDao {
         }
         return null;
     }
-    
+
     @Override
-	public List<DonVi> getListById(int id) {
-		String query = "from ChiDoan where id = " + id;
-		try {
-			return hibernateUtil.getCurrentSession().createQuery(query).list();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+    public DonVi getById(Long id) {
+        try {
+            return (DonVi) hibernateUtil.getCurrentSession().get(DonVi.class, id);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }

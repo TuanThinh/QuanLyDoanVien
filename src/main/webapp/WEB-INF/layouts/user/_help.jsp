@@ -9,13 +9,12 @@
 				<h4 class="modal-title">Modal title</h4>
 			</div>
 			<div class="modal-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-					enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-					ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-					culpa qui officia deserunt mollit anim id est laborum.</p>
+				<b>Nhóm phát triển</b>
+				<hr>
+				<p> <b>Name: </b> Mr.Thinh KTPM14 <b>Email: </b>tuanthinhmta@gmail.com <b>Tel: </b> 0359485228 </p>
+				<p> <b>Name: </b> Mr.Minh KTPM14 <b>Email: </b> minhkhungbo@gmail.com <b>Tel: </b> 0858154853</p>
+				<p> <b>Name: </b> Mr.Huy KTPM14 <b>Email: </b> huynguyen.mta@gmail.com <b>Tel: </b> 0949438954</p>
+				<p> <b>Name: </b> Mr.Hieu KTPM14 <b>Email: </b> ngochieumta@gmail.com <b>Tel: </b> 0914339961</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

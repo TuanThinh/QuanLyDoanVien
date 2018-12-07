@@ -18,10 +18,8 @@ public class DonViServiceImpl implements DonViService {
         return donViDao.getList();
     }
 
-	@Override
-	public List<DonVi> getListById(int id) {
-		return donViDao.getListById(id);
-	}
-    
-    
+    @Override
+    public DonVi getById(Long id) {
+        return donViDao.getById(id);
+    }
 }
