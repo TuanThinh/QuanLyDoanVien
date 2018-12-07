@@ -30,7 +30,7 @@ public class ThongBaoChinhSachDaoImpl implements ThongBaoChinhSachDao {
 	@Override
 	public boolean addThongBaoChinhsSach(ThongBaoChinhSach newTBCS) {
 		try {
-			hibernateUtil.getCurrentSession().persist(newTBCS);
+			hibernateUtil.getCurrentSession().save(newTBCS);
 		} catch(Exception e) {
 			e.printStackTrace();
 			return false;

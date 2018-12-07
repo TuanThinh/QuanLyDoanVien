@@ -151,4 +151,14 @@ public class HoSoServiceImpl implements HoSoService {
     public List<HoatDongHoSoDto> getTkDanhSachHoatDong(HoatDongHoSoForm form){
         return hoSoDao.getTkDanhSachHoatDong(form);
     }
+
+	@Override
+	public List<HoSo> getHoSoById(Long idHoSo) {
+		return hoSoDao.getHoSoById(idHoSo);
+	}
+
+	@Override
+	public boolean updateTaiKhoan(HoSo hoSo) {
+		return hoSoDao.updateTaiKhoan(hoSo);
+	}
 }

@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface TaiKhoanDao {
     List<TaiKhoan> getList();
-    boolean createAccount(TaiKhoan newAccount);
+    Long createAccount(TaiKhoan newAccount);
     TaiKhoan findByUserName(String username);
 }

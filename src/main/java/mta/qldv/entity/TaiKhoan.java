@@ -2,9 +2,13 @@ package mta.qldv.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -30,6 +34,7 @@ public class TaiKhoan implements Serializable {
 
 	@Column(name = "ngay_lap")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
+	@Temporal(TemporalType.DATE)
 	private Date ngayLap;
 
 	@Column(name = "kichhoat")

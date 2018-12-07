@@ -13,7 +13,15 @@ public class DonViServiceImpl implements DonViService {
     @Autowired
     private DonViDao donViDao;
 
+    @Override
     public List<DonVi> getList(){
         return donViDao.getList();
     }
+
+	@Override
+	public List<DonVi> getListById(int id) {
+		return donViDao.getListById(id);
+	}
+    
+    
 }

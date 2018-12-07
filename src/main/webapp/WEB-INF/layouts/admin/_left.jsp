@@ -13,8 +13,7 @@
 				viên
 		</a>
 			<ul class="collapse list-unstyled" id="taiKhoanMenu">
-				<li><a href="${pageContext.servletContext.contextPath}/admin/tai-khoan/them">Tạo tài khoản mới</a></li>
-				<li><a href="${pageContext.servletContext.contextPath}//admin/tai-khoan/danh-sach">Danh sách tài khoản</a></li>
+				<li><a href="${pageContext.servletContext.contextPath}/admin/tai-khoan/danh-sach">Danh sách tài khoản</a></li>
 			</ul></li>
 		<li><a href="#doanCoSoMenu" data-toggle="collapse"
 			aria-expanded="false" class="dropdown-toggle"> <i

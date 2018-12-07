@@ -1,24 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<form class="col-md-12" style="margin: 20px 0">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+
+<c:if test="${not empty message}">
+	<div class="col-xs-12" style="margin-top:20px">
+		<div class="alert alert-success alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			${message}
+		</div>
+	</div>
+</c:if>
+<sf:form class="col-md-12" style="margin: 20px 0"
+	modelAttribute="tbcsDto"
+	action="${pageContext.servletContext.contextPath}/thong-bao-chinh-sach/add"
+	method="POST">
 	<fieldset class="col-md-12">
 		<legend>Thông báo - chính sách mới</legend>
 		<div class="form-group">
 			<label for="inputTenTBCS">Tiêu đề<span class="required-field">*</span></label>
-			<input type="text" class="form-control" id="inputTenTBCS"
-				aria-describedby="tenTBCSHelp" placeholder="Tiêu đề..." required="">
+			<sf:input type="text" id="inputTenTBCS" path="tenThongBaoChinhSach"
+				class="form-control" aria-describedby="tenTBCSHelp" placeholder="Tiêu đề..."/>
+			<sf:errors path="tenThongBaoChinhSach" cssClass="help-block" element="em"></sf:errors>
 		</div>
 		<div class="form-group">
 			<label for="inputNoiDung">Nội dung<span
-				class="required-field">*</span></label> <input type="text"
+				class="required-field">*</span></label>
+			<sf:input type="text" path="noiDung"
 				class="form-control" id="inputNoiDung"
-				placeholder="Nội dung chính..." required="">
+				placeholder="Nội dung chính..."/>
+			<sf:errors path="noiDung" cssClass="help-block" element="em"></sf:errors>
 		</div>
 		<div class="form-group">
 			<label for="inputNguoiGui">Người gửi<span
-				class="required-field">*</span></label> <input type="text"
-				class="form-control" id="inputNguoiGui" placeholder="Người gửi..."
-				required="">
+				class="required-field">*</span></label>
+			<sf:input type="text" path="nguoiGui"
+				class="form-control" id="inputNguoiGui" placeholder="Người gửi..."/>
+			<sf:errors path="nguoiGui" cssClass="help-block" element="em"></sf:errors>
 		</div>
 		<div class="form-group">
 			<label>Thông tin chi tiết</label>
@@ -35,7 +53,6 @@
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary col-md-1"
 				style="margin-right: 10px">OK</button>
-			<button type="submit" class="btn btn-primary col-md-1">Hủy</button>
 		</div>
 	</fieldset>
-</form>
+</sf:form>

@@ -57,5 +57,7 @@
 	</script>
 	<script
 		src="${pageContext.servletContext.contextPath}/resources/js/admin/sidebar.js"></script>
+	<script
+		src="${pageContext.servletContext.contextPath}/resources/js/datepicker.js"></script>
 </body>
 </html>

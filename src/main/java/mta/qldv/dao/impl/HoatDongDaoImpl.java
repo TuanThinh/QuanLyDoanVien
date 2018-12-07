@@ -32,7 +32,7 @@ public class HoatDongDaoImpl implements HoatDongDao {
 	@Override
 	public boolean addHoatDong(HoatDong newHoatDong) {
 		try {
-			hibernateUtil.getCurrentSession().persist(newHoatDong);
+			hibernateUtil.getCurrentSession().save(newHoatDong);
 		} catch(Exception e) {
 			e.printStackTrace();
 			return false;

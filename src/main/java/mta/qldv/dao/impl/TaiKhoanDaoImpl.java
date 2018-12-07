@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Repository()
@@ -31,14 +32,13 @@ public class TaiKhoanDaoImpl implements TaiKhoanDao {
     }
 
 	@Override
-	public boolean createAccount(TaiKhoan newAccount) {
+	public Long createAccount(TaiKhoan newAccount) {
 		try {
-			hibernateUtil.getCurrentSession().persist(newAccount);
+			return (Long) hibernateUtil.getCurrentSession().save(newAccount);
 		} catch(Exception e) {
 			e.printStackTrace();
-			return false;
 		}
-		return true;
+		return null;
 	}
 
     @Override

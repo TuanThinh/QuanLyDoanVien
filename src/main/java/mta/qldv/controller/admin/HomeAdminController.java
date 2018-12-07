@@ -1,21 +1,36 @@
 package mta.qldv.controller.admin;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import mta.qldv.dao.ChiDoanDao;
+import mta.qldv.dao.DonViDao;
+import mta.qldv.dao.HoatDongDao;
 import mta.qldv.dao.QuyenDao;
 import mta.qldv.dao.TaiKhoanDao;
+import mta.qldv.dto.DoanCoSoHoSoDto;
+import mta.qldv.dto.HoatDongDto;
+import mta.qldv.dto.TaiKhoanDkyDto;
+import mta.qldv.dto.ThongBaoChinhSachDto;
+import mta.qldv.entity.ChiDoan;
+import mta.qldv.entity.DonVi;
 import mta.qldv.entity.HoatDong;
 import mta.qldv.entity.Quyen;
 import mta.qldv.entity.TaiKhoan;
@@ -29,49 +44,68 @@ public class HomeAdminController {
 	@Autowired
 	private TaiKhoanDao taiKhoanDao;
 	
+	@Autowired
+	private HoatDongDao hoatDongDao;
+	
+	@Autowired
+	private ChiDoanDao chiDoanDao;
+
+	@Autowired
+	private DonViDao donViDao;
+
 	@GetMapping
 	public String homeAdmin() {
 		return "home-admin";
 	}
 	
-	@GetMapping("/tai-khoan/them")
-	public String themTaiKhoanAdmin(@RequestParam(name="operation", required=false) String operation, ModelMap map) {
-		TaiKhoan taiKhoan = new TaiKhoan();
-		taiKhoan.setKichHoat(true);
-		taiKhoan.setTruyCapLanCuoi(null);		
+	@GetMapping("/tai-khoan/them/{ho-so}")
+	public String themTaiKhoanAdmin(@PathVariable(name="ho-so") Long id, @RequestParam(name="result", required=false) String result, ModelMap map) {
+		TaiKhoanDkyDto taiKhoanDto = new TaiKhoanDkyDto();
+		taiKhoanDto.setKichHoat(true);
+		taiKhoanDto.setIdHoSo(id);
 
-		long millis = System.currentTimeMillis();
-		Date date = new Date(millis);
-		taiKhoan.setNgayLap(date);
-
-		map.addAttribute("taiKhoan", taiKhoan);
-
-		List<Quyen> quyen = quyenDao.getList();
-		map.addAttribute("quyen", quyen);
+		map.addAttribute("taiKhoanDto", taiKhoanDto);
 		
-		if(operation != null) {
-			if(operation.equals("taiKhoan")) {
-				map.addAttribute("message", "Success");
+		if(result != null) {
+			if(result.equals("true")) {
+				map.addAttribute("message", "Success!");
+			} else {
+				map.addAttribute("message", "Failed!");
 			}
 		}
 		return "them-tai-khoan";
 	}
-	
-	@PostMapping("tai-khoan/them")
-	public String themTaiKhoanAdminSubmit(@ModelAttribute("taiKhoan") TaiKhoan taiKhoan) {
-		taiKhoanDao.createAccount(taiKhoan);
-		return "redirect:/admin/tai-khoan/them?operation=taiKhoan";
-	}
-	
+
 	@GetMapping("/tai-khoan/danh-sach")
 	public String taiKhoanAdmin() {
 		return "danh-sach-tai-khoan";
 	}
 	
 	@GetMapping("/doan-co-so/them")
-	public String themDoanCoSoAdmin() {
+	public String themDoanCoSoAdmin(@RequestParam(name="result", required=false) String result, ModelMap map) {
+		DoanCoSoHoSoDto doanCoSoDto = new DoanCoSoHoSoDto();
+		map.addAttribute("doanCoSoDto", doanCoSoDto);
+		
+		if(result != null) {
+			if(result.equals("true")) {
+				map.addAttribute("message", "Success!");
+			}
+		}
 		return "them-doan-co-so";
 	}
+
+//	@PostMapping("/doan-co-so/them")
+//	public String themDoanCoSoAdminSubmit(@Valid @ModelAttribute("doanCoSoDto") DoanCoSoHoSoDto doanCoSoDto,
+//			BindingResult results, ModelMap map) {
+//		if(results.hasErrors()) {
+//			return "them-doan-co-so";
+//		}
+//		ChiDoan chiDoan = new ChiDoan();
+//		chiDoan.setTenChiDoan(doanCoSoDto.getTenChiDoan());
+//		chiDoan.setDonVi(donViDao.getListById(doanCoSoDto.getDonVi()).get(0));
+//		
+//		return "redirect:/admin/doan-co-so/them?result=" + chiDoanDao.addChiDoan(chiDoan);
+//	}
 	
 	@GetMapping("/doan-co-so/danh-sach")
 	public String doanCoSoAdmin() {
@@ -79,7 +113,17 @@ public class HomeAdminController {
 	}
 	
 	@GetMapping("/tb-cs/them")
-	public String themThongBaoChinhSachAdmin() {
+	public String themThongBaoChinhSachAdmin(@RequestParam(name="result", required=false) String result, ModelMap map) {
+		ThongBaoChinhSachDto tbcsDto = new ThongBaoChinhSachDto();
+		map.addAttribute("tbcsDto", tbcsDto);
+
+		if(result != null) {
+			if(result.equals("true")) {
+				map.addAttribute("message", "Success!");
+			} else {
+				map.addAttribute("message", "Failed!");
+			}
+		}
 		return "them-tb-cs";
 	}
 	
@@ -88,31 +132,55 @@ public class HomeAdminController {
 		return "danh-sach-tb-cs";
 	}
 	
-	@GetMapping("hoat-dong/them")
-	public String themHoatDongAdmin(ModelMap map) {
-		HoatDong hoatDong = new HoatDong();
-		hoatDong.setDvToChuc("Ban Thanh niÃªn");
-		hoatDong.setTrangThai("Ä�Ã£ duyá»‡t");
+	@GetMapping("/hoat-dong/them")
+	public String themHoatDongAdmin(@RequestParam(name="result", required=false) String result, ModelMap map) {
+		HoatDongDto hoatDongDto = new HoatDongDto();
+		hoatDongDto.setDvToChuc("Ban Thanh nien");
+		hoatDongDto.setTrangThai("Da duyet");
 
-		map.addAttribute("hoatDong", hoatDong);
+		map.addAttribute("hoatDongDto", hoatDongDto);
+		
+		if(result != null) {
+			if(result.equals("true")) {
+				map.addAttribute("message", "Success!");
+			} else {
+				map.addAttribute("message", "Failed!");
+			}
+		}
 		return "them-hd";
 	}
-	
-	@GetMapping("hoat-dong/danh-sach-duoc-duyet")
+
+//	@PostMapping("/hoat-dong/them")
+//	public String themHoatDongAdminSubmit(@ModelAttribute("hoatDong") HoatDong hoatDong) {
+//		hoatDongDao.addHoatDong(hoatDong);
+//		return "redirect:/admin/hoat-dong/them?operation=hoatDong";
+//	}
+
+	@GetMapping("/hoat-dong/danh-sach-duoc-duyet")
 	public String hoatDongDuocDuyetAdmin(ModelMap map) {
 		map.addAttribute("loaiHoatDong", 2);
 		return "danh-sach-hd-duyet";
 	}
 	
-	@GetMapping("hoat-dong/danh-sach-de-xuat")
+	@GetMapping("/hoat-dong/danh-sach-de-xuat")
 	public String hoatDongDeXuatAdmin(ModelMap map) {
 		map.addAttribute("loaiHoatDong", 1);
 		return "danh-sach-hd-de-xuat";
 	}
 	
-	@GetMapping("hoat-dong/danh-sach-hd-huy")
+	@GetMapping("/hoat-dong/danh-sach-hd-huy")
 	public String hoatDongHuyBoAdmin(ModelMap map) {
 		map.addAttribute("loaiHoatDong", 3);
 		return "danh-sach-hd-huy";
+	}
+	
+	@ModelAttribute("quyen")
+	public List<Quyen> getListQuyen() {
+		return quyenDao.getList();
+	}
+
+	@ModelAttribute("khoa")
+	public List<DonVi> getListKhoa() {
+		return donViDao.getList();
 	}
 }

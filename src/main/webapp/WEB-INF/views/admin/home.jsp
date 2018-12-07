@@ -19,17 +19,9 @@
 		<div>
 			<ul class="ul-group-btn col-md-12">
 				<li class="li-group-btn col-md-3"><a
-					href="${pageContext.servletContext.contextPath}/admin/tai-khoan/them">
-						<button type="button" class="btn btn-outline-success group-btn">
-							<i class="fa fa-plus-circle icon-margin-right"></i>Tạo tài khoản
-							mới
-						</button>
-				</a></li>
-				<li class="li-group-btn col-md-3"><a
 					href="${pageContext.servletContext.contextPath}/admin/tai-khoan/danh-sach">
 						<button type="button" class="btn btn-outline-success group-btn">
-							<i class="fa fa-list-alt icon-margin-right"></i>Danh sách tài
-							khoản
+							<i class="fa fa-list-alt icon-margin-right"></i>Danh sách tài khoản
 						</button>
 				</a></li>
 			</ul>
