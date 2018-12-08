@@ -3,10 +3,10 @@ package mta.qldv.dao;
 import mta.qldv.dto.DiemHoSoDto;
 import mta.qldv.dto.DiemHoSoIdDto;
 import mta.qldv.dto.HoatDongHoSoDto;
-import mta.qldv.dto.KtklHoSoId;
+import mta.qldv.dto.KtklHoSoIdDto;
 import mta.qldv.entity.HoSo;
-import mta.qldv.form.DiemHoSoForm;
-import mta.qldv.form.HoatDongHoSoForm;
+import mta.qldv.form.TKDiemHoSoForm;
+import mta.qldv.form.TKHoatDongHoSoForm;
 import mta.qldv.utils.Paging;
 
 import java.math.BigInteger;
@@ -23,13 +23,13 @@ public interface HoSoDao {
     Long getCurrentIdHoSo(String tenTaiKhoan);
     HoSo getHoSoById(Long id);
     List<DiemHoSoIdDto> getDiemHoSoId(Long id);
-    List<KtklHoSoId> getKtklHoSoId(Long id);
+    List<KtklHoSoIdDto> getKtklHoSoId(Long id);
 
-    List<HoSo> getHoTen(String hoten);
-    List<HoSo> getDiaChi(String diachi);
-    List<HoSo> getChiDoan(String chidoan);
-    List<HoSo> getDonVi(String donvi);
-    List<HoSo> searchHoSo(HoSo hoSo);
+//    List<HoSo> getHoTen(String hoten);
+//    List<HoSo> getDiaChi(String diachi);
+//    List<HoSo> getChiDoan(String chidoan);
+//    List<HoSo> getDonVi(String donvi);
+//    List<HoSo> searchHoSo(HoSo hoSo);
 
     Long getVaoDoan(int nam);
     Long getVaoDang(int nam);
@@ -54,6 +54,6 @@ public interface HoSoDao {
     BigInteger getDonViHlYeu(int idDonVi, int nam);
     BigInteger getDonViHlKem(int idDonVi, int nam);
 
-    List<DiemHoSoDto> getTkDanhSachDiem(DiemHoSoForm form);
-    List<HoatDongHoSoDto> getTkDanhSachHoatDong(HoatDongHoSoForm form);
+    List<DiemHoSoDto> getTkDanhSachDiem(TKDiemHoSoForm form);
+    List<HoatDongHoSoDto> getTkDanhSachHoatDong(TKHoatDongHoSoForm form);
 }

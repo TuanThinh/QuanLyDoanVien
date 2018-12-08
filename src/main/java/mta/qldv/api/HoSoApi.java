@@ -4,8 +4,8 @@ import mta.qldv.dto.DiemHoSoDto;
 import mta.qldv.dto.HoatDongHoSoDto;
 import mta.qldv.entity.HoSo;
 import mta.qldv.form.HoSoForm;
-import mta.qldv.form.DiemHoSoForm;
-import mta.qldv.form.HoatDongHoSoForm;
+import mta.qldv.form.TKDiemHoSoForm;
+import mta.qldv.form.TKHoatDongHoSoForm;
 import mta.qldv.service.HoSoService;
 import mta.qldv.utils.Paging;
 import org.json.JSONObject;
@@ -53,29 +53,29 @@ public class HoSoApi {
         return hoSoService.getHoSoDetailId(id).toString();
     }
 
-    @RequestMapping(value = "/name/{name}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public List<HoSo> getHoTen(@PathVariable String name){
-        List<HoSo> listHoSo = hoSoService.getHoTen(name);
-        return listHoSo;
-    }
-
-    @RequestMapping(value = "/dia-chi/{name}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public List<HoSo> getDiaChi(@PathVariable String name){
-        List<HoSo> listHoSo = hoSoService.getDiaChi(name);
-        return listHoSo;
-    }
-
-    @RequestMapping(value = "/chi-doan/{name}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public List<HoSo> getChiDoan(@PathVariable String name){
-        List<HoSo> listHoSo = hoSoService.getChiDoan(name);
-        return listHoSo;
-    }
-
-    @RequestMapping(value = "/don-vi/{name}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public List<HoSo> getDonVi(@PathVariable String name){
-        List<HoSo> listHoSo = hoSoService.getDonVi(name);
-        return listHoSo;
-    }
+//    @RequestMapping(value = "/name/{name}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+//    public List<HoSo> getHoTen(@PathVariable String name){
+//        List<HoSo> listHoSo = hoSoService.getHoTen(name);
+//        return listHoSo;
+//    }
+//
+//    @RequestMapping(value = "/dia-chi/{name}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+//    public List<HoSo> getDiaChi(@PathVariable String name){
+//        List<HoSo> listHoSo = hoSoService.getDiaChi(name);
+//        return listHoSo;
+//    }
+//
+//    @RequestMapping(value = "/chi-doan/{name}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+//    public List<HoSo> getChiDoan(@PathVariable String name){
+//        List<HoSo> listHoSo = hoSoService.getChiDoan(name);
+//        return listHoSo;
+//    }
+//
+//    @RequestMapping(value = "/don-vi/{name}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+//    public List<HoSo> getDonVi(@PathVariable String name){
+//        List<HoSo> listHoSo = hoSoService.getDonVi(name);
+//        return listHoSo;
+//    }
 
     @RequestMapping(value = "/doan-vien", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
     public String getCountDoanVien(@RequestParam("startDate") int startDate, @RequestParam("endDate") int endDate){
@@ -100,12 +100,12 @@ public class HoSoApi {
     }
 
     @RequestMapping(value = "/danh-sach-diem", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
-    public List<DiemHoSoDto> getTkDanhSachDiem(@RequestBody DiemHoSoForm form){
+    public List<DiemHoSoDto> getTkDanhSachDiem(@RequestBody TKDiemHoSoForm form){
         return  hoSoService.getTkDanhSachDiem(form);
     }
 
     @RequestMapping(value = "/danh-sach-hoat-dong", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
-    public List<HoatDongHoSoDto> getTkDanhSachHoatDong(@RequestBody HoatDongHoSoForm form){
+    public List<HoatDongHoSoDto> getTkDanhSachHoatDong(@RequestBody TKHoatDongHoSoForm form){
         return  hoSoService.getTkDanhSachHoatDong(form);
     }
 }

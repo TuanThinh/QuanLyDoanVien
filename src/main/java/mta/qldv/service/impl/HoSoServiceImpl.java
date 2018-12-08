@@ -7,11 +7,11 @@ import mta.qldv.dao.HoSoDao;
 import mta.qldv.dto.DiemHoSoDto;
 import mta.qldv.dto.DiemHoSoIdDto;
 import mta.qldv.dto.HoatDongHoSoDto;
-import mta.qldv.dto.KtklHoSoId;
+import mta.qldv.dto.KtklHoSoIdDto;
 import mta.qldv.entity.*;
 import mta.qldv.form.HoSoForm;
-import mta.qldv.form.DiemHoSoForm;
-import mta.qldv.form.HoatDongHoSoForm;
+import mta.qldv.form.TKDiemHoSoForm;
+import mta.qldv.form.TKHoatDongHoSoForm;
 import mta.qldv.service.HoSoService;
 import mta.qldv.utils.Paging;
 import org.json.JSONObject;
@@ -136,7 +136,7 @@ public class HoSoServiceImpl implements HoSoService {
                 i.setXepLoai("Kém");
             }
         });
-        List<KtklHoSoId> listKtkl = hoSoDao.getKtklHoSoId(idHoSo);
+        List<KtklHoSoIdDto> listKtkl = hoSoDao.getKtklHoSoId(idHoSo);
         List<HoSo> listHoSo = new ArrayList<HoSo>();
         listHoSo.add(hoSo);
         jsonObject.put("hoSo", listHoSo);
@@ -145,25 +145,25 @@ public class HoSoServiceImpl implements HoSoService {
         return jsonObject;
     }
 
-    @Override
-    public List<HoSo> getHoTen(String hoten) {
-        return hoSoDao.getHoTen(hoten);
-    }
-
-    @Override
-    public List<HoSo> getDiaChi(String diachi) {
-        return hoSoDao.getDiaChi(diachi);
-    }
-
-    @Override
-    public List<HoSo> getChiDoan(String chidoan) {
-        return hoSoDao.getChiDoan(chidoan);
-    }
-
-    @Override
-    public List<HoSo> getDonVi(String donvi) {
-        return hoSoDao.getDonVi(donvi);
-    }
+//    @Override
+//    public List<HoSo> getHoTen(String hoten) {
+//        return hoSoDao.getHoTen(hoten);
+//    }
+//
+//    @Override
+//    public List<HoSo> getDiaChi(String diachi) {
+//        return hoSoDao.getDiaChi(diachi);
+//    }
+//
+//    @Override
+//    public List<HoSo> getChiDoan(String chidoan) {
+//        return hoSoDao.getChiDoan(chidoan);
+//    }
+//
+//    @Override
+//    public List<HoSo> getDonVi(String donvi) {
+//        return hoSoDao.getDonVi(donvi);
+//    }
 
     @Override
     public List<Long> getVaoDoan(int startDate, int endDate) {
@@ -258,12 +258,12 @@ public class HoSoServiceImpl implements HoSoService {
     }
 
     @Override
-    public List<DiemHoSoDto> getTkDanhSachDiem(DiemHoSoForm form){
+    public List<DiemHoSoDto> getTkDanhSachDiem(TKDiemHoSoForm form){
         return hoSoDao.getTkDanhSachDiem(form);
     }
 
     @Override
-    public List<HoatDongHoSoDto> getTkDanhSachHoatDong(HoatDongHoSoForm form){
+    public List<HoatDongHoSoDto> getTkDanhSachHoatDong(TKHoatDongHoSoForm form){
         return hoSoDao.getTkDanhSachHoatDong(form);
     }
 }

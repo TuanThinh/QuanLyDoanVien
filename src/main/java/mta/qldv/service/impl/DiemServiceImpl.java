@@ -14,13 +14,5 @@ public class DiemServiceImpl implements DiemService {
     @Autowired
     private DiemDao diemDao;
 
-    @Override
-    public List<Diem> getList() {
-        return diemDao.getList();
-    }
 
-    @Override
-    public List<DiemHoSoDto> findAll() {
-        return diemDao.findAll();
-    }
 }

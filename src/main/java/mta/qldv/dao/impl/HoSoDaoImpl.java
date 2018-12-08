@@ -4,10 +4,10 @@ import mta.qldv.dao.HoSoDao;
 import mta.qldv.dto.DiemHoSoDto;
 import mta.qldv.dto.DiemHoSoIdDto;
 import mta.qldv.dto.HoatDongHoSoDto;
-import mta.qldv.dto.KtklHoSoId;
+import mta.qldv.dto.KtklHoSoIdDto;
 import mta.qldv.entity.HoSo;
-import mta.qldv.form.DiemHoSoForm;
-import mta.qldv.form.HoatDongHoSoForm;
+import mta.qldv.form.TKDiemHoSoForm;
+import mta.qldv.form.TKHoatDongHoSoForm;
 import mta.qldv.security.CustomUserDetail;
 import mta.qldv.utils.HibernateUtil;
 import mta.qldv.utils.Paging;
@@ -172,7 +172,7 @@ public class HoSoDaoImpl implements HoSoDao {
     }
 
     @Override
-    public List<KtklHoSoId> getKtklHoSoId(Long id) {
+    public List<KtklHoSoIdDto> getKtklHoSoId(Long id) {
         if(id == -1){
             CustomUserDetail userDetail = SecurityUtil.getCurrentUser();
             id = getCurrentIdHoSo(userDetail.getUsername());
@@ -182,12 +182,12 @@ public class HoSoDaoImpl implements HoSoDao {
                 "inner join sqd_kt_kl as sqd on sqd.id = kt.id_sqd " +
                 "where hs.id = :id";
         try {
-            List<KtklHoSoId> listKtkl = hibernateUtil.getCurrentSession().createSQLQuery(sql)
+            List<KtklHoSoIdDto> listKtkl = hibernateUtil.getCurrentSession().createSQLQuery(sql)
                     .addScalar("thoiGian")
                     .addScalar("tieuDe")
                     .addScalar("noiDung")
                     .setParameter("id", id)
-                    .setResultTransformer(Transformers.aliasToBean(KtklHoSoId.class))
+                    .setResultTransformer(Transformers.aliasToBean(KtklHoSoIdDto.class))
                     .list();
             return listKtkl;
         } catch (Exception ex){
@@ -195,59 +195,59 @@ public class HoSoDaoImpl implements HoSoDao {
         }
         return null;
     }
-
-    @Override
-    public List<HoSo> getHoTen(String hoten) {
-        String sql = "from HoSo where hoTen like :hoten";
-        try {
-            List<HoSo> listHoSo = hibernateUtil.getCurrentSession().createQuery(sql).setParameter("hoten", "%" + hoten + "%").list();
-            return listHoSo;
-        } catch (Exception ex){
-            ex.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public List<HoSo> getDiaChi(String diachi) {
-        String sql = "from HoSo where diaChi like :diaChi";
-        try {
-            List<HoSo> listHoSo = hibernateUtil.getCurrentSession().createQuery(sql).setParameter("diaChi", "%" + diachi + "%").list();
-            return listHoSo;
-        } catch (Exception ex){
-            ex.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public List<HoSo> getChiDoan(String chidoan) {
-        String sql = "from HoSo where chiDoan.tenChiDoan like :chiDoan";
-        try {
-            List<HoSo> listHoSo = hibernateUtil.getCurrentSession().createQuery(sql).setParameter("chiDoan", "%" + chidoan + "%").list();
-            return listHoSo;
-        } catch (Exception ex){
-            ex.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public List<HoSo> getDonVi(String donvi) {
-        String sql = "from HoSo where chiDoan.donVi.tenDonVi like :donvi";
-        try {
-            List<HoSo> listHoSo = hibernateUtil.getCurrentSession().createQuery(sql).setParameter("donvi", "%" + donvi + "%").list();
-            return listHoSo;
-        } catch (Exception ex){
-            ex.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public List<HoSo> searchHoSo(HoSo hoSo) {
-        return null;
-    }
+//
+//    @Override
+//    public List<HoSo> getHoTen(String hoten) {
+//        String sql = "from HoSo where hoTen like :hoten";
+//        try {
+//            List<HoSo> listHoSo = hibernateUtil.getCurrentSession().createQuery(sql).setParameter("hoten", "%" + hoten + "%").list();
+//            return listHoSo;
+//        } catch (Exception ex){
+//            ex.printStackTrace();
+//        }
+//        return null;
+//    }
+//
+//    @Override
+//    public List<HoSo> getDiaChi(String diachi) {
+//        String sql = "from HoSo where diaChi like :diaChi";
+//        try {
+//            List<HoSo> listHoSo = hibernateUtil.getCurrentSession().createQuery(sql).setParameter("diaChi", "%" + diachi + "%").list();
+//            return listHoSo;
+//        } catch (Exception ex){
+//            ex.printStackTrace();
+//        }
+//        return null;
+//    }
+//
+//    @Override
+//    public List<HoSo> getChiDoan(String chidoan) {
+//        String sql = "from HoSo where chiDoan.tenChiDoan like :chiDoan";
+//        try {
+//            List<HoSo> listHoSo = hibernateUtil.getCurrentSession().createQuery(sql).setParameter("chiDoan", "%" + chidoan + "%").list();
+//            return listHoSo;
+//        } catch (Exception ex){
+//            ex.printStackTrace();
+//        }
+//        return null;
+//    }
+//
+//    @Override
+//    public List<HoSo> getDonVi(String donvi) {
+//        String sql = "from HoSo where chiDoan.donVi.tenDonVi like :donvi";
+//        try {
+//            List<HoSo> listHoSo = hibernateUtil.getCurrentSession().createQuery(sql).setParameter("donvi", "%" + donvi + "%").list();
+//            return listHoSo;
+//        } catch (Exception ex){
+//            ex.printStackTrace();
+//        }
+//        return null;
+//    }
+//
+//    @Override
+//    public List<HoSo> searchHoSo(HoSo hoSo) {
+//        return null;
+//    }
 
     @Override
     public Long getVaoDoan(int year) {
@@ -624,7 +624,7 @@ public class HoSoDaoImpl implements HoSoDao {
         return null;
     }
 
-    public List<DiemHoSoDto> getTkDanhSachDiem(DiemHoSoForm form){
+    public List<DiemHoSoDto> getTkDanhSachDiem(TKDiemHoSoForm form){
         StringBuilder str = new StringBuilder();
         str.append("select hs.ma_sv as maSv, hs.ho_ten as hoTen, hs.ngay_sinh as ngaySinh, l.ten_lop as chiDoan, k.ten_khoa as donVi, d.diem as diem, d.thoi_gian as thoiGian, d.ghi_chu as ghiChu " +
                 "from ho_so as hs inner join lop as l on l.id = hs.id_lop " +
@@ -682,7 +682,7 @@ public class HoSoDaoImpl implements HoSoDao {
         return null;
     }
 
-    public List<HoatDongHoSoDto> getTkDanhSachHoatDong(HoatDongHoSoForm form){
+    public List<HoatDongHoSoDto> getTkDanhSachHoatDong(TKHoatDongHoSoForm form){
         StringBuilder str = new StringBuilder();
         str.append("select hs.ma_sv as maSv, hs.ho_ten as hoTen, hs.ngay_sinh as ngaySinh, l.ten_lop as chiDoan, k.ten_khoa as donVi, year(hd.thoi_gian) as thoiGian, count(tg.id_hd) as soLuong " +
                 "from ho_so as hs inner join lop as l on l.id = hs.id_lop " +

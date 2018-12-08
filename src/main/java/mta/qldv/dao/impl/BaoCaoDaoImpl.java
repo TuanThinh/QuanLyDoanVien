@@ -14,15 +14,18 @@ public class BaoCaoDaoImpl implements BaoCaoDao {
     @Autowired
     private HibernateUtil hibernateUtil;
 
+    @Override
+    public Boolean addBaoCao(BaoCao baoCao) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteBaoCao(Long id) {
+        return null;
+    }
+
+    @Override
     public List<BaoCao> getList() {
-        Session session = hibernateUtil.getCurrentSession();
-        String sql = "from BaoCao";
-        try {
-            List<BaoCao> listBaoCao = session.createQuery(sql).list();
-            return listBaoCao;
-        } catch (Exception ex){
-            ex.printStackTrace();
-        }
         return null;
     }
 }

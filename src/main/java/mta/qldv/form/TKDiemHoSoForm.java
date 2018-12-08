@@ -1,6 +1,6 @@
 package mta.qldv.form;
 
-public class DiemHoSoForm {
+public class TKDiemHoSoForm {
     private int soLuong;
     private String xepHang;
     private String hocLuc;

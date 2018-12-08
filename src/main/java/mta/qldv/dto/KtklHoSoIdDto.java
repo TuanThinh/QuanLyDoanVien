@@ -2,7 +2,7 @@ package mta.qldv.dto;
 
 import java.util.Date;
 
-public class KtklHoSoId {
+public class KtklHoSoIdDto {
     private Date thoiGian;
     private String tieuDe;
     private String noiDung;

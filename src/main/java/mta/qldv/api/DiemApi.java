@@ -17,15 +17,15 @@ public class DiemApi {
     @Autowired
     private DiemService diemService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public List<Diem> getList(){
-        List<Diem> listDiem = diemService.getList();
-        return listDiem;
-    }
-
-    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public List<DiemHoSoDto> findAll(){
-        List<DiemHoSoDto> listDiem = diemService.findAll();
-        return listDiem;
-    }
+//    @RequestMapping(value = "/list", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+//    public List<Diem> getList(){
+//        List<Diem> listDiem = diemService.getList();
+//        return listDiem;
+//    }
+//
+//    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+//    public List<DiemHoSoDto> findAll(){
+//        List<DiemHoSoDto> listDiem = diemService.findAll();
+//        return listDiem;
+//    }
 }
