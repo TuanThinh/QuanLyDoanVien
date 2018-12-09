@@ -19,6 +19,7 @@ public class HoatDong implements Serializable {
 
 	@Column(name = "thoi_gian")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
+	@Temporal(TemporalType.DATE)
 	private Date thoiGian;
 
 	@Column(name = "dia_diem")

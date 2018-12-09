@@ -13,6 +13,22 @@ public class DonViServiceImpl implements DonViService {
     @Autowired
     private DonViDao donViDao;
 
+    @Override
+    public Boolean addDonVi(DonVi donVi) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateDonVi(DonVi donVi) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteDonVi(Long id) {
+        return null;
+    }
+
+    @Override
     public List<DonVi> getList(){
         return donViDao.getList();
     }

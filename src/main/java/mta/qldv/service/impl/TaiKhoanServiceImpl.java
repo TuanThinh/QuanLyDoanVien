@@ -18,8 +18,18 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
         return taiKhoanDao.getList();
     }
 
-	@Override
-	public boolean createAccount(TaiKhoan newAccount) {
+    @Override
+    public TaiKhoan getById(Long id) {
+        return null;
+    }
+
+    @Override
+    public TaiKhoan findByUserName(String username) {
+        return null;
+    }
+
+    @Override
+	public Long createAccount(TaiKhoan newAccount) {
 		return taiKhoanDao.createAccount(newAccount);
 	}
 }

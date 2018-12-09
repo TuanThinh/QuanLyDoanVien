@@ -7,13 +7,13 @@ import java.util.List;
 public interface HoatDongDao {
     List<HoatDong> getList();
 
-	HoatDong getHoatDongById(int id);
+	HoatDong getById(Long id);
 
-	boolean addHoatDong(HoatDong newHoatDong);
+	boolean addHoatDong(HoatDong hoatDong);
 
-	boolean updateHoatDong(HoatDong newHoatDong);
+	boolean updateHoatDong(HoatDong hoatDong);
 
-	boolean deleteHoatDong(HoatDong hoatDong);
+	boolean deleteHoatDong(Long id);
 
 	List<HoatDong> getPendingList();
 

@@ -28,9 +28,9 @@ public class ThongBaoChinhSachDaoImpl implements ThongBaoChinhSachDao {
     }
 
 	@Override
-	public boolean addThongBaoChinhsSach(ThongBaoChinhSach newTBCS) {
+	public Boolean addThongBaoChinhsSach(ThongBaoChinhSach newTBCS) {
 		try {
-			hibernateUtil.getCurrentSession().persist(newTBCS);
+			hibernateUtil.getCurrentSession().save(newTBCS);
 		} catch(Exception e) {
 			e.printStackTrace();
 			return false;
@@ -39,7 +39,7 @@ public class ThongBaoChinhSachDaoImpl implements ThongBaoChinhSachDao {
 	}
 
 	@Override
-	public boolean updateThongBaoChinhsSach(ThongBaoChinhSach newTBCS) {
+	public Boolean updateThongBaoChinhsSach(ThongBaoChinhSach newTBCS) {
 		try {
 			hibernateUtil.getCurrentSession().update(newTBCS);
 		} catch(Exception e) {
@@ -50,7 +50,7 @@ public class ThongBaoChinhSachDaoImpl implements ThongBaoChinhSachDao {
 	}
 
 	@Override
-	public boolean deleteThongBaoChinhsSach(ThongBaoChinhSach tBCS) {
+	public Boolean deleteThongBaoChinhsSach(ThongBaoChinhSach tBCS) {
 		try {
 			hibernateUtil.getCurrentSession().delete(tBCS);
 		} catch(Exception e) {

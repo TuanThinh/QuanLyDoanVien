@@ -9,15 +9,15 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.util.List;
 
-@Repository("taiKhoanDao")
+@Repository()
 public class TaiKhoanDaoImpl implements TaiKhoanDao {
 
     @Autowired
     private HibernateUtil hibernateUtil;
 
-    @SuppressWarnings("unchecked")
     @Override
 	public List<TaiKhoan> getList() {
         String sql = "from TaiKhoan";
@@ -30,15 +30,19 @@ public class TaiKhoanDaoImpl implements TaiKhoanDao {
         return null;
     }
 
-	@Override
-	public boolean createAccount(TaiKhoan newAccount) {
+    @Override
+    public TaiKhoan getById(Long id) {
+        return null;
+    }
+
+    @Override
+	public Long createAccount(TaiKhoan newAccount) {
 		try {
-			hibernateUtil.getCurrentSession().persist(newAccount);
+			return (Long) hibernateUtil.getCurrentSession().save(newAccount);
 		} catch(Exception e) {
 			e.printStackTrace();
-			return false;
 		}
-		return true;
+		return null;
 	}
 
     @Override

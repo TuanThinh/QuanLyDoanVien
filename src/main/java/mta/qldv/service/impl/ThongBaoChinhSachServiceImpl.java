@@ -18,17 +18,17 @@ public class ThongBaoChinhSachServiceImpl implements ThongBaoChinhSachService {
     }
 
 	@Override
-	public boolean addThongBaoChinhSach(ThongBaoChinhSach newTBCS) {
+	public Boolean addThongBaoChinhSach(ThongBaoChinhSach newTBCS) {
 		return thongBaoChinhSachDao.addThongBaoChinhsSach(newTBCS);
 	}
 
 	@Override
-	public boolean updateThongBaoChinhSach(ThongBaoChinhSach newTBCS) {
+	public Boolean updateThongBaoChinhSach(ThongBaoChinhSach newTBCS) {
 		return thongBaoChinhSachDao.updateThongBaoChinhsSach(newTBCS);
 	}
 
 	@Override
-	public boolean deleteThongBaoChinhSach(ThongBaoChinhSach tBCS) {
+	public Boolean deleteThongBaoChinhSach(ThongBaoChinhSach tBCS) {
 		return thongBaoChinhSachDao.deleteThongBaoChinhsSach(tBCS);
 	}
 }

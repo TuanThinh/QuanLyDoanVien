@@ -19,18 +19,18 @@ public class ChiDoanServiceImpl implements ChiDoanService {
     }
 
 	@Override
-	public boolean addChiDoan(ChiDoan newChiDoan) {
+	public Boolean addChiDoan(ChiDoan newChiDoan) {
 		return chiDoanDao.addChiDoan(newChiDoan);
 	}
 
 	@Override
-	public boolean updateChiDoan(ChiDoan newChiDoan) {
+	public Boolean updateChiDoan(ChiDoan newChiDoan) {
 		return chiDoanDao.updateChiDoan(newChiDoan);
 	}
 
 	@Override
-	public boolean deleteChiDoan(ChiDoan chiDoan) {
-		return chiDoanDao.deleteChiDoan(chiDoan);
+	public Boolean deleteChiDoan(Long id) {
+		return chiDoanDao.deleteChiDoan(id);
 	}
 
 	@Override

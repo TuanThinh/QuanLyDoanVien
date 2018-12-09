@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface TaiKhoanService {
     List<TaiKhoan> getList();
-    boolean createAccount(TaiKhoan newAccount);
+    TaiKhoan getById(Long id);
+    Long createAccount(TaiKhoan taiKhoan);
+    TaiKhoan findByUserName(String username);
 }

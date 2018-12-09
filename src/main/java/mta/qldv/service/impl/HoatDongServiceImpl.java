@@ -19,23 +19,23 @@ public class HoatDongServiceImpl implements HoatDongService {
     }
 
 	@Override
-	public HoatDong getHoatDongById(int id) {
-		return hoatDongDao.getHoatDongById(id);
+	public HoatDong getById(Long id) {
+		return hoatDongDao.getById(id);
 	}
 
 	@Override
-	public boolean addHoatDong(HoatDong newHoatDong) {
+	public Boolean addHoatDong(HoatDong newHoatDong) {
 		return hoatDongDao.addHoatDong(newHoatDong);
 	}
 
 	@Override
-	public boolean updateHoatDong(HoatDong newHoatDong) {
+	public Boolean updateHoatDong(HoatDong newHoatDong) {
 		return hoatDongDao.updateHoatDong(newHoatDong);
 	}
 
 	@Override
-	public boolean deleteHoatDongById(HoatDong hoatDong) {
-		return hoatDongDao.deleteHoatDong(hoatDong);
+	public Boolean deleteById(Long id) {
+		return hoatDongDao.deleteHoatDong(id);
 	}
 
 	@Override

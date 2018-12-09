@@ -266,4 +266,9 @@ public class HoSoServiceImpl implements HoSoService {
     public List<HoatDongHoSoDto> getTkDanhSachHoatDong(TKHoatDongHoSoForm form){
         return hoSoDao.getTkDanhSachHoatDong(form);
     }
+
+	@Override
+	public boolean updateTaiKhoan(HoSo hoSo) {
+		return hoSoDao.updateTaiKhoan(hoSo);
+	}
 }

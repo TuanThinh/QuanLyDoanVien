@@ -13,6 +13,21 @@ public class ChucVuServiceImpl implements ChucVuService {
     @Autowired
     private ChucVuDao chucVuDao;
 
+    @Override
+    public Boolean addChucVu(ChucVu chucVu) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateChucVu(ChucVu chucVu) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteChucVu(Long id) {
+        return null;
+    }
+
     public List<ChucVu> getList() {
         return chucVuDao.getList();
     }

@@ -16,4 +16,24 @@ public class QuyenServiceImpl implements QuyenService {
     public List<Quyen> getList() {
         return quyenDao.getList();
     }
+
+    @Override
+    public Quyen getById(Long id) {
+        return null;
+    }
+
+    @Override
+    public Boolean addQuyen(Quyen quyen) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateQuyen(Quyen quyen) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteQuyen(Long id) {
+        return null;
+    }
 }

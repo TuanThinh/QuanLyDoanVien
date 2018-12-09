@@ -16,4 +16,14 @@ public class PhanHoiServiceImpl implements PhanHoiService {
     public List<PhanHoi> getList() {
         return phanHoiDao.getList();
     }
+
+    @Override
+    public Boolean addPhanHoi(PhanHoi phanHoi) {
+        return null;
+    }
+
+    @Override
+    public Boolean deletePhanHoi(Long id) {
+        return null;
+    }
 }

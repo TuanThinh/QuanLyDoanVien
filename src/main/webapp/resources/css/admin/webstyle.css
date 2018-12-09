@@ -1,5 +1,10 @@
 .container-fluid {
-    background-color: #4582EC;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#notify-list a {
+	color: black;
 }
 
 .search-container {
@@ -47,8 +52,8 @@
 
 .number-label {
     position: absolute;
-    right: 95px;
-    top: 40px;
+    right: 55px;
+    top: 10px;
     background: #d9534f;
     color: #fff;
     font-size: 10px;
@@ -103,7 +108,7 @@
     margin-left: 5px;
     padding: 6px 10px;
     width: 250px;
-    font-size: 15pt;
+    font-size: 14pt;
 }
 
 .page-title {
@@ -121,11 +126,20 @@
 }
 
 .btn-table {
+	margin-right: 3px;
+}
+
+.icon-btn-table {
     padding: 0.1rem 0.2rem;
 }
 
 .pagination-pos {
     margin-top: 30px;
+}
+
+.required-field {
+    margin-left: 3px;
+    color: red;
 }
 
 footer {

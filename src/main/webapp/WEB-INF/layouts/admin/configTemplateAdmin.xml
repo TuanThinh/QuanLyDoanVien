@@ -5,45 +5,65 @@
         
 <tiles-definitions>
 	<definition name="TemplateAdmin" template="/WEB-INF/layouts/admin/template_admin.jsp">
+		<put-attribute name="title" value="" />
 		<put-attribute name="top" value="/WEB-INF/layouts/admin/_top.jsp" />
 		<put-attribute name="left" value="/WEB-INF/layouts/admin/_left.jsp" />
 		<put-attribute name="content" value="" />
 		<put-attribute name="footer" value="/WEB-INF/layouts/admin/_footer.jsp" />
 	</definition>
 	
-	<!-- <definition name="notification" extends="">
-		<put-attribute 
-	</definition>
-	-->
 	<definition name="home-admin" extends="TemplateAdmin">
+		<put-attribute name="title" value="Trang chủ" />
 		<put-attribute name="content" value="/WEB-INF/views/admin/home.jsp"/>
 	</definition>
 	
-	<definition name="tai-khoan-admin" extends="TemplateAdmin">
+	<definition name="them-tai-khoan" extends="TemplateAdmin">
+		<put-attribute name="title" value="Thêm tài khoản" />
+		<put-attribute name="content" value="/WEB-INF/views/admin/taotk.jsp"/>
+	</definition>
+	
+	<definition name="danh-sach-tai-khoan" extends="TemplateAdmin">
+		<put-attribute name="title" value="Danh sách tài khoản" />
 		<put-attribute name="content" value="/WEB-INF/views/admin/taikhoan.jsp"/>
 	</definition>
 	
-	<definition name="doan-co-so-admin" extends="TemplateAdmin">
+	<definition name="them-doan-co-so" extends="TemplateAdmin">
+		<put-attribute name="title" value="Thành lập đoàn cơ sở" />
+		<put-attribute name="content" value="/WEB-INF/views/admin/taodcs.jsp"/>
+	</definition>
+	
+	<definition name="danh-sach-doan-co-so" extends="TemplateAdmin">
+		<put-attribute name="title" value="Danh sách đoàn cơ sở" />
 		<put-attribute name="content" value="/WEB-INF/views/admin/doancoso.jsp"/>
 	</definition>
 	
-	<definition name="tb-cs-admin" extends="TemplateAdmin">
+	<definition name="them-tb-cs" extends="TemplateAdmin">
+		<put-attribute name="title" value="Thêm thông báo - chính sách" />
+		<put-attribute name="content" value="/WEB-INF/views/admin/taotbcs.jsp"/>
+	</definition>
+	
+	<definition name="danh-sach-tb-cs" extends="TemplateAdmin">
+		<put-attribute name="title" value="Danh sách thông báo - chính sách" />
 		<put-attribute name="content" value="/WEB-INF/views/admin/thongbao.jsp"/>
 	</definition>
 	
-	<definition name="hd-duyet-admin" extends="TemplateAdmin">
+	<definition name="danh-sach-hd-duyet" extends="TemplateAdmin">
 		<put-attribute name="title" value="Danh sách hoạt động đã phê duyệt"/>
 		<put-attribute name="content" value="/WEB-INF/views/admin/hoatdong.jsp"/>
 	</definition>
 	
-	<definition name="hd-de-xuat-admin" extends="TemplateAdmin">
+	<definition name="danh-sach-hd-de-xuat" extends="TemplateAdmin">
 		<put-attribute name="title" value="Danh sách hoạt động được đề xuất"/>
 		<put-attribute name="content" value="/WEB-INF/views/admin/hoatdong.jsp"/>
 	</definition>
 	
-	<definition name="hd-huy-admin" extends="TemplateAdmin">
+	<definition name="danh-sach-hd-huy" extends="TemplateAdmin">
 		<put-attribute name="title" value="Danh sách hoạt động đã hủy bỏ"/>
 		<put-attribute name="content" value="/WEB-INF/views/admin/hoatdong.jsp"/>
 	</definition>
 	
+	<definition name="them-hd" extends="TemplateAdmin">
+		<put-attribute name="title" value="Thêm hoạt động"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/taohd.jsp"/>
+	</definition>
 </tiles-definitions>

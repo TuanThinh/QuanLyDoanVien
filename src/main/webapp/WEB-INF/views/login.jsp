@@ -19,7 +19,7 @@
             </div>
             <form action="/j_spring_security_check" method="post" accept-charset="utf-8">
             	<fieldset>
-            		<div class="label">E-mail</div>
+            		<div class="label">Tài khoản</div>
 	                <div class="input">
 	                    <input id="txtEmail" class="txt" type="text" name="username" placeholder="Nhập địa chỉ email" >
 	                    <i class="icon-append fa fa-user" id="infEmail"></i>

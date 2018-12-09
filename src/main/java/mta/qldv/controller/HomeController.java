@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     @GetMapping
-    public String Default(Model model) {
+    public String Default() {
         String role = "";
         CustomUserDetail currentUser = SecurityUtil.getCurrentUser();
         for (GrantedAuthority authority : currentUser.getAuthorities()) {
@@ -32,7 +32,7 @@ public class HomeController {
     }
 
     @GetMapping("/home")
-    public String Home() {
+    public String home() {
 
         return "home";
     }

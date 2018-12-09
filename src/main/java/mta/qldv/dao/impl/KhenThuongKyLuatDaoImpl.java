@@ -17,6 +17,21 @@ public class KhenThuongKyLuatDaoImpl implements KhenThuongKyLuatDao {
     private HibernateUtil hibernateUtil;
 
     @Override
+    public Boolean addKhenThuongKyLuat(KhenThuongKyLuat khenThuongKyLuat) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateKhenThuongKyLuat(KhenThuongKyLuat khenThuongKyLuat) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteKhenThuongKyLuat(Long id) {
+        return null;
+    }
+
+    @Override
     public List<KhenThuongKyLuat> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from KhenThuongKyLuat";
@@ -29,30 +44,30 @@ public class KhenThuongKyLuatDaoImpl implements KhenThuongKyLuatDao {
         return null;
     }
 
-    @Override
-    public List<KhenThuongKyLuatDto> findAll(){
-        Session session = hibernateUtil.getCurrentSession();
-        String sql = "select hs.ma_sv as maSv, hs.ho_ten as hoTen, hs.ngay_sinh as ngaySinh, l.ten_lop as chiDoan, k.ten_khoa as donVi, sqd.tieu_de as tieuDe, sqd.noi_dung as noiDung, kt.thoi_gian as thoiGian " +
-                "from ho_so hs inner join lop l on hs.id_lop = l.id " +
-                "inner join khoa k on k.id = l.id_khoa " +
-                "left join kt_kl kt on kt.id_hs = hs.id " +
-                "left join sqd_kt_kl sqd on sqd.id = kt.id_sqd";
-        try {
-            List<KhenThuongKyLuatDto> listKtkl = session.createSQLQuery(sql)
-                    .addScalar("maSv")
-                    .addScalar("hoTen")
-                    .addScalar("ngaySinh")
-                    .addScalar("chiDoan")
-                    .addScalar("donVi")
-                    .addScalar("tieuDe")
-                    .addScalar("noiDung")
-                    .addScalar("thoiGian")
-                    .setResultTransformer(Transformers.aliasToBean(KhenThuongKyLuatDto.class))
-                    .list();
-            return listKtkl;
-        } catch (Exception ex){
-            ex.printStackTrace();
-        }
-        return null;
-    }
+//    @Override
+//    public List<KhenThuongKyLuatDto> findAll(){
+//        Session session = hibernateUtil.getCurrentSession();
+//        String sql = "select hs.ma_sv as maSv, hs.ho_ten as hoTen, hs.ngay_sinh as ngaySinh, l.ten_lop as chiDoan, k.ten_khoa as donVi, sqd.tieu_de as tieuDe, sqd.noi_dung as noiDung, kt.thoi_gian as thoiGian " +
+//                "from ho_so hs inner join lop l on hs.id_lop = l.id " +
+//                "inner join khoa k on k.id = l.id_khoa " +
+//                "left join kt_kl kt on kt.id_hs = hs.id " +
+//                "left join sqd_kt_kl sqd on sqd.id = kt.id_sqd";
+//        try {
+//            List<KhenThuongKyLuatDto> listKtkl = session.createSQLQuery(sql)
+//                    .addScalar("maSv")
+//                    .addScalar("hoTen")
+//                    .addScalar("ngaySinh")
+//                    .addScalar("chiDoan")
+//                    .addScalar("donVi")
+//                    .addScalar("tieuDe")
+//                    .addScalar("noiDung")
+//                    .addScalar("thoiGian")
+//                    .setResultTransformer(Transformers.aliasToBean(KhenThuongKyLuatDto.class))
+//                    .list();
+//            return listKtkl;
+//        } catch (Exception ex){
+//            ex.printStackTrace();
+//        }
+//        return null;
+//    }
 }

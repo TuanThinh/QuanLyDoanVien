@@ -721,4 +721,32 @@ public class HoSoDaoImpl implements HoSoDao {
         }
         return null;
     }
+
+//	@Override
+//	public List<HoSo> getHoSoById(Long idHoSo) {
+//		try {
+//			String queryString = "from HoSo where id = :id";
+//			List<HoSo> hoSo = hibernateUtil.getCurrentSession()
+//					.createQuery(queryString)
+//					.setParameter("id", idHoSo)
+//					.list();
+//			return hoSo;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return null;
+//	}
+
+	@Override
+	public boolean updateTaiKhoan(HoSo hoSo) {
+		try {
+			Session session = hibernateUtil.getCurrentSession();
+			session.update(hoSo);
+			session.flush();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

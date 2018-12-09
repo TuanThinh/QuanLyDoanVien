@@ -32,7 +32,7 @@ public class HoatDongDaoImpl implements HoatDongDao {
 	@Override
 	public boolean addHoatDong(HoatDong newHoatDong) {
 		try {
-			hibernateUtil.getCurrentSession().persist(newHoatDong);
+			hibernateUtil.getCurrentSession().save(newHoatDong);
 		} catch(Exception e) {
 			e.printStackTrace();
 			return false;
@@ -52,9 +52,12 @@ public class HoatDongDaoImpl implements HoatDongDao {
 	}
 
 	@Override
-	public boolean deleteHoatDong(HoatDong hoatDong) {
+	public boolean deleteHoatDong(Long id) {
+		Session session = hibernateUtil.getCurrentSession();
 		try {
-			hibernateUtil.getCurrentSession().delete(hoatDong);
+			HoatDong hoatDong = (HoatDong) session.byId(HoatDong.class).load(id);
+			session.delete(hoatDong);
+			session.flush();
 		} catch(Exception e) {
 			e.printStackTrace();
 			return false;
@@ -78,7 +81,7 @@ public class HoatDongDaoImpl implements HoatDongDao {
 	@Override
 	public List<HoatDong> getApprovedList() {
 		try {
-			String query = "from HoatDong where trangThai = 'Chấp nhận'";
+			String query = "from HoatDong where trangThai = 'Đã duyệt'";
 			return hibernateUtil.getCurrentSession().createQuery(query).list();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -99,7 +102,7 @@ public class HoatDongDaoImpl implements HoatDongDao {
 	}
 
 	@Override
-	public HoatDong getHoatDongById(int id) {
+	public HoatDong getById(Long id) {
 		try {
 			String query = "from HoatDong where id = " + id;
 			return (HoatDong) hibernateUtil.getCurrentSession().createQuery(query);

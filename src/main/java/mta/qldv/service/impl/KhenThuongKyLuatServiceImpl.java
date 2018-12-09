@@ -14,11 +14,24 @@ public class KhenThuongKyLuatServiceImpl implements KhenThuongKyLuatService {
     @Autowired
     private KhenThuongKyLuatDao khenThuongKyLuatDao;
 
+    @Override
+    public Boolean addKhenThuongKyLuat(KhenThuongKyLuat khenThuongKyLuat) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateKhenThuongKyLuat(KhenThuongKyLuat khenThuongKyLuat) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteKhenThuongKyLuat(Long id) {
+        return null;
+    }
+
+    @Override
     public List<KhenThuongKyLuat> getList() {
         return khenThuongKyLuatDao.getList();
     }
 
-    public List<KhenThuongKyLuatDto> findAll(){
-        return khenThuongKyLuatDao.findAll();
-    }
 }

@@ -100,8 +100,8 @@ public class HomeUserController {
         return "baocaodagui";
     }
 
-    @GetMapping("/dcs/bao-cao-da-xoa")
-    public String baocaodaxoa() {
-        return "baocaodaxoa";
-    }
+//    @GetMapping("/dcs/bao-cao-da-xoa")
+//    public String baocaodaxoa() {
+//        return "baocaodaxoa";
+//    }
 }

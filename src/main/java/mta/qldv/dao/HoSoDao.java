@@ -54,6 +54,7 @@ public interface HoSoDao {
     BigInteger getDonViHlYeu(int idDonVi, int nam);
     BigInteger getDonViHlKem(int idDonVi, int nam);
 
+	boolean updateTaiKhoan(HoSo hoSo);
     List<DiemHoSoDto> getTkDanhSachDiem(TKDiemHoSoForm form);
     List<HoatDongHoSoDto> getTkDanhSachHoatDong(TKHoatDongHoSoForm form);
 }

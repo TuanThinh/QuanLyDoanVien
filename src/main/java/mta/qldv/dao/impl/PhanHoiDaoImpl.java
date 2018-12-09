@@ -14,6 +14,7 @@ public class PhanHoiDaoImpl implements PhanHoiDao {
     @Autowired
     private HibernateUtil hibernateUtil;
 
+    @Override
     public List<PhanHoi> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from PhanHoi";
@@ -23,6 +24,16 @@ public class PhanHoiDaoImpl implements PhanHoiDao {
         } catch (Exception ex){
             ex.printStackTrace();
         }
+        return null;
+    }
+
+    @Override
+    public Boolean addPhanHoi(PhanHoi phanHoi) {
+        return null;
+    }
+
+    @Override
+    public Boolean deletePhanHoi(Long id) {
         return null;
     }
 }

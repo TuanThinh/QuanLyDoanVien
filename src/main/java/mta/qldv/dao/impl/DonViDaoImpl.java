@@ -1,8 +1,10 @@
 package mta.qldv.dao.impl;
 
 import mta.qldv.dao.DonViDao;
+import mta.qldv.entity.ChiDoan;
 import mta.qldv.entity.DonVi;
 import mta.qldv.utils.HibernateUtil;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,22 @@ public class DonViDaoImpl implements DonViDao {
     @Autowired
     private HibernateUtil hibernateUtil;
 
+    @Override
+    public Boolean addDonVi(DonVi donVi) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateDonVi(DonVi donVi) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteDonVi(Long id) {
+        return null;
+    }
+
+    @Override
     public List<DonVi> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from DonVi dv order by dv.tenDonVi";

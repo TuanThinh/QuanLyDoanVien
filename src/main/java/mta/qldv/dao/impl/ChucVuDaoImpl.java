@@ -14,6 +14,22 @@ public class ChucVuDaoImpl implements ChucVuDao {
     @Autowired
     private HibernateUtil hibernateUtil;
 
+    @Override
+    public Boolean addChucVu(ChucVu chucVu) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateChucVu(ChucVu chucVu) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteChucVu(Long id) {
+        return null;
+    }
+
+    @Override
     public List<ChucVu> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from ChucVu";

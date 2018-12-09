@@ -14,6 +14,22 @@ public class ThamGiaDaoImpl implements ThamGiaDao {
     @Autowired
     private HibernateUtil hibernateUtil;
 
+    @Override
+    public Boolean addThamGia(ThamGia thamGia) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateThamGia(ThamGia thamGia) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteThamGia(Long id) {
+        return null;
+    }
+
+    @Override
     public List<ThamGia> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql ="from ThamGia";

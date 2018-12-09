@@ -14,6 +14,7 @@ public class QuyenDaoImpl implements QuyenDao {
     @Autowired
     private HibernateUtil hibernateUtil;
 
+    @Override
     public List<Quyen> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from Quyen";
@@ -24,6 +25,26 @@ public class QuyenDaoImpl implements QuyenDao {
             e.printStackTrace();
         }
 
+        return null;
+    }
+
+    @Override
+    public Quyen getById(Long id) {
+        return null;
+    }
+
+    @Override
+    public Boolean addQuyen(Quyen quyen) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateQuyen(Quyen quyen) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteQuyen(Long id) {
         return null;
     }
 }

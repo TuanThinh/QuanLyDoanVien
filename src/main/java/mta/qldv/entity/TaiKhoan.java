@@ -2,9 +2,14 @@ package mta.qldv.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -14,6 +19,8 @@ import java.util.List;
 @Entity
 @Table(name = "tai_khoan")
 public class TaiKhoan implements Serializable {
+	//private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false)
@@ -27,6 +34,7 @@ public class TaiKhoan implements Serializable {
 
 	@Column(name = "ngay_lap")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
+	@Temporal(TemporalType.DATE)
 	private Date ngayLap;
 
 	@Column(name = "kichhoat")
@@ -50,14 +58,6 @@ public class TaiKhoan implements Serializable {
 
 //	@OneToOne(mappedBy = "taiKhoan")
 //    private HoSo hoSo;
-
-//    public HoSo getHoSo() {
-//        return hoSo;
-//    }
-//
-//    public void setHoSo(HoSo hoSo) {
-//        this.hoSo = hoSo;
-//    }
 
 	public Long getId() {
 		return id;

@@ -7,8 +7,8 @@ import mta.qldv.utils.Paging;
 import java.util.List;
 
 public interface DiemDao {
-    Boolean addDiem(Diem d);
-    Boolean updateDiem(Diem d);
+    Boolean addDiem(Diem diem);
+    Boolean updateDiem(Diem diem);
     Boolean deleteDiem(Long id);
 
     int totalRecord(String parameter);

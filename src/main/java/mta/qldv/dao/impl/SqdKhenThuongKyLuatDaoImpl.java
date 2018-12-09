@@ -14,6 +14,22 @@ public class SqdKhenThuongKyLuatDaoImpl implements SqdKhenThuongKyLuatDao {
     @Autowired
     private HibernateUtil hibernateUtil;
 
+    @Override
+    public Boolean addSqdKhenThuongKyLuat(SqdKhenThuongKyLuat sqdKhenThuongKyLuat) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateSqdKhenThuongKyLuat(SqdKhenThuongKyLuat sqdKhenThuongKyLuat) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteSqdKhenThuongKyLuat(Long id) {
+        return null;
+    }
+
+    @Override
     public List<SqdKhenThuongKyLuat> getList() {
         Session session = hibernateUtil.getCurrentSession();
         String sql = "from SqdKhenThuongKyLuat";
@@ -23,6 +39,11 @@ public class SqdKhenThuongKyLuatDaoImpl implements SqdKhenThuongKyLuatDao {
         } catch (Exception ex){
             ex.printStackTrace();
         }
+        return null;
+    }
+
+    @Override
+    public SqdKhenThuongKyLuat getById(Long id) {
         return null;
     }
 }

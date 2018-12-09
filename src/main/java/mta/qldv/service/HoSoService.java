@@ -31,6 +31,8 @@ public interface HoSoService {
     JSONObject getChiDoanHl(int idChiDoan, int nam);
     JSONObject getDonViHl(int idDonVi, int nam);
 
+
+    boolean updateTaiKhoan(HoSo hoSo);
     List<DiemHoSoDto> getTkDanhSachDiem(TKDiemHoSoForm form);
     List<HoatDongHoSoDto> getTkDanhSachHoatDong(TKHoatDongHoSoForm form);
 }

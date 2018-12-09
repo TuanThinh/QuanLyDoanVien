@@ -13,7 +13,28 @@ public class SqdKhenThuongKyLuatServiceImpl implements SqdKhenTHuongKyLuatServic
     @Autowired
     private SqdKhenThuongKyLuatDao sqdKhenThuongKyLuatDao;
 
+    @Override
+    public Boolean addSqdKhenThuongKyLuat(SqdKhenThuongKyLuat sqdKhenThuongKyLuat) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateSqdKhenThuongKyLuat(SqdKhenThuongKyLuat sqdKhenThuongKyLuat) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteSqdKhenThuongKyLuat(Long id) {
+        return null;
+    }
+
+    @Override
     public List<SqdKhenThuongKyLuat> getList() {
         return sqdKhenThuongKyLuatDao.getList();
+    }
+
+    @Override
+    public SqdKhenThuongKyLuat getById(Long id) {
+        return null;
     }
 }

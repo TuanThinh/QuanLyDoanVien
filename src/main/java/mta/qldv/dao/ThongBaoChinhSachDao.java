@@ -7,9 +7,9 @@ import java.util.List;
 public interface ThongBaoChinhSachDao {
     List<ThongBaoChinhSach> getList();
 
-	boolean addThongBaoChinhsSach(ThongBaoChinhSach newTBCS);
+	Boolean addThongBaoChinhsSach(ThongBaoChinhSach thongBaoChinhSach);
 
-	boolean updateThongBaoChinhsSach(ThongBaoChinhSach newTBCS);
+	Boolean updateThongBaoChinhsSach(ThongBaoChinhSach thongBaoChinhSach);
 
-	boolean deleteThongBaoChinhsSach(ThongBaoChinhSach tBCS);
+	Boolean deleteThongBaoChinhsSach(ThongBaoChinhSach thongBaoChinhSach);
 }
