@@ -13,20 +13,17 @@ $(document).ready(function(){
 			columns:
 				[
 					{
-						data: 'lop.tenChiDoan'
+						data: 'tenChiDoan'
 					},										
 					{
-						data: 'hs.hoTen'
+						data: 'donVi.tenDonVi'
 					},
 					{
-						data: 'lop.donVi'
-					},
-					{
-						data: 'lop.id',
+						data: 'id',
 						bSortable: false,
 						mRender: function(data, type, row){
 							var str = '';
-							str += '<a href="' + window.contextRoot + '/chi-doan/list"><button class="btn btn-outline-success btn-table" data-toggle="tooltip" title="Chi tiết"><i class="fa fa-info-circle icon-btn-table"></i></button></a>';
+							str += '<a href="' + window.contextRoot + '/admin/chi-doan/' + data + '/danh-sach"><button class="btn btn-outline-success btn-table" data-toggle="tooltip" title="Chi tiết"><i class="fa fa-info-circle icon-btn-table"></i></button></a>';
 							str += '<a href="' + window.contextRoot + '/admin/doan-co-so/them"><button class="btn btn-outline-primary btn-table" data-toggle="tooltip" title="Sửa"><i class="fa fa-wrench icon-btn-table"></i></button></a>';
 							str += '<button class="btn btn-outline-danger btn-table" data-toggle="tooltip" title="Xóa"><i class="fa fa-trash icon-btn-table"></i></button>';
 							return str;

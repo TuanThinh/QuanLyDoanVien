@@ -271,4 +271,14 @@ public class HoSoServiceImpl implements HoSoService {
 	public boolean updateTaiKhoan(HoSo hoSo) {
 		return hoSoDao.updateTaiKhoan(hoSo);
 	}
+
+	@Override
+	public List<HoSo> getListInAdmin() {
+		return hoSoDao.getListInAdmin();
+	}
+
+	@Override
+	public List<HoSo> getByChiDoanId(Long id) {
+		return hoSoDao.getByChiDoanId(id);
+	}
 }

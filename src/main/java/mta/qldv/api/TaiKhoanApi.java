@@ -50,12 +50,17 @@ public class TaiKhoanApi {
 		taiKhoan.setMatKhau(taiKhoanDto.getMatKhau());
 		taiKhoan.setKichHoat(taiKhoanDto.getKichHoat());
 		taiKhoan.setNgayLap(new Date());
-
 		Long lastId = taiKhoanService.createAccount(taiKhoan);
+
+//		boolean insertResult = false;
+//		if (lastId != null) {
+//			insertResult = true;
+//		}
+
 		HoSo hoSo = hoSoService.getHoSoById(taiKhoanDto.getIdHoSo());
 		taiKhoan.setId(lastId);
 		hoSo.setTaiKhoan(taiKhoan);
 		hoSoService.updateTaiKhoan(hoSo);
-		return "redirect:/admin/tai-khoan/them/" + taiKhoanDto.getIdHoSo() + "?result=";
+		return "redirect:/admin/tai-khoan/danh-sach";// + taiKhoanDto.getIdHoSo(); + "?result=" + insertResult;
     }
 }

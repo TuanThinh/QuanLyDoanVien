@@ -2,7 +2,7 @@ package mta.qldv.dto;
 
 import javax.validation.constraints.NotBlank;
 
-public class DoanCoSoHoSoDto {
+public class ChiDoanDto {
 	@NotBlank(message="please")
 	private String tenChiDoan;
 

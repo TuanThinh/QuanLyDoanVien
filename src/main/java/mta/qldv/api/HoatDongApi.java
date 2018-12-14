@@ -42,8 +42,8 @@ public class HoatDongApi {
 
 	@GetMapping(value = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
-	public HoatDong getHoatDongById(@PathVariable int id) {
-		return hoatDongService.getHoatDongById(id);
+	public HoatDong getById(@PathVariable Long id) {
+		return hoatDongService.getById(id);
 	}
 
 	@PostMapping(value = "/add", produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -64,14 +64,15 @@ public class HoatDongApi {
 	}
 
 	@PutMapping(value = "/update/{hoatDong}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public boolean updateHoatDong(@PathVariable HoatDong newHoatDong) {
-		return hoatDongService.updateHoatDong(newHoatDong);
+	public boolean updateHoatDong(@PathVariable HoatDongDto hoatDongDto) {
+		HoatDong hoatDong = new HoatDong();
+		return hoatDongService.updateHoatDong(hoatDong);
 	}
 
-	@DeleteMapping(value = "/delete/{hoatDong}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public boolean deleteHoatDongById(@PathVariable HoatDong hoatDong) {
-		return hoatDongService.deleteHoatDongById(hoatDong);
-	}
+//	@DeleteMapping(value = "/delete/{hoatDong}", produces = { MediaType.APPLICATION_JSON_VALUE })
+//	public boolean deleteHoatDongById(@PathVariable HoatDong hoatDong) {
+//		return hoatDongService.deleteHoatDongById(hoatDong);
+//	}
 
 	@GetMapping(value = "/list/pending", produces = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody

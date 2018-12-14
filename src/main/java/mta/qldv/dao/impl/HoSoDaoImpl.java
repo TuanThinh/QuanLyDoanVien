@@ -722,21 +722,6 @@ public class HoSoDaoImpl implements HoSoDao {
         return null;
     }
 
-//	@Override
-//	public List<HoSo> getHoSoById(Long idHoSo) {
-//		try {
-//			String queryString = "from HoSo where id = :id";
-//			List<HoSo> hoSo = hibernateUtil.getCurrentSession()
-//					.createQuery(queryString)
-//					.setParameter("id", idHoSo)
-//					.list();
-//			return hoSo;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
-
 	@Override
 	public boolean updateTaiKhoan(HoSo hoSo) {
 		try {
@@ -748,5 +733,27 @@ public class HoSoDaoImpl implements HoSoDao {
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public List<HoSo> getListInAdmin() {
+		String queryString = "from HoSo";
+		try {
+			return hibernateUtil.getCurrentSession().createQuery(queryString).list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<HoSo> getByChiDoanId(Long id) {
+		String queryString = "from HoSo where chiDoan.id = :id";
+		try {
+			return hibernateUtil.getCurrentSession().createQuery(queryString).setParameter("id", id).list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

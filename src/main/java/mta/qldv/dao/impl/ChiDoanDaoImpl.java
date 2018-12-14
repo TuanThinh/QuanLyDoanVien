@@ -19,11 +19,9 @@ public class ChiDoanDaoImpl implements ChiDoanDao {
 	@Override
 	public List<ChiDoan> getList() {
 		Session session = hibernateUtil.getCurrentSession();
-		String sql = "select hs.chiDoan.tenChiDoan, hs.hoTen, hs.chiDoan.donVi.tenDonVi, hs.chiDoan.id "
-				+ "from HoSo hs where hs.chucVu.tenChucVu = :tenChucVu "
-				+ "order by hs.chiDoan.tenChiDoan";
+		String sql = "from ChiDoan";
 		try {
-			List<ChiDoan> listChiDoan = session.createQuery(sql).setParameter("tenChucVu", "Bí thư chi đoàn").list();
+			List<ChiDoan> listChiDoan = session.createQuery(sql).list();
 			return listChiDoan;
 		} catch (Exception ex) {
 

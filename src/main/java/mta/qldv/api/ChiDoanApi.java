@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import mta.qldv.dto.DoanCoSoHoSoDto;
+import mta.qldv.dto.ChiDoanDto;
 import mta.qldv.entity.ChiDoan;
 import mta.qldv.service.ChiDoanService;
 
@@ -37,25 +37,27 @@ public class ChiDoanApi {
     }
 
     @GetMapping(value = "/id/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    @ResponseBody
     public ChiDoan getChiDoanById(@PathVariable Long id){
     	return chiDoanService.getChiDoanById(id);
     }
     
     @PostMapping(value = "/add", produces = { MediaType.APPLICATION_JSON_VALUE })
-    public String addChiDoan(@Valid @ModelAttribute("doanCoSoDto") DoanCoSoHoSoDto doanCoSoDto,
+    public String addChiDoan(@Valid @ModelAttribute("doanCoSoDto") ChiDoanDto chiDoanDto,
 			BindingResult results, ModelMap map) {
     	if(results.hasErrors()) {
 			return "them-doan-co-so";
 		}
 		ChiDoan chiDoan = new ChiDoan();
-		chiDoan.setTenChiDoan(doanCoSoDto.getTenChiDoan());
-//		chiDoan.setDonVi(donViDao.getListById(doanCoSoDto.getDonVi()).get(0));
+		chiDoan.setTenChiDoan(chiDoanDto.getTenChiDoan());
+//		chiDoan.setDonVi(donViDao.getListById(chiDoanDto.getDonVi()).get(0));
 		return "redirect:/admin/doan-co-so/them?result=" + chiDoanService.addChiDoan(chiDoan);
     }
     
-    @PutMapping(value = "/update/{chiDoan}", produces = { MediaType.APPLICATION_JSON_VALUE })
-    public boolean updateChiDoan(@PathVariable("chidoan") ChiDoan newChiDoan) {
-    	return chiDoanService.updateChiDoan(newChiDoan);
+    @PutMapping(value = "/update", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public boolean updateChiDoan(@PathVariable("chidoan") ChiDoanDto chiDoanDto) {
+    	ChiDoan chiDoan = new ChiDoan();
+    	return chiDoanService.updateChiDoan(chiDoan);
     }
     
     @DeleteMapping(value = "/delete/{chiDoan}", produces = { MediaType.APPLICATION_JSON_VALUE })

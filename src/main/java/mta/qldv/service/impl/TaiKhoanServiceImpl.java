@@ -19,7 +19,7 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
     }
 
 	@Override
-	public Long createAccount(TaiKhoan newAccount) {
-		return taiKhoanDao.createAccount(newAccount);
+	public Long createAccount(TaiKhoan taiKhoan) {
+		return taiKhoanDao.createAccount(taiKhoan);
 	}
 }

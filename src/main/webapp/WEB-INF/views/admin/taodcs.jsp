@@ -12,7 +12,7 @@
 	</div>
 </c:if>
 <sf:form class="col-md-12" style="margin: 20px 0" modelAttribute="doanCoSoDto"
-	action="${pageContext.servletContext.contextPath}/admin/doan-co-so/them"
+	action="${pageContext.servletContext.contextPath}/chi-doan/add"
 	method="POST">
 	<fieldset class="col-md-12">
 		<legend>Thành lập đoàn cơ sở mới</legend>

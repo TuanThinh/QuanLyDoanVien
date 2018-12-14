@@ -51,17 +51,6 @@ public class HoatDongDaoImpl implements HoatDongDao {
 		return true;
 	}
 
-	@Override
-	public boolean deleteHoatDong(HoatDong hoatDong) {
-		try {
-			hibernateUtil.getCurrentSession().delete(hoatDong);
-		} catch(Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<HoatDong> getPendingList() {
@@ -99,10 +88,9 @@ public class HoatDongDaoImpl implements HoatDongDao {
 	}
 
 	@Override
-	public HoatDong getHoatDongById(int id) {
+	public HoatDong getById(Long id) {
 		try {
-			String query = "from HoatDong where id = " + id;
-			return (HoatDong) hibernateUtil.getCurrentSession().createQuery(query);
+			return (HoatDong) hibernateUtil.getCurrentSession().get(HoatDong.class, id);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

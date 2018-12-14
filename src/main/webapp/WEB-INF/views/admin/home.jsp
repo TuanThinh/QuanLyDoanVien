@@ -91,7 +91,7 @@
 					href="${pageContext.servletContext.contextPath}/admin/tb-cs/danh-sach">
 						<button type="button" class="btn btn-outline-success group-btn">
 							<i class="fa fa-bullhorn icon-margin-right"></i>Danh sách thông
-							báo
+							báo, chính sách
 						</button>
 				</a></li>
 			</ul>

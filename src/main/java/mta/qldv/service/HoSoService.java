@@ -34,6 +34,7 @@ public interface HoSoService {
     List<DiemHoSoDto> getTkDanhSachDiem(DiemHoSoForm form);
     List<HoatDongHoSoDto> getTkDanhSachHoatDong(HoatDongHoSoForm form);
     
-//    List<HoSo> getHoSoById(Long idHoSo);
     boolean updateTaiKhoan(HoSo hoSo);
+	List<HoSo> getListInAdmin();
+	List<HoSo> getByChiDoanId(Long id);
 }

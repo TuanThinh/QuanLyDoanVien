@@ -7,9 +7,11 @@ import java.util.List;
 public interface ThongBaoChinhSachDao {
     List<ThongBaoChinhSach> getList();
 
-	boolean addThongBaoChinhsSach(ThongBaoChinhSach newTBCS);
+	boolean addThongBaoChinhsSach(ThongBaoChinhSach tbcs);
 
-	boolean updateThongBaoChinhsSach(ThongBaoChinhSach newTBCS);
+	boolean updateThongBaoChinhsSach(ThongBaoChinhSach tbcs);
 
-	boolean deleteThongBaoChinhsSach(ThongBaoChinhSach tBCS);
+	boolean deleteThongBaoChinhsSach(ThongBaoChinhSach tbcs);
+
+	ThongBaoChinhSach getById(Long id);
 }

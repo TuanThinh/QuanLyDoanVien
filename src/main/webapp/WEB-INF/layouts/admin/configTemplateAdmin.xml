@@ -22,9 +22,9 @@
 		<put-attribute name="content" value="/WEB-INF/views/admin/taotk.jsp"/>
 	</definition>
 	
-	<definition name="danh-sach-tai-khoan" extends="TemplateAdmin">
-		<put-attribute name="title" value="Danh sách tài khoản" />
-		<put-attribute name="content" value="/WEB-INF/views/admin/taikhoan.jsp"/>
+	<definition name="danh-sach-doan-vien" extends="TemplateAdmin">
+		<put-attribute name="title" value="Danh sách đoàn viên" />
+		<put-attribute name="content" value="/WEB-INF/views/admin/doanvien.jsp"/>
 	</definition>
 	
 	<definition name="them-doan-co-so" extends="TemplateAdmin">

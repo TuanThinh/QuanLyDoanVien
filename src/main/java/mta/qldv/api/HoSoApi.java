@@ -3,6 +3,7 @@ package mta.qldv.api;
 import mta.qldv.dto.DiemHoSoDto;
 import mta.qldv.dto.HoatDongHoSoDto;
 import mta.qldv.entity.HoSo;
+import mta.qldv.entity.TaiKhoan;
 import mta.qldv.form.HoSoForm;
 import mta.qldv.form.DiemHoSoForm;
 import mta.qldv.form.HoatDongHoSoForm;
@@ -43,6 +44,12 @@ public class HoSoApi {
         return hoSoService.getList(paging).toString();
     }
 
+    @RequestMapping(value = "/admin-list", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+    @ResponseBody
+    public List<HoSo> getListInAdmin(){
+        return hoSoService.getListInAdmin();
+    }
+
     @RequestMapping(value = "/id", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
     public HoSo getById(@RequestParam Long id){
         return hoSoService.getHoSoById(id);
@@ -69,6 +76,12 @@ public class HoSoApi {
     public List<HoSo> getChiDoan(@PathVariable String name){
         List<HoSo> listHoSo = hoSoService.getChiDoan(name);
         return listHoSo;
+    }
+
+    @RequestMapping(value = "/chi-doan/{id}/danh-sach", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE})
+    public List<HoSo> getByChiDoanId(@PathVariable(name = "id") Long id){
+    	List<HoSo> listHoSo = hoSoService.getByChiDoanId(id);
+    	return listHoSo;
     }
 
     @RequestMapping(value = "/don-vi/{name}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })

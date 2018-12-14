@@ -9,9 +9,9 @@ public interface ChiDoanService {
 
 	ChiDoan getChiDoanById(Long id);
 
-	boolean addChiDoan(ChiDoan newChiDoan);
+	boolean addChiDoan(ChiDoan chiDoan);
 
-	boolean updateChiDoan(ChiDoan newChiDoan);
+	boolean updateChiDoan(ChiDoan chiDoan);
 
 	boolean deleteChiDoan(ChiDoan chiDoan);
     

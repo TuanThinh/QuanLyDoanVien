@@ -1,11 +1,11 @@
 $(document).ready(function() {
-	var $table = $('#tableDoanVien');
+	var $table = $('#table');
 	if($table.length){
-		var jsonUrl =  window.contextRoot + '/tai-khoan/list';
-		
+		var jsonUrl =  window.contextRoot + '/ho-so/chi-doan/' + window.idChiDoan + '/danh-sach';
+
 		$table.DataTable({
 			lengthMenu: [[10, 25, 50, 100], ['10', '25', '50', '100']],
-			pageLength: 5,
+			pageLength: 10,
 			ajax: {
 				url: jsonUrl,
 				dataSrc: ''
@@ -13,32 +13,23 @@ $(document).ready(function() {
 			columns:
 				[
 					{
-						data: 'maSv'
+						data: 'taiKhoan.tenTaiKhoan',
 					},
 					{
 						data: 'hoTen'
 					},
 					{
-						data: 'chiDoan.tenChiDoan'
+						data: 'maSv'
 					},
 					{
-						data: 'chiDoan.donVi.tenDonVi'
-					},
-					{
-						data: 'gioiTinh',
-						mRender: function(data, type, row){
-							return (data == true ? 'Nam' : 'Nữ');
-						}
-					},
-					{
-						data: 'ngaySinh'
+						data: 'taiKhoan.listQuyen[0].tenQuyen'
 					},
 					{
 						data: 'id',
 						bSortable: false,
 						mRender: function(data, type, row){
 							var str = '';
-							str += '<a href="' + window.contextRoot + '/tai-khoan/list"><button class="btn btn-outline-success btn-table" data-toggle="tooltip" title="Chi tiết"><i class="fa fa-info-circle icon-btn-table"></i></button></a>';
+							str += '<a href="' + window.contextRoot + '/admin/tai-khoan/them/' + data + '"><button class="btn btn-outline-success btn-table" data-toggle="tooltip" title="Thêm tài khoản"><i class="fa fa-plus-circle icon-btn-table"></i></button></a>';
 							str += '<button class="btn btn-outline-danger btn-table" data-toggle="tooltip" title="Xóa"><i class="fa fa-trash icon-btn-table"></i></button>';
 							return str;
 						}

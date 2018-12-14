@@ -32,9 +32,9 @@ public class TaiKhoanDaoImpl implements TaiKhoanDao {
     }
 
 	@Override
-	public Long createAccount(TaiKhoan newAccount) {
+	public Long createAccount(TaiKhoan taiKhoan) {
 		try {
-			return (Long) hibernateUtil.getCurrentSession().save(newAccount);
+			return (Long) hibernateUtil.getCurrentSession().save(taiKhoan);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

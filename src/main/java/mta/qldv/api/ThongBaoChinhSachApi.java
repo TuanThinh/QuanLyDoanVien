@@ -49,12 +49,18 @@ public class ThongBaoChinhSachApi {
 	}
 
 	@PutMapping(value = "/update/{tbcs}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public boolean updateThongBaoChinhSach(@PathVariable ThongBaoChinhSach newTBCS) {
-		return thongBaoChinhSachService.updateThongBaoChinhSach(newTBCS);
+	public boolean updateThongBaoChinhSach(@PathVariable ThongBaoChinhSachDto tbcsDto) {
+		ThongBaoChinhSach tbcs = new ThongBaoChinhSach();
+		return thongBaoChinhSachService.updateThongBaoChinhSach(tbcs);
 	}
 
 	@DeleteMapping(value = "/delete/{tbcs}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public boolean deleteThongBaoChinhSach(@PathVariable ThongBaoChinhSach tBCS) {
-		return thongBaoChinhSachService.deleteThongBaoChinhSach(tBCS);
+	public boolean deleteThongBaoChinhSach(@PathVariable ThongBaoChinhSach tbcs) {
+		return thongBaoChinhSachService.deleteThongBaoChinhSach(tbcs);
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+	public ThongBaoChinhSach getTBCS(@PathVariable Long id) {
+		return thongBaoChinhSachService.getTBCS(id);
 	}
 }

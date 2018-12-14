@@ -10,7 +10,6 @@
 		<thead>
 			<tr>
 				<th scope="col">Tên chi đoàn</th>
-				<th scope="col">Bí thư</th>
 				<th scope="col">Khoa</th>
 				<th scope="col">Tác vụ</th>
 			</tr>

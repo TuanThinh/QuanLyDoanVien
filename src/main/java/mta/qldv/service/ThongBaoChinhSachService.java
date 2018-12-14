@@ -7,9 +7,11 @@ import java.util.List;
 public interface ThongBaoChinhSachService {
     List<ThongBaoChinhSach> getList();
 
-	boolean addThongBaoChinhSach(ThongBaoChinhSach newTBCS);
+	boolean addThongBaoChinhSach(ThongBaoChinhSach tbcs);
 
-	boolean updateThongBaoChinhSach(ThongBaoChinhSach newTBCS);
+	boolean updateThongBaoChinhSach(ThongBaoChinhSach tbcs);
 
-	boolean deleteThongBaoChinhSach(ThongBaoChinhSach tBCS);
+	boolean deleteThongBaoChinhSach(ThongBaoChinhSach tbcs);
+
+	ThongBaoChinhSach getById(Long id);
 }

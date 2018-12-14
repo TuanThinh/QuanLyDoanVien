@@ -25,7 +25,7 @@ import mta.qldv.dao.DonViDao;
 import mta.qldv.dao.HoatDongDao;
 import mta.qldv.dao.QuyenDao;
 import mta.qldv.dao.TaiKhoanDao;
-import mta.qldv.dto.DoanCoSoHoSoDto;
+import mta.qldv.dto.ChiDoanDto;
 import mta.qldv.dto.HoatDongDto;
 import mta.qldv.dto.TaiKhoanDkyDto;
 import mta.qldv.dto.ThongBaoChinhSachDto;
@@ -59,10 +59,10 @@ public class HomeAdminController {
 	}
 	
 	@GetMapping("/tai-khoan/them/{ho-so}")
-	public String themTaiKhoanAdmin(@PathVariable(name="ho-so") Long id, @RequestParam(name="result", required=false) String result, ModelMap map) {
+	public String themTaiKhoanAdmin(@PathVariable(name="ho-so") Long idHoSo, @RequestParam(name="result", required=false) String result, ModelMap map) {
 		TaiKhoanDkyDto taiKhoanDto = new TaiKhoanDkyDto();
 		taiKhoanDto.setKichHoat(true);
-		taiKhoanDto.setIdHoSo(id);
+		taiKhoanDto.setIdHoSo(idHoSo);
 
 		map.addAttribute("taiKhoanDto", taiKhoanDto);
 		
@@ -76,14 +76,15 @@ public class HomeAdminController {
 		return "them-tai-khoan";
 	}
 
-	@GetMapping("/tai-khoan/danh-sach")
-	public String taiKhoanAdmin() {
-		return "danh-sach-tai-khoan";
+	@GetMapping("/chi-doan/{id}/danh-sach")
+	public String danhSachDoanVienChiDoanAdmin(@PathVariable(name = "id") Long idChiDoan, ModelMap map) {
+		map.addAttribute("idChiDoan", idChiDoan);
+		return "danh-sach-doan-vien";
 	}
 	
 	@GetMapping("/doan-co-so/them")
 	public String themDoanCoSoAdmin(@RequestParam(name="result", required=false) String result, ModelMap map) {
-		DoanCoSoHoSoDto doanCoSoDto = new DoanCoSoHoSoDto();
+		ChiDoanDto doanCoSoDto = new ChiDoanDto();
 		map.addAttribute("doanCoSoDto", doanCoSoDto);
 		
 		if(result != null) {
