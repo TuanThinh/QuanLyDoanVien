@@ -2,8 +2,10 @@ package mta.qldv.dao.impl;
 
 import mta.qldv.dao.TaiKhoanDao;
 import mta.qldv.entity.TaiKhoan;
+import mta.qldv.security.CustomUserDetail;
 import mta.qldv.utils.HibernateUtil;
 
+import mta.qldv.utils.SecurityUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,17 @@ public class TaiKhoanDaoImpl implements TaiKhoanDao {
 
     @Override
     public TaiKhoan getById(Long id) {
+        if(id == -1){
+            CustomUserDetail userDetail = SecurityUtil.getCurrentUser();
+            TaiKhoan taiKhoan = userDetail.getTaiKhoan();
+            return taiKhoan;
+        }
+        try {
+            TaiKhoan taiKhoan = (TaiKhoan) hibernateUtil.getCurrentSession().get(TaiKhoan.class, id);
+            return taiKhoan;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
         return null;
     }
 
@@ -55,5 +68,18 @@ public class TaiKhoanDaoImpl implements TaiKhoanDao {
             return null;
         }
         return taiKhoan;
+    }
+
+    @Override
+    public Boolean updateTaiKhoan(TaiKhoan tk) {
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            session.update(tk);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 }

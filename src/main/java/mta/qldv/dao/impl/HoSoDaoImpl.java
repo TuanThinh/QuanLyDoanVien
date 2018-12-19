@@ -684,12 +684,12 @@ public class HoSoDaoImpl implements HoSoDao {
 
     public List<HoatDongHoSoDto> getTkDanhSachHoatDong(TKHoatDongHoSoForm form){
         StringBuilder str = new StringBuilder();
-        str.append("select hs.ma_sv as maSv, hs.ho_ten as hoTen, hs.ngay_sinh as ngaySinh, l.ten_lop as chiDoan, k.ten_khoa as donVi, year(hd.thoi_gian) as thoiGian, count(tg.id_hd) as soLuong " +
+        str.append("select hs.ma_sv as maSv, hs.ho_ten as hoTen, hs.ngay_sinh as ngaySinh, l.ten_lop as chiDoan, k.ten_khoa as donVi, year(tg.thoi_gian) as thoiGian, count(tg.id_hd) as soLuong " +
                 "from ho_so as hs inner join lop as l on l.id = hs.id_lop " +
                 "inner join khoa as k on k.id = l.id_khoa " +
                 "inner join tham_gia as tg on tg.id_hs = hs.id " +
                 "inner join hoat_dong as hd on hd.id = tg.id_hd " +
-                "where year(hd.thoi_gian) = " + form.getThoiGian() + " ");
+                "where year(tg.thoi_gian) = " + form.getThoiGian() + " ");
 
         if(form.getIdChiDoan() != -1){
             str.append("and l.id = " + form.getIdChiDoan() + " ");

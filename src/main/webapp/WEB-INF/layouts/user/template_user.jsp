@@ -34,6 +34,53 @@
 <script>tinymce.init({ selector: 'textarea' });</script>
 
 <style>
+	#modalDoiMatKhau .form-group {
+		line-height: 35px;
+		height: 35px;
+		padding-right: 0px;
+	}
+
+	#modalDoiMatKhau .form-group {
+		line-height: 35px;
+		height: 35px;
+	}
+
+	#modalDoiMatKhau .modal-content {
+		width: 500px;
+		height: 300px;
+		margin: auto;
+		top: 50px;
+	}
+	#modalDoiMatKhau .modal-body {
+		padding: 15px;
+	}
+
+	#modalDoiMatKhau .form-control {
+		position: relative;
+		width: 273px;
+		height: 34px;
+	}
+
+	#modalDoiMatKhau .password {
+		color: red;
+		position: absolute;
+		right: 0px;
+		top: 0px;
+		padding-right: 5px;
+	}
+
+	#modalDoiMatKhau .confirm {
+		color: red;
+	}
+
+	#modalDoiMatKhau .custom {
+		padding: 0px;
+	}
+
+	#modalDoiMatKhau .col-md-5, #modalDoiMatKhau .col-md-7 {
+		margin-top: 0px;
+	}
+
 	.datepicker-container {
 		z-index: 1051 !important;
 	}
@@ -106,6 +153,46 @@
 		<tiles:insertAttribute name="help"></tiles:insertAttribute>
 	</div>
 
+	<div id="modalDoiMatKhau" class="modal" role="dialog">
+		<!-- Modal content -->
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Đổi mật khẩu</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label class="col-md-5 custom">Mật khẩu hiện tại: </label>
+						<div class="col-md-7 custom">
+							<input type="password" id="mat-khau-hien-tai" class="form-control" />
+							<span class="password"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-5 custom">Mật khẩu mới: </label>
+						<div class="col-md-7 custom">
+							<input type="password" id="mat-khau-moi" class="form-control" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-5 custom">Nhập lại mật khẩu mới: </label>
+						<div class="col-md-7 custom">
+							<input type="password" id="xac-nhan-mat-khau" class="form-control" />
+							<span class="confirm"></span>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="btnCapNhat" class="btn btn-primary">Cập nhật</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- /.modal -->
 	<!-- /#helpModal -->
 	<!--jQuery -->
@@ -139,9 +226,91 @@
 	<!-- <script src="assets/js/style-switcher.js"></script> -->
 
     <script>
-        $('.input-datepicker').datepicker({
-            format: 'yyyy-MM-dd'
-        })
+		$(document).ready(function () {
+		    $.ajax({
+				url: '/tai-khoan/id',
+				type: 'GET',
+				dataType: 'JSON',
+				data: {
+				    id : -1
+				},
+				success: function (data) {
+					var html = '';
+					html += '<h5 class="media-heading"> Tài khoản: ' + data.tenTaiKhoan + '</h5>';
+					html += '<ul class="list-unstyled user-info">';
+					html += '<li><a href="#" data-toggle="modal" data-target="#modalDoiMatKhau">Đổi mật khẩu</a></li>';
+					html += '<li>Lần truy cập cuối : <br> <small><i class="fa fa-calendar"></i>&nbsp;' + data.truyCapLanCuoi + '</small></li>';
+					html += '</ul>';
+					$('.media-body').html(html);
+                },
+				error: function (e) {
+					console.log(e);
+                }
+			});
+
+		    $('#mat-khau-moi').keyup(function () {
+		        var matKhauMoi = $('#mat-khau-moi').val();
+		        var xacNhanMatKhau = $('#xac-nhan-mat-khau').val();
+                $('.confirm').html("");
+                if (xacNhanMatKhau != ""){
+                    if (matKhauMoi != xacNhanMatKhau) {
+                        var html = 'Mật khẩu không khớp';
+                        $('.confirm').html(html);
+                    }
+                }
+            });
+
+            $('#xac-nhan-mat-khau').keyup(function () {
+                var matKhauMoi = $('#mat-khau-moi').val();
+                var xacNhanMatKhau = $('#xac-nhan-mat-khau').val();
+                $('.confirm').html("");
+                if (matKhauMoi != ""){
+                    if (matKhauMoi != xacNhanMatKhau) {
+                        var html = 'Mật khẩu không khớp';
+                        $('.confirm').html(html);
+                    }
+                }
+            });
+
+		    $('#btnCapNhat').click(function () {
+                var matKhauHienTai = $('#mat-khau-hien-tai').val();
+                var matKhauMoi = $('#mat-khau-moi').val();
+                var xacNhanMatKhau = $('#xac-nhan-mat-khau').val();
+                if (matKhauMoi != xacNhanMatKhau) {
+                    return false;
+                }
+                var data = {};
+                data.id = -1;
+                data.matKhauHienTai = matKhauHienTai;
+                data.matKhauMoi = matKhauMoi;
+                data.xacNhanMatKhauMoi = xacNhanMatKhau;
+                $.ajax({
+                    url: '/tai-khoan/doi-mat-khau',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function (data) {
+                        if (data == false) {
+                            var html = '<i class="fa fa-exclamation-circle" data-toggle="tooltip" data-original-title="Không&nbsp;chính&nbsp;xác" data-placement="top"></i>';
+                            $('.password').html(html);
+                            $('#mat-khau-hien-tai').css({"border-color" : "red"})
+                        } else {
+                            alert("Đổi mật khẩu thành công");
+                            location.reload();
+                        }
+                    }
+                });
+            });
+
+            $('.input-datepicker').datepicker({
+                format: 'yyyy-MM-dd'
+            })
+
+            $(document).ajaxComplete(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            })
+        });
     </script>
 </body>
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import mta.qldv.entity.DonVi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,12 @@ public class ChiDoanApi {
     @GetMapping(value = "/id/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public ChiDoan getChiDoanById(@PathVariable Long id){
     	return chiDoanService.getChiDoanById(id);
+    }
+
+    @GetMapping(value = "/id", produces = { MediaType.APPLICATION_JSON_VALUE })
+    @ResponseBody
+    public DonVi getDonVi(@RequestParam Long id){
+        return chiDoanService.getDonVi(id);
     }
     
     @PostMapping(value = "/add", produces = { MediaType.APPLICATION_JSON_VALUE })

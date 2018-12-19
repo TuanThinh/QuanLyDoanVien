@@ -2,6 +2,7 @@ package mta.qldv.dao.impl;
 
 import mta.qldv.dao.ChiDoanDao;
 import mta.qldv.entity.ChiDoan;
+import mta.qldv.entity.DonVi;
 import mta.qldv.utils.HibernateUtil;
 
 import org.hibernate.Query;
@@ -41,7 +42,21 @@ public class ChiDoanDaoImpl implements ChiDoanDao {
 		return null;
 	}
 
-	@Override
+    @Override
+    public DonVi getDonVi(Long idChiDoan) {
+	    String sql = "select cd.donVi from ChiDoan cd where cd.id = :idChiDoan";
+	    try {
+	        DonVi donVi = (DonVi) hibernateUtil.getCurrentSession().createQuery(sql)
+                    .setParameter("idChiDoan", idChiDoan)
+                    .uniqueResult();
+	        return donVi;
+        } catch (Exception ex){
+	        ex.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
 	public boolean addChiDoan(ChiDoan newChiDoan) {
 		try {
 			hibernateUtil.getCurrentSession().save(newChiDoan);

@@ -479,6 +479,20 @@ $(document).ready(function () {
         })
     });
 
+    $('#diem-chidoan').change(function () {
+        $.ajax({
+            url: '/chi-doan/id',
+            type: 'GET',
+            dataType: 'JSON',
+            data: {
+                id : $('#diem-chidoan').val()
+            },
+            success: function (data) {
+                $('#diem-donvi').val(data.id)
+            }
+        })
+    });
+
     $('#search-hoso-diem').keyup(function() {
         var value = $(this).val().toLowerCase();
         $("#danh-sach-diem-doan-vien tbody tr").filter(function() {
@@ -569,6 +583,20 @@ $(document).ready(function () {
             },
             error: function (e) {
                 console.log(e);
+            }
+        })
+    });
+
+    $('#hd-chidoan').change(function () {
+        $.ajax({
+            url: '/chi-doan/id',
+            type: 'GET',
+            dataType: 'JSON',
+            data: {
+                id : $('#hd-chidoan').val()
+            },
+            success: function (data) {
+                $('#hd-donvi').val(data.id)
             }
         })
     });

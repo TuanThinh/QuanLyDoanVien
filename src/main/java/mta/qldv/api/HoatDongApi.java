@@ -50,7 +50,7 @@ public class HoatDongApi {
 
 		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Date thoiGianToChuc = formatter.parse(hoatDongDto.getThoiGian());
-		hoatDong.setThoiGian(thoiGianToChuc);
+//		hoatDong.setThoiGian(thoiGianToChuc);
 		return "redirect:/admin/hoat-dong/them?result=" + hoatDongService.addHoatDong(hoatDong);
 	}
 

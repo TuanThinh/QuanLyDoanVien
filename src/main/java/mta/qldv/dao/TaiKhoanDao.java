@@ -9,4 +9,5 @@ public interface TaiKhoanDao {
     TaiKhoan getById(Long id);
     Long createAccount(TaiKhoan taiKhoan);
     TaiKhoan findByUserName(String username);
+    Boolean updateTaiKhoan(TaiKhoan tk);
 }

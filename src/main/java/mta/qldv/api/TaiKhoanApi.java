@@ -3,6 +3,7 @@ package mta.qldv.api;
 import mta.qldv.dto.TaiKhoanDkyDto;
 import mta.qldv.entity.HoSo;
 import mta.qldv.entity.TaiKhoan;
+import mta.qldv.form.DoiMatKhauForm;
 import mta.qldv.service.HoSoService;
 import mta.qldv.service.TaiKhoanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,7 @@ public class TaiKhoanApi {
     }
 
 	@RequestMapping(value = "/id", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+	@ResponseBody
 	public TaiKhoan getById(@RequestParam Long id){
 		return taiKhoanService.getById(id);
 	}
@@ -57,4 +59,10 @@ public class TaiKhoanApi {
 		hoSoService.updateTaiKhoan(hoSo);
 		return "redirect:/admin/tai-khoan/them/" + taiKhoanDto.getIdHoSo() + "?result=";
     }
+
+    @PostMapping(value = "/doi-mat-khau", produces = { MediaType.APPLICATION_JSON_VALUE })
+    @ResponseBody
+	public Boolean doiMatKhau(@RequestBody DoiMatKhauForm doiMatKhauForm){
+    	return taiKhoanService.doiMatKhau(doiMatKhauForm);
+	}
 }

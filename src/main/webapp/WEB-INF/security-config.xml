@@ -24,6 +24,7 @@
         <form-login login-page='/login' default-target-url="/" always-use-default-target="false"
                     login-processing-url="/j_spring_security_check"
                     authentication-failure-url="/login?error=true"
+                    authentication-success-handler-ref="authenticationSuccessHandler"
                     username-parameter="username"
                     password-parameter="password"/>
 

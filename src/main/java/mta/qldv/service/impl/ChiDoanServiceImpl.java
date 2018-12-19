@@ -2,6 +2,7 @@ package mta.qldv.service.impl;
 
 import mta.qldv.dao.ChiDoanDao;
 import mta.qldv.entity.ChiDoan;
+import mta.qldv.entity.DonVi;
 import mta.qldv.service.ChiDoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,10 @@ public class ChiDoanServiceImpl implements ChiDoanService {
 	@Override
 	public ChiDoan getChiDoanById(Long id) {
 		return chiDoanDao.getChiDoanById(id);
+	}
+
+	@Override
+	public DonVi getDonVi(Long idChiDOan) {
+		return chiDoanDao.getDonVi(idChiDOan);
 	}
 }
