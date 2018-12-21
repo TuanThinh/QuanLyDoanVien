@@ -114,11 +114,8 @@
 					<div class="form-group">
 						<label class="col-md-5 custom">Giới tính</label>
 						<div class="col-md-7 custom">
-							<select name="gioiTinh" class="form-control">
-								<option value="1">Nam</option>
-								<option value="0">Nữ</option>
-							</select>
-						</div>
+                            <input type="text"  class="form-control input-datepicker" readonly="readonly"/>
+                        </div>
 					</div>
 
 					<div class="form-group">
