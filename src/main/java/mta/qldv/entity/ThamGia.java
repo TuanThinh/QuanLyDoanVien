@@ -1,7 +1,10 @@
 package mta.qldv.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name = "tham_gia")
@@ -19,8 +22,9 @@ public class ThamGia implements Serializable {
 	@JoinColumn(name = "id_hd")
 	private HoatDong hoatDong;
 
-	@Column(name = "trang_thai")
-	private Boolean trangThai;
+	@Column(name = "thoi_gian")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
+	private Date thoiGian;
 
 	public Long getId() {
 		return id;
@@ -46,11 +50,11 @@ public class ThamGia implements Serializable {
 		this.hoatDong = hoatDong;
 	}
 
-	public Boolean getTrangThai() {
-		return trangThai;
+	public Date getThoiGian() {
+		return thoiGian;
 	}
 
-	public void setTrangThai(Boolean trangThai) {
-		this.trangThai = trangThai;
+	public void setThoiGian(Date thoiGian) {
+		this.thoiGian = thoiGian;
 	}
 }

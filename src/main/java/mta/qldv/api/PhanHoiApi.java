@@ -1,12 +1,11 @@
 package mta.qldv.api;
 
 import mta.qldv.entity.PhanHoi;
+import mta.qldv.form.PhanHoiForm;
 import mta.qldv.service.PhanHoiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +20,6 @@ public class PhanHoiApi {
         List<PhanHoi> listPhanHoi = phanHoiService.getList();
         return listPhanHoi;
     }
+    @PostMapping(value = "/add", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Boolean addPhanHoi(@RequestBody PhanHoiForm form){return phanHoiService.addPhanHoi(form);}
 }

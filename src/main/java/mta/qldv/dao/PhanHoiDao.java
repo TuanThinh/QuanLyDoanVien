@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface PhanHoiDao {
     List<PhanHoi> getList();
+    Boolean addPhanHoi(PhanHoi phanHoi);
 }

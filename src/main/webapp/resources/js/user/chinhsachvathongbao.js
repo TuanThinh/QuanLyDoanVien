@@ -7,9 +7,9 @@ $(document).ready(function () {
             html += '<td class="cstb-tennguoigui">' + item.nguoiGui + '</td>';
             html += '<td class="cstb-tieude">' + item.tenThongBaoChinhSach + '</td>';
             html += '<td>' +
-                '<input type="hidden" class="tb-id" value="' + item.id + '"/>' +
+                '<input type="" class="tb-id" value="' + item.id + '"/>' +
                 '<span data-toggle="modal" data-target="#modalDetail">' +
-                '<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top"></i>' +
+                '<i class="fa fa-eye" id="xem" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top"></i>' +
                 '</span> ' +
                 '</td>';
             html += '</tr>'
@@ -24,6 +24,9 @@ $(document).ready(function () {
         url: '/thong-bao-chinh-sach/list',
         type: 'GET',
         dataType: 'JSON',
+        data: {
+            id: -1
+        },
         success: function (data) {
             gnrThongBaoChinhSach(data);
         },
@@ -35,13 +38,13 @@ $(document).ready(function () {
     function hienThiNoiDungThongBao(data){
         var html='';
         $.each(data,function (i, item) {
-            html+='<p class="noi-dung">'+item.noiDung+'</p>';
+            html+='<textarea class="noi-dung">'+item.noiDung+'</textarea>';
         });
-        $('#modalDetail textarea').html(html);
+        $('#modalDetail textarea').html('<p>o day ko co gi</p>');
     }
 
-    $.ajax({
-        url: '/thong-bao-chinh-sach/list',
+    /*$.ajax({
+        url: '/thong-bao-chinh-sach/id',
         type: 'GET',
         dataType: 'JSON',
         success: function (data) {
@@ -50,23 +53,23 @@ $(document).ready(function () {
         error: function (e) {
             console.log(e);
         }
-    })
+    })*/
 
-    /*$(document).on("click",".fa-eye",function () {
+    $("#xem").on("click",function () {
+        var html='';
         $.ajax({
-
-            url: '/thong-bao-chinh-sach/list',
+            url: '/thong-bao-chinh-sach/id',
             type: 'GET',
             dataType: 'JSON',
             data:{
               id:  $(this).closest('tr').find('.tb-id').val()
             },
             success: function (data) {
-                hienThiNoiDungThongBao(data);
+                html+='<textarea class="noi-dung">'+data.noiDung+'</textarea>';
             },
             error: function (e) {
                 console.log(e);
             }
         })
-    });*/
+    });
 });

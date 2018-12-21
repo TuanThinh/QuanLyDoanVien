@@ -19,7 +19,7 @@
             <td class="cstb-tennguoigui"></td>
             <td class="cstb-tieude"></td>
             <td><span data-toggle="modal" data-target="#modalDetail">
-						<i class="fa fa-eye" data-toggle="tooltip"
+						<i class="fa fa-eye" id="xem" data-toggle="tooltip"
                            data-original-title="Chi tiết" data-placement="top"></i>
 				</span></td>
         </tr>
@@ -38,8 +38,8 @@
                 <div class="form-horizontal">
                     <div class="form-group">
                         <label>Nội dung</label>
-                        <textarea name="" id="" class="noi-dung" cols="50" rows="50"
-                                  style="resize: none; height: max-content"></textarea>
+                        <textarea name="" id="noiDung" class="noi-dung" cols="50" rows="50"
+                                  style="resize: none; height: max-content"> ở đây đang lỗi</textarea>
                     </div>
                 </div>
 

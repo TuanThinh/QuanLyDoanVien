@@ -25,4 +25,15 @@ public class PhanHoiDaoImpl implements PhanHoiDao {
         }
         return null;
     }
+
+    @Override
+    public Boolean addPhanHoi(PhanHoi phanHoi) {
+        try {
+            hibernateUtil.getCurrentSession().save(phanHoi);
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
 }

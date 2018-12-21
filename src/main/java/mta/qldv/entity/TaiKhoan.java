@@ -36,6 +36,10 @@ public class TaiKhoan implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
 	private Date truyCapLanCuoi;
 
+	@Column(name= "truycaphientai")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
+	private Date truyCapHienTai;
+
 	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
 	@JoinTable(
 			name = "taikhoan_quyen",
@@ -115,4 +119,11 @@ public class TaiKhoan implements Serializable {
 		this.truyCapLanCuoi = truyCapLanCuoi;
 	}
 
+	public Date getTruyCapHienTai() {
+		return truyCapHienTai;
+	}
+
+	public void setTruyCapHienTai(Date truyCapHienTai) {
+		this.truyCapHienTai = truyCapHienTai;
+	}
 }

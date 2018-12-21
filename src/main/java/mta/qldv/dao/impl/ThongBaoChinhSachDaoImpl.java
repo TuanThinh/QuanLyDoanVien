@@ -63,7 +63,7 @@ public class ThongBaoChinhSachDaoImpl implements ThongBaoChinhSachDao {
 	@Override
 	public ThongBaoChinhSach getById(Long id) {
 		try{
-			ThongBaoChinhSach thongBaoChinhSach=(ThongBaoChinhSach) hibernateUtil.getCurrentSession().load(ThongBaoChinhSach.class,id);
+			ThongBaoChinhSach thongBaoChinhSach=(ThongBaoChinhSach) hibernateUtil.getCurrentSession().get(ThongBaoChinhSach.class,id);
 			return thongBaoChinhSach ;
 		}catch (Exception e){
 			e.printStackTrace();
