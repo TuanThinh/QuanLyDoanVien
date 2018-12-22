@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <div class="row hoso">
-	<div class="modal-content">
+	<%--<div class="modal-content">
 		<div class=modal-header>
 			
 			<div class="capnhathoso-h">
@@ -130,17 +130,144 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>--%>
+	<div class="modal-content">
+			<div class=modal-header id="modal-head">
+				<div class="capnhathoso-mdv" id="capnhat-mdv">
+					<label class="custom left">Mã đoàn viên: </label>
+					<label class="custom " id="ma-doan-vien"></label>
+				</div>
+
+				<div class="capnhathoso-ht" id="capnhat-ht">
+					<label class="custom left">Họ và tên: </label>
+					<label class="custom" id="ho-ten"></label>
+				</div>
+
+				<div class="capnhathoso-ns">
+					<label class="custom left">Ngày sinh: </label>
+					<label class="custom" id="ngay-sinh"></label>
+				</div>
+
+				<div class="capnhathoso-gt">
+					<label class="custom left">Giới tính: </label>
+					<label class="custom" id="gioi-tinh"></label>
+				</div>
+			</div>
+
+
+			<div id="tbody">
+				<div class="col-md-2">
+					<label>Ảnh đại diện</label>
+					<div class="img-avatar">
+						<img class="media-object img-thumbnail user-img" alt="User Picture"
+							 src="/QuanLyDoanVien/resources/imgs/user.gif">
+						<input type="file">
+					</div>
+				</div>
+
+				<div class="col-md-5">
+					<div class="form-group">
+						<label class="col-md-5 custom">Địa chỉ</label>
+						<div class="col-md-7 custom" id="dia-chi">
+							<input type="text" name class="form-control" >
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-5 custom">Chi đoàn</label>
+						<div class="col-md-7 custom" id="chi-doan">
+							<input type="text" name class="form-control" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-5 custom" >Đơn vị</label>
+						<div class="col-md-7 custom" id="don-vi">
+							<input type="text" name class="form-control" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-5 custom">Số điện thoại</label>
+						<div class="col-md-7 custom" id="so-dien-thoai">
+							<input type="text" name class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-5 custom">Email</label>
+						<div class="col-md-7 custom" id="email">
+							<input type="text" name class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-5 custom">Ngày vào đoàn</label>
+						<div class="col-md-7 custom" id="ngay-vao-doan">
+							<input type="text" name class="form-control" disabled="disabled">
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-5">
+					<div class="form-group">
+						<label class="col-md-5 custom">Ngày vào đảng</label>
+						<div class="col-md-7 custom" id="ngay-vao-dang">
+							<input type="text" name class="form-control" disabled="disabled">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-5 custom" >Chức vụ</label>
+						<div class="col-md-7 custom" id="chuc-vu">
+							<input type="text" name class="form-control" disabled="disabled">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-5 custom">Dân tộc</label>
+						<div class="col-md-7 custom" id="dan-toc">
+							<input type="text" name class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group" >
+						<label class="col-md-5 custom">Quốc tịch</label>
+						<div class="col-md-7 custom" id="quoc-tich">
+							<input type="text" name class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-5 custom" >Tôn giáo</label>
+						<div class="col-md-7 custom" id="ton-giao">
+							<input type="text" name class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-md-5 custom">Đối tượng chính sách</label>
+						<div class="col-md-7 custom" id="doi-tuong-chinh-sach">
+							<input type="text" name class="form-control">
+						</div>
+					</div>
+
+
+				</div>
+
+
+			</div>
+
+		</div>
 </div>
 
 <div class="row">
 	<div class="col-md-12">
 		<fieldset>
 			<legend>
-				Thông tin rèn luyện
+				Điểm tích lũy
 			</legend>
 		</fieldset>
-		<table class="table table-striped table-bordered table-hover">
+		<table class="table table-striped table-bordered table-hover" id="diem-ren-luyen">
 			<thead>
 				<tr>
 					<th class="stt">STT</th>
@@ -163,7 +290,7 @@
 				Thông tin khen thưởng - kỷ luật
 			</legend>
 		</fieldset>
-		<table class="table table-striped table-bordered table-hover">
+		<table class="table table-striped table-bordered table-hover" id="khenthuong-kyluat">
 			<thead>
 			<tr>
 				<th class="stt">STT</th>
@@ -187,17 +314,35 @@
 	th.stt {
 		width: 45px;
 	}
-	
-	.capnhathoso-h{
-	width: 20%;
-	float: left;
-    margin: 0px 20px;
+
+	.capnhathoso-mdv {
+		width: 20%;
+		float: left;
+	}
+
+	.capnhathoso-ht {
+		width: 40%;
+		float: left;
+	}
+
+	.capnhathoso-ns {
+		width: 20%;
+		float: left;
+	}
+
+	.capnhathoso-gt {
+		width: 20%;
+		float: left;
 	}
 	
 	.modal-header {
     width: 100%
 	}
 
+	.left{
+		float: left;
+		margin-right: 3px;
+	}
 	.col-md-2 {
 	    width: 16,6666667%;
 	    margin-top: 20px;
@@ -220,7 +365,7 @@
 	.modal-content {
 		width: 98%;
 	    margin: auto;
-	    top: 30px;
+	    top: 10px;
 	}
 	.modal-body {
 		padding: 25px;
@@ -284,3 +429,4 @@
 	margin-top: 320px;
 	}
 </style>
+<script src="${pageContext.servletContext.contextPath}/resources/js/user/hosocanhan.js"></script>

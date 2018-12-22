@@ -8,15 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 import mta.qldv.dto.ThongBaoChinhSachDto;
 import mta.qldv.entity.ThongBaoChinhSach;
@@ -56,5 +49,10 @@ public class ThongBaoChinhSachApi {
 	@DeleteMapping(value = "/delete/{tbcs}", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public boolean deleteThongBaoChinhSach(@PathVariable ThongBaoChinhSach tBCS) {
 		return thongBaoChinhSachService.deleteThongBaoChinhSach(tBCS);
+	}
+
+	@RequestMapping(value = "/id", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+	public ThongBaoChinhSach getById(@RequestParam Long id){
+		return thongBaoChinhSachService.getById(id);
 	}
 }

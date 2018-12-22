@@ -1,73 +1,102 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<div>
-	<div class="header">
-		<h4>Thông báo và Chính sách</h4>
-		<hr>
-	</div>
-	
-	<div class="form-data">
-		<table class="table table-striped table-bordered table-hover">
-			<thead>
-				<tr>
-					<th>Thời gian</th>
-					<th>Id người gửi</th>
-					<th>Tên người gửi</th>
-					<th>Tiêu đề</th>
-					<th>Trạng thái</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td><a href="https://www.facebook.com/"> Xem </a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	
+         pageEncoding="UTF-8" %>
+<div class="form-data">
+    <input type="text" id="timKiem" placeholder="Tìm kiếm" class="form-control" style="width: 25%; margin-bottom: 7px;">
+    <table class="table table-striped table-bordered table-hover"
+           id="danh-sach-thong-bao">
+        <thead>
+        <tr>
+            <th style="width: 10%;">Thời gian</th>
+            <th style="width: 10%;">Tên người gửi</th>
+            <th>Tiêu đề</th>
+            <th style="width: 10%;">Trạng thái</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td class="cstb-thoigian"></td>
+            <td class="cstb-idnguoigui"></td>
+            <td class="cstb-tennguoigui"></td>
+            <td class="cstb-tieude"></td>
+            <td><span data-toggle="modal" data-target="#modalDetail">
+						<i class="fa fa-eye" id="" data-toggle="tooltip"
+                           data-original-title="Chi tiết" data-placement="top"></i>
+				</span></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div id="modalDetail" class="modal modal-fix" role="dialog">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4>Thông tin chi tiết</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label>Nội dung</label>
+                        <textarea name="" class="noi-dung" cols="50" rows="50"
+                                  style="resize: none; height: max-content"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </div>
 
+
 <style>
-.table-bordered {
-    border: 1px solid #ddd;
-}
+    .modal-fix {
+        margin-top: 123px;
+        margin-left: 262px;
+        margin-right: 80px;
+    }
 
-.table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-}
+    .form-data {
+        margin-top: 10px;
+    }
 
-table {
-    background-color: transparent;
-}
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
 
-table {
-    border-spacing: 0;
-    border-collapse: collapse;
-}
+    .table {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
 
-thead {
-    display: table-header-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
+    table {
+        background-color: transparent;
+    }
 
-th{
-width: 20%;
-}
+    table {
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
 
-tbody {
-    display: table-row-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
+    thead {
+        display: table-header-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
 
+    th {
+        width: 20%;
+    }
 
-	
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
 </style>
+
+<script
+        src="${pageContext.servletContext.contextPath}/resources/js/user/chinhsachvathongbao.js"></script>

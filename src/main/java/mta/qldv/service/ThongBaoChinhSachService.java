@@ -12,4 +12,6 @@ public interface ThongBaoChinhSachService {
 	Boolean updateThongBaoChinhSach(ThongBaoChinhSach thongBaoChinhSach);
 
 	Boolean deleteThongBaoChinhSach(ThongBaoChinhSach thongBaoChinhSach);
+
+	ThongBaoChinhSach getById(Long id);
 }

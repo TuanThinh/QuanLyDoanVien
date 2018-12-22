@@ -59,4 +59,15 @@ public class ThongBaoChinhSachDaoImpl implements ThongBaoChinhSachDao {
 		}
 		return true;
 	}
+
+	@Override
+	public ThongBaoChinhSach getById(Long id) {
+		try{
+			ThongBaoChinhSach thongBaoChinhSach=(ThongBaoChinhSach) hibernateUtil.getCurrentSession().get(ThongBaoChinhSach.class,id);
+			return thongBaoChinhSach ;
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

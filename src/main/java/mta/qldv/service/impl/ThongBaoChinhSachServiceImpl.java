@@ -31,4 +31,9 @@ public class ThongBaoChinhSachServiceImpl implements ThongBaoChinhSachService {
 	public Boolean deleteThongBaoChinhSach(ThongBaoChinhSach tBCS) {
 		return thongBaoChinhSachDao.deleteThongBaoChinhsSach(tBCS);
 	}
+
+	@Override
+	public ThongBaoChinhSach getById(Long id) {
+		return thongBaoChinhSachDao.getById(id);
+	}
 }

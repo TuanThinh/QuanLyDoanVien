@@ -77,7 +77,6 @@
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<h4>Thêm mới đoàn viên</h4>
 			</div>
-
 			<div class="modal-body">
 				<form id="form-add-hoso" class="form-horizontal">
 
