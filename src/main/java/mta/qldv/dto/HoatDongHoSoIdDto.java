@@ -2,11 +2,11 @@ package mta.qldv.dto;
 
 import java.util.Date;
 
-public class KtklHoSoIdDto {
+public class HoatDongHoSoIdDto {
     private int id;
     private Date thoiGian;
-    private String tieuDe;
-    private String noiDung;
+    private String tenHoatDong;
+    private String diaDiem;
 
     public int getId() {
         return id;
@@ -24,19 +24,19 @@ public class KtklHoSoIdDto {
         this.thoiGian = thoiGian;
     }
 
-    public String getTieuDe() {
-        return tieuDe;
+    public String getTenHoatDong() {
+        return tenHoatDong;
     }
 
-    public void setTieuDe(String tieuDe) {
-        this.tieuDe = tieuDe;
+    public void setTenHoatDong(String tenHoatDong) {
+        this.tenHoatDong = tenHoatDong;
     }
 
-    public String getNoiDung() {
-        return noiDung;
+    public String getDiaDiem() {
+        return diaDiem;
     }
 
-    public void setNoiDung(String noiDung) {
-        this.noiDung = noiDung;
+    public void setDiaDiem(String diaDiem) {
+        this.diaDiem = diaDiem;
     }
 }

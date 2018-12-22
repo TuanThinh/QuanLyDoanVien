@@ -11,6 +11,6 @@ public interface DiemDao {
     Boolean updateDiem(Diem diem);
     Boolean deleteDiem(Long id);
 
-    int totalRecord(String parameter);
-    List<DiemHoSoDto> getList(Paging paging);
+    Diem getById(Long id);
+    List<DiemHoSoDto> getList();
 }

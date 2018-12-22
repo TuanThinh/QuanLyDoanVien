@@ -9,5 +9,6 @@ public interface ThamGiaDao {
     Boolean updateThamGia(ThamGia thamGia);
     Boolean deleteThamGia(Long id);
 
+    ThamGia getById(Long id);
     List<ThamGia> getList();
 }

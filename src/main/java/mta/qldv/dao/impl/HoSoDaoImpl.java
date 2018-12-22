@@ -1,13 +1,11 @@
 package mta.qldv.dao.impl;
 
 import mta.qldv.dao.HoSoDao;
-import mta.qldv.dto.DiemHoSoDto;
-import mta.qldv.dto.DiemHoSoIdDto;
-import mta.qldv.dto.HoatDongHoSoDto;
-import mta.qldv.dto.KtklHoSoIdDto;
+import mta.qldv.dto.*;
 import mta.qldv.entity.HoSo;
 import mta.qldv.form.TKDiemHoSoForm;
 import mta.qldv.form.TKHoatDongHoSoForm;
+import mta.qldv.form.TkKhenThuongKyLuatForm;
 import mta.qldv.security.CustomUserDetail;
 import mta.qldv.utils.HibernateUtil;
 import mta.qldv.utils.Paging;
@@ -153,15 +151,16 @@ public class HoSoDaoImpl implements HoSoDao {
             CustomUserDetail userDetail = SecurityUtil.getCurrentUser();
             id = getCurrentIdHoSo(userDetail.getUsername());
         }
-        String sql = "select d.thoi_gian as thoiGian, d.diem as diem from ho_so as hs " +
+        String sql = "select d.id as id, d.thoi_gian as thoiGian, d.diem as diem from ho_so as hs " +
                 "inner join diem_ren_luyen as d on hs.id = d.id_hs " +
-                "where hs.id = :id";
+                "where hs.id = :idHoSo";
         try {
             List<DiemHoSoIdDto> listDiem = hibernateUtil.getCurrentSession()
                     .createSQLQuery(sql)
+                    .addScalar("id")
                     .addScalar("thoiGian")
                     .addScalar("diem")
-                    .setParameter("id", id)
+                    .setParameter("idHoSo", id)
                     .setResultTransformer(Transformers.aliasToBean(DiemHoSoIdDto.class))
                     .list();
             return listDiem;
@@ -177,12 +176,13 @@ public class HoSoDaoImpl implements HoSoDao {
             CustomUserDetail userDetail = SecurityUtil.getCurrentUser();
             id = getCurrentIdHoSo(userDetail.getUsername());
         }
-        String sql = "select kt.thoi_gian as thoiGian, sqd.tieu_de as tieuDe, sqd.noi_dung as noiDung " +
+        String sql = "select kt.id as id, kt.thoi_gian as thoiGian, sqd.tieu_de as tieuDe, sqd.noi_dung as noiDung " +
                 "from ho_so as hs inner join kt_kl as kt on hs.id = kt.id_hs " +
                 "inner join sqd_kt_kl as sqd on sqd.id = kt.id_sqd " +
                 "where hs.id = :id";
         try {
             List<KtklHoSoIdDto> listKtkl = hibernateUtil.getCurrentSession().createSQLQuery(sql)
+                    .addScalar("id")
                     .addScalar("thoiGian")
                     .addScalar("tieuDe")
                     .addScalar("noiDung")
@@ -195,7 +195,33 @@ public class HoSoDaoImpl implements HoSoDao {
         }
         return null;
     }
-//
+
+    @Override
+    public List<HoatDongHoSoIdDto> getHoatDongHoSoIdDto(Long id) {
+        if(id == -1){
+            CustomUserDetail userDetail = SecurityUtil.getCurrentUser();
+            id = getCurrentIdHoSo(userDetail.getUsername());
+        }
+        String sql = "select tg.id as id, tg.thoi_gian as thoiGian, hd.ten_hd as tenHoatDong, hd.dia_diem as diaDiem " +
+                "from ho_so as hs inner join tham_gia as tg on hs.id = tg.id_hs " +
+                "inner join hoat_dong as hd on hd.id = tg.id_hd " +
+                "where hs.id = :id";
+        try {
+            List<HoatDongHoSoIdDto> listHoatDong = hibernateUtil.getCurrentSession().createSQLQuery(sql)
+                    .addScalar("id")
+                    .addScalar("thoiGian")
+                    .addScalar("tenHoatDong")
+                    .addScalar("diaDiem")
+                    .setParameter("id", id)
+                    .setResultTransformer(Transformers.aliasToBean(HoatDongHoSoIdDto.class))
+                    .list();
+            return listHoatDong;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
+    //
 //    @Override
 //    public List<HoSo> getHoTen(String hoten) {
 //        String sql = "from HoSo where hoTen like :hoten";
@@ -722,7 +748,12 @@ public class HoSoDaoImpl implements HoSoDao {
         return null;
     }
 
-//	@Override
+    @Override
+    public List<KhenThuongKyLuatDto> getTkDanhSachKtkl(TkKhenThuongKyLuatForm form) {
+        return null;
+    }
+
+    //	@Override
 //	public List<HoSo> getHoSoById(Long idHoSo) {
 //		try {
 //			String queryString = "from HoSo where id = :id";

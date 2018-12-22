@@ -18,27 +18,58 @@ public class DiemDaoImpl implements DiemDao {
     private HibernateUtil hibernateUtil;
 
     @Override
-    public Boolean addDiem(Diem d) {
-        return null;
+    public Boolean addDiem(Diem diem) {
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            session.save(diem);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
-    public Boolean updateDiem(Diem d) {
-        return null;
+    public Boolean updateDiem(Diem diem) {
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            session.update(diem);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public Boolean deleteDiem(Long id) {
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            Diem diem = (Diem) session.byId(Diem.class).load(id);
+            session.delete(diem);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public Diem getById(Long id) {
+        try {
+            Diem diem = (Diem) hibernateUtil.getCurrentSession().get(Diem.class, id);
+            return diem;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
         return null;
     }
 
     @Override
-    public int totalRecord(String parameter) {
-        return 0;
-    }
-
-    @Override
-    public List<DiemHoSoDto> getList(Paging paging) {
+    public List<DiemHoSoDto> getList() {
         return null;
     }
 }

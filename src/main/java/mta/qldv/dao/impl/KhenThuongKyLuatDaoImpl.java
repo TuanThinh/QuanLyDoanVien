@@ -18,16 +18,51 @@ public class KhenThuongKyLuatDaoImpl implements KhenThuongKyLuatDao {
 
     @Override
     public Boolean addKhenThuongKyLuat(KhenThuongKyLuat khenThuongKyLuat) {
-        return null;
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            session.save(khenThuongKyLuat);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public Boolean updateKhenThuongKyLuat(KhenThuongKyLuat khenThuongKyLuat) {
-        return null;
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            session.update(khenThuongKyLuat);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public Boolean deleteKhenThuongKyLuat(Long id) {
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            KhenThuongKyLuat khenThuongKyLuat = (KhenThuongKyLuat) session.byId(KhenThuongKyLuat.class).load(id);
+            session.delete(khenThuongKyLuat);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public KhenThuongKyLuat getById(Long id) {
+        try {
+            return (KhenThuongKyLuat) hibernateUtil.getCurrentSession().get(KhenThuongKyLuat.class, id);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
         return null;
     }
 

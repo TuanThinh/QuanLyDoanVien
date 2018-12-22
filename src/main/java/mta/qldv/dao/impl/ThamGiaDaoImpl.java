@@ -16,16 +16,51 @@ public class ThamGiaDaoImpl implements ThamGiaDao {
 
     @Override
     public Boolean addThamGia(ThamGia thamGia) {
-        return null;
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            session.save(thamGia);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public Boolean updateThamGia(ThamGia thamGia) {
-        return null;
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            session.update(thamGia);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public Boolean deleteThamGia(Long id) {
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            ThamGia thamGia = (ThamGia) session.byId(ThamGia.class).load(id);
+            session.delete(thamGia);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public ThamGia getById(Long id) {
+        try {
+            return (ThamGia) hibernateUtil.getCurrentSession().get(ThamGia.class, id);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
         return null;
     }
 

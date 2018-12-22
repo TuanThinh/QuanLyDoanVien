@@ -16,17 +16,42 @@ public class SqdKhenThuongKyLuatDaoImpl implements SqdKhenThuongKyLuatDao {
 
     @Override
     public Boolean addSqdKhenThuongKyLuat(SqdKhenThuongKyLuat sqdKhenThuongKyLuat) {
-        return null;
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            session.save(sqdKhenThuongKyLuat);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public Boolean updateSqdKhenThuongKyLuat(SqdKhenThuongKyLuat sqdKhenThuongKyLuat) {
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            session.update(sqdKhenThuongKyLuat);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public Boolean deleteSqdKhenThuongKyLuat(Long id) {
-        return null;
+        Session session = hibernateUtil.getCurrentSession();
+        try {
+            SqdKhenThuongKyLuat sqdKhenThuongKyLuat = (SqdKhenThuongKyLuat) session.byId(SqdKhenThuongKyLuat.class).load(id);
+            session.delete(sqdKhenThuongKyLuat);
+            session.flush();
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
@@ -44,6 +69,12 @@ public class SqdKhenThuongKyLuatDaoImpl implements SqdKhenThuongKyLuatDao {
 
     @Override
     public SqdKhenThuongKyLuat getById(Long id) {
+        try {
+            SqdKhenThuongKyLuat sqdKhenThuongKyLuat = (SqdKhenThuongKyLuat) hibernateUtil.getCurrentSession().get(SqdKhenThuongKyLuat.class, id);
+            return sqdKhenThuongKyLuat;
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
         return null;
     }
 }

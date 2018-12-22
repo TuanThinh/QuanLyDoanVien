@@ -14,13 +14,13 @@
 			</header>
 	
 			<div class="topnav">
-				<div class="btn-group">
-					<a data-placement="bottom" data-original-title="Fullscreen"
-						data-toggle="tooltip" class="btn btn-default btn-sm"
-						id="toggleFullScreen"> <i
-						class="glyphicon glyphicon-fullscreen"></i>
-					</a>
-				</div>
+				<%--<div class="btn-group">--%>
+					<%--<a data-placement="bottom" data-original-title="Fullscreen"--%>
+						<%--data-toggle="tooltip" class="btn btn-default btn-sm"--%>
+						<%--id="toggleFullScreen"> <i--%>
+						<%--class="glyphicon glyphicon-fullscreen"></i>--%>
+					<%--</a>--%>
+				<%--</div>--%>
 				<div class="btn-group">
 					<a data-placement="bottom" data-original-title="Thông báo"
 						data-toggle="tooltip" class="btn btn-default btn-sm"> <i

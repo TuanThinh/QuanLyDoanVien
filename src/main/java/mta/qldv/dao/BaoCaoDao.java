@@ -10,5 +10,5 @@ public interface BaoCaoDao {
     Boolean deleteBaoCao(Long id);
 
     int totalRecord(String parameter);
-    List<BaoCao> getList(Paging paging);
+    List<BaoCao> getList(Long idHoSo);
 }

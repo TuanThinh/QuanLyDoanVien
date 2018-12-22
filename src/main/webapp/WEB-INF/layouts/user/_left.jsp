@@ -67,14 +67,6 @@
 					class="link-title"> Danh sách hồ sơ </span>
 			</a></li>
 
-			<li><a href="${pageContext.servletContext.contextPath}/user/dcs/diem"> <i class="fa fa-asterisk"></i> <span
-					class="link-title"> Điểm rèn luyện </span>
-			</a></li>
-
-			<li><a href="${pageContext.servletContext.contextPath}/user/dcs/khen-thuong-ky-luat"> <i class="fa fa-rebel"></i> <span
-					class="link-title"> Khen thưởng - kỷ luật </span>
-			</a></li>
-
 			<li><a href="${pageContext.servletContext.contextPath}/user/dcs/thong-ke"> <i class="fa fa-bar-chart-o "></i> <span
 					class="link-title">Thống kê</span>
 			</a>
@@ -90,8 +82,6 @@
 					<li><a href="${pageContext.servletContext.contextPath}/user/dcs/soan-bao-cao"> <i class="fa fa-angle-right"></i> Soạn báo cáo
 					</a></li>
 					<li><a href="${pageContext.servletContext.contextPath}/user/dcs/bao-cao-da-gui"> <i class="fa fa-angle-right"></i> Các báo cáo đã gửi
-					</a></li>
-					<li><a href="${pageContext.servletContext.contextPath}/user/dcs/bao-cao-da-xoa"> <i class="fa fa-angle-right"></i> Các báo cáo đã xóa
 					</a></li>
 				</ul>
 			</li>

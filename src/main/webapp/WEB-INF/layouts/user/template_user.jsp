@@ -305,7 +305,7 @@
 
             $('.input-datepicker').datepicker({
                 format: 'yyyy-MM-dd'
-            })
+            });
 
             $(document).ajaxComplete(function () {
                 $('[data-toggle="tooltip"]').tooltip();

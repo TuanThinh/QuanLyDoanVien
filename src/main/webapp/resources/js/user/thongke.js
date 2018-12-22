@@ -77,7 +77,7 @@ $(document).ready(function () {
 
     function tkDanhSachHoatDong(){
         var data = {};
-        data.soLuong = 5;
+        data.soLuong = 8;
         data.xepHang = "desc";
         data.thoiGian = 2017;
         data.idChiDoan = 1;

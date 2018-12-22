@@ -1,12 +1,10 @@
 package mta.qldv.dao;
 
-import mta.qldv.dto.DiemHoSoDto;
-import mta.qldv.dto.DiemHoSoIdDto;
-import mta.qldv.dto.HoatDongHoSoDto;
-import mta.qldv.dto.KtklHoSoIdDto;
+import mta.qldv.dto.*;
 import mta.qldv.entity.HoSo;
 import mta.qldv.form.TKDiemHoSoForm;
 import mta.qldv.form.TKHoatDongHoSoForm;
+import mta.qldv.form.TkKhenThuongKyLuatForm;
 import mta.qldv.utils.Paging;
 
 import java.math.BigInteger;
@@ -24,7 +22,7 @@ public interface HoSoDao {
     HoSo getHoSoById(Long id);
     List<DiemHoSoIdDto> getDiemHoSoId(Long id);
     List<KtklHoSoIdDto> getKtklHoSoId(Long id);
-
+    List<HoatDongHoSoIdDto> getHoatDongHoSoIdDto(Long id);
 //    List<HoSo> getHoTen(String hoten);
 //    List<HoSo> getDiaChi(String diachi);
 //    List<HoSo> getChiDoan(String chidoan);
@@ -57,4 +55,5 @@ public interface HoSoDao {
 	boolean updateTaiKhoan(HoSo hoSo);
     List<DiemHoSoDto> getTkDanhSachDiem(TKDiemHoSoForm form);
     List<HoatDongHoSoDto> getTkDanhSachHoatDong(TKHoatDongHoSoForm form);
+    List<KhenThuongKyLuatDto> getTkDanhSachKtkl(TkKhenThuongKyLuatForm form);
 }

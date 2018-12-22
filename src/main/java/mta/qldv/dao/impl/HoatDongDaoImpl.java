@@ -104,8 +104,7 @@ public class HoatDongDaoImpl implements HoatDongDao {
 	@Override
 	public HoatDong getById(Long id) {
 		try {
-			String query = "from HoatDong where id = " + id;
-			return (HoatDong) hibernateUtil.getCurrentSession().createQuery(query);
+			return (HoatDong) hibernateUtil.getCurrentSession().get(HoatDong.class, id);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

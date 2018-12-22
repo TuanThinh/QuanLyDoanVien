@@ -1,6 +1,7 @@
 package mta.qldv.api;
 
 import mta.qldv.entity.ThamGia;
+import mta.qldv.form.ThamGiaHoaDongForm;
 import mta.qldv.service.ThamGiaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -15,18 +16,23 @@ public class ThamGiaApi {
     private ThamGiaService thamGiaService;
 
     @PostMapping(value = "/add", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Boolean addThamGia(@RequestBody ThamGia thamGia){
-        return thamGiaService.addThamGia(thamGia);
+    public Boolean addThamGia(@RequestBody ThamGiaHoaDongForm thamGiaHoaDongForm){
+        return thamGiaService.addThamGia(thamGiaHoaDongForm);
     }
 
     @PutMapping(value = "/update", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Boolean updateThamGia(@RequestBody ThamGia thamGia){
-        return thamGiaService.updateThamGia(thamGia);
+    public Boolean updateThamGia(@RequestBody ThamGiaHoaDongForm thamGiaHoaDongForm){
+        return thamGiaService.updateThamGia(thamGiaHoaDongForm);
     }
 
     @PostMapping(value = "/delete", produces = {MediaType.APPLICATION_JSON_VALUE})
     public Boolean deleteThamGia(@RequestParam Long id){
         return thamGiaService.deleteThamGia(id);
+    }
+
+    @RequestMapping(value = "/id", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
+    public ThamGia getById(@RequestParam Long id){
+        return thamGiaService.getById(id);
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })

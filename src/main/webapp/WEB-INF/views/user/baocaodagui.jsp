@@ -1,26 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 
-<div class="row inner-top">
-    <div class="col-md-6 inner-top__left">
-        <span>Hiển thị</span>
-        <select class="form-control">
-            <option>10</option>
-            <option>20</option>
-            <option>30</option>
-        </select>
-        <span>bản ghi</span>
-    </div>
-    <div class="col-md-6 inner-top__right">
-        <input type="text" class="form-control" placeholder="Enter value"/>
-        <span>Tìm kiếm:</span>
-    </div>
-</div>
+<%--<div class="row inner-top">--%>
+    <%--<div class="col-md-6 inner-top__left">--%>
+        <%--<span>Hiển thị</span>--%>
+        <%--<select class="form-control">--%>
+            <%--<option>10</option>--%>
+            <%--<option>20</option>--%>
+            <%--<option>30</option>--%>
+        <%--</select>--%>
+        <%--<span>bản ghi</span>--%>
+    <%--</div>--%>
+    <%--<div class="col-md-6 inner-top__right">--%>
+        <%--<input type="text" class="form-control" placeholder="Enter value"/>--%>
+        <%--<span>Tìm kiếm:</span>--%>
+    <%--</div>--%>
+<%--</div>--%>
 
 <div class="row">
     <div class="col-md-12">
-        <button type="button" class="btn btn-danger" style="margin-bottom: 10px;">Xóa</button>
-        <table class="table table-striped table-bordered table-hover">
+        <div class="top">
+            <button type="button" id="btn-delete" class="btn btn-danger" style="margin-bottom: 10px;">Xóa</button>
+            <input type="text" id="search" class="form-control" placeholder="Search">
+        </div>
+        <table id="table-baocao" class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
                 <th style="width: 30px;"></th>
@@ -40,7 +43,6 @@
 				<span data-toggle="modal" data-target="#modalDetail">
 					<i class="fa fa-eye" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top" ></i>
 				</span>
-
                 </td>
             </tr>
             </tbody>
@@ -48,23 +50,23 @@
     </div>
 </div>
 
-<div class="row inner-bottom">
-    <div class="col-md-6 inner-bottom__left">
-        <span>Hiển thị từ a đến b của c bản ghi</span>
-    </div>
+<%--<div class="row inner-bottom">--%>
+    <%--<div class="col-md-6 inner-bottom__left">--%>
+        <%--<span>Hiển thị từ a đến b của c bản ghi</span>--%>
+    <%--</div>--%>
 
-    <div class="col-md-6 inner-bottom__right">
-        <ul class="pagination">
-            <li><a href = "">&laquo;</a></li>
-            <li><a href = "">1</a></li>
-            <li><a href = "">2</a></li>
-            <li><a href = "">3</a></li>
-            <li><a href = "">4</a></li>
-            <li><a href = "">5</a></li>
-            <li><a href = "">&raquo;</a></li>
-        </ul>
-    </div>
-</div>
+    <%--<div class="col-md-6 inner-bottom__right">--%>
+        <%--<ul class="pagination">--%>
+            <%--<li><a href = "">&laquo;</a></li>--%>
+            <%--<li><a href = "">1</a></li>--%>
+            <%--<li><a href = "">2</a></li>--%>
+            <%--<li><a href = "">3</a></li>--%>
+            <%--<li><a href = "">4</a></li>--%>
+            <%--<li><a href = "">5</a></li>--%>
+            <%--<li><a href = "">&raquo;</a></li>--%>
+        <%--</ul>--%>
+    <%--</div>--%>
+<%--</div>--%>
 
 <div id="modalDelete" class="modal" role="dialog">
     <!-- Modal content -->
@@ -113,6 +115,16 @@
 
 
 <style>
+
+    .top {
+        margin: 10px 0px;
+        height: 34px;
+    }
+
+    #search {
+        float: right;
+        width: 25%;
+    }
 
     i.fa:hover {
         cursor: pointer;
@@ -187,3 +199,5 @@
         margin: 0px 0px 15px 0px;
     }
 </style>
+
+<script src="${pageContext.servletContext.contextPath}/resources/js/user/baocao.js"></script>

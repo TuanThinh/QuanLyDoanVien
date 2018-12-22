@@ -68,17 +68,6 @@ public class HomeUserController {
         return "danhsachhoso";
     }
 
-    @GetMapping("/dcs/diem")
-    public String diem() {
-        return "diem";
-    }
-
-    @GetMapping("/dcs/khen-thuong-ky-luat")
-    public String khenthong_kyluat() {
-        return "khenthuongkyluat";
-
-    }
-
     @GetMapping("/dcs/thong-tin-khen-thuong-ky-luat")
     public String sdk_kt_kl() {
         return "sqdkhenthuongkyluat";

@@ -2,6 +2,7 @@ package mta.qldv.api;
 
 import mta.qldv.dto.DiemHoSoDto;
 import mta.qldv.entity.Diem;
+import mta.qldv.form.DiemForm;
 import mta.qldv.service.DiemService;
 import mta.qldv.utils.Paging;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,12 @@ public class DiemApi {
     private DiemService diemService;
 
     @PostMapping(value = "/add", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Boolean addDiem(@RequestBody Diem diem){
+    public Boolean addDiem(@RequestBody DiemForm diem){
         return diemService.addDiem(diem);
     }
 
     @PutMapping(value = "/update", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Boolean updateDiem(@RequestBody Diem diem){
+    public Boolean updateDiem(@RequestBody DiemForm diem){
         return diemService.updateDiem(diem);
     }
 
@@ -32,9 +33,14 @@ public class DiemApi {
         return diemService.deleteDiem(id);
     }
 
+    @RequestMapping(value = "/id", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Diem getById(@RequestParam Long id){
+        return diemService.getById(id);
+    }
+
     @RequestMapping(value = "/list", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String getList(@RequestBody Paging paging){
-        return diemService.getList(paging).toString();
+    public List<Diem> getList(){
+        return diemService.getList();
     }
 
 }

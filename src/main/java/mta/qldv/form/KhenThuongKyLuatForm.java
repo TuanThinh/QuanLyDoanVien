@@ -3,9 +3,18 @@ package mta.qldv.form;
 import java.util.Date;
 
 public class KhenThuongKyLuatForm {
+    private Long id;
     private Long idHoSo;
     private Long idSqdKtkl;
     private Date thoiGian;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getIdHoSo() {
         return idHoSo;

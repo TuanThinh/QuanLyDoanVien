@@ -4,10 +4,7 @@ import mta.qldv.dao.ChiDoanDao;
 import mta.qldv.dao.ChucVuDao;
 import mta.qldv.dao.DonViDao;
 import mta.qldv.dao.HoSoDao;
-import mta.qldv.dto.DiemHoSoDto;
-import mta.qldv.dto.DiemHoSoIdDto;
-import mta.qldv.dto.HoatDongHoSoDto;
-import mta.qldv.dto.KtklHoSoIdDto;
+import mta.qldv.dto.*;
 import mta.qldv.entity.*;
 import mta.qldv.form.HoSoForm;
 import mta.qldv.form.TKDiemHoSoForm;
@@ -137,11 +134,13 @@ public class HoSoServiceImpl implements HoSoService {
             }
         });
         List<KtklHoSoIdDto> listKtkl = hoSoDao.getKtklHoSoId(idHoSo);
+        List<HoatDongHoSoIdDto> listHdtg = hoSoDao.getHoatDongHoSoIdDto(idHoSo);
         List<HoSo> listHoSo = new ArrayList<HoSo>();
         listHoSo.add(hoSo);
         jsonObject.put("hoSo", listHoSo);
         jsonObject.put("listDiem", listDiem);
         jsonObject.put("listKtkl", listKtkl);
+        jsonObject.put("listHdtg", listHdtg);
         return jsonObject;
     }
 

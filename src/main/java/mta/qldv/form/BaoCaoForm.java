@@ -2,10 +2,11 @@ package mta.qldv.form;
 
 import java.util.Date;
 
-public class ThamGiaHoaDongForm {
+public class BaoCaoForm {
     private Long id;
     private Long idHoSo;
-    private Long idHoatDong;
+    private String tieuDe;
+    private String noiDung;
     private Date thoiGian;
 
     public Long getId() {
@@ -24,16 +25,24 @@ public class ThamGiaHoaDongForm {
         this.idHoSo = idHoSo;
     }
 
-    public Long getIdHoatDong() {
-        return idHoatDong;
+    public String getTieuDe() {
+        return tieuDe;
     }
 
-    public void setIdHoatDong(Long idHoatDong) {
-        this.idHoatDong = idHoatDong;
+    public void setTieuDe(String tieuDe) {
+        this.tieuDe = tieuDe;
+    }
+
+    public String getNoiDung() {
+        return noiDung;
+    }
+
+    public void setNoiDung(String noiDung) {
+        this.noiDung = noiDung;
     }
 
     public Date getThoiGian() {
-        return thoiGian;
+        return new Date();
     }
 
     public void setThoiGian(Date thoiGian) {

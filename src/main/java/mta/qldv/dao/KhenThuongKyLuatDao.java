@@ -10,5 +10,6 @@ public interface KhenThuongKyLuatDao {
     Boolean updateKhenThuongKyLuat(KhenThuongKyLuat khenThuongKyLuat);
     Boolean deleteKhenThuongKyLuat(Long id);
 
+    KhenThuongKyLuat getById(Long id);
     List<KhenThuongKyLuat> getList();
 }
