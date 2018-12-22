@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <div class="form-data">
+    <input type="text" id="timKiem" placeholder="Tìm kiếm" class="form-control" style="width: 25%; margin-bottom: 7px;">
     <table class="table table-striped table-bordered table-hover"
            id="danh-sach-thong-bao">
         <thead>
@@ -19,7 +20,7 @@
             <td class="cstb-tennguoigui"></td>
             <td class="cstb-tieude"></td>
             <td><span data-toggle="modal" data-target="#modalDetail">
-						<i class="fa fa-eye" id="xem" data-toggle="tooltip"
+						<i class="fa fa-eye" id="" data-toggle="tooltip"
                            data-original-title="Chi tiết" data-placement="top"></i>
 				</span></td>
         </tr>
@@ -38,8 +39,8 @@
                 <div class="form-horizontal">
                     <div class="form-group">
                         <label>Nội dung</label>
-                        <textarea name="" id="noiDung" class="noi-dung" cols="50" rows="50"
-                                  style="resize: none; height: max-content"> ở đây đang lỗi</textarea>
+                        <textarea name="" class="noi-dung" cols="50" rows="50"
+                                  style="resize: none; height: max-content"></textarea>
                     </div>
                 </div>
 

@@ -59,7 +59,7 @@
 				<!-- .nav -->
 				<ul class="nav navbar-nav">
 					<li><a href="dashboard.html">Trang chủ</a></li>
-					<li><a href="table.html">Thông báo - Chính sách</a></li>
+					<li><a href="${pageContext.servletContext.contextPath}/user/chinh-sach-va-thong-bao">Thông báo - Chính sách</a></li>
 					<li class='dropdown '><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> Hoạt động <b class="caret"></b>
 					</a>

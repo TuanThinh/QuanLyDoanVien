@@ -7,7 +7,7 @@ $(document).ready(function () {
             html += '<td class="cstb-tennguoigui">' + item.nguoiGui + '</td>';
             html += '<td class="cstb-tieude">' + item.tenThongBaoChinhSach + '</td>';
             html += '<td>' +
-                '<input type="" class="tb-id" value="' + item.id + '"/>' +
+                '<input type="hidden" class="tb-id" value="' + item.id + '"/>' +
                 '<span data-toggle="modal" data-target="#modalDetail">' +
                 '<i class="fa fa-eye" id="xem" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top"></i>' +
                 '</span> ' +
@@ -40,11 +40,11 @@ $(document).ready(function () {
         $.each(data,function (i, item) {
             html+='<textarea class="noi-dung">'+item.noiDung+'</textarea>';
         });
-        $('#modalDetail textarea').html('<p>o day ko co gi</p>');
+        $('#modalDetail textarea').html(html);
     }
 
-    /*$.ajax({
-        url: '/thong-bao-chinh-sach/id',
+    $.ajax({
+        url: '/thong-bao-chinh-sach/list',
         type: 'GET',
         dataType: 'JSON',
         success: function (data) {
@@ -53,10 +53,17 @@ $(document).ready(function () {
         error: function (e) {
             console.log(e);
         }
-    })*/
+    })
 
-    $("#xem").on("click",function () {
-        var html='';
+    $('#timKiem').keyup(function() {
+        var value = $(this).val().toLowerCase();
+        $("#danh-sach-thong-bao tbody tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $(document).on("click","fa-eye",function () {
+        /*var html='';
         $.ajax({
             url: '/thong-bao-chinh-sach/id',
             type: 'GET',
@@ -65,11 +72,12 @@ $(document).ready(function () {
               id:  $(this).closest('tr').find('.tb-id').val()
             },
             success: function (data) {
-                html+='<textarea class="noi-dung">'+data.noiDung+'</textarea>';
+
+                alert(data.noiDung);
             },
             error: function (e) {
                 console.log(e);
             }
-        })
+        })*/
     });
 });
