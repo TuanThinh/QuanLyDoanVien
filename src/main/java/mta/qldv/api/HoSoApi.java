@@ -12,7 +12,13 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.ServletContext;
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 @RestController
@@ -21,6 +27,9 @@ public class HoSoApi {
 
     @Autowired
     private HoSoService hoSoService;
+    @Autowired
+    private ServletContext context;
+
     private JSONObject jsonObject;
 
     @PostMapping(value = "/add", produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -107,5 +116,20 @@ public class HoSoApi {
     @RequestMapping(value = "/danh-sach-hoat-dong", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
     public List<HoatDongHoSoDto> getTkDanhSachHoatDong(@RequestBody TKHoatDongHoSoForm form){
         return  hoSoService.getTkDanhSachHoatDong(form);
+    }
+
+    @PostMapping(value = "/upload-file", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
+    public String uploadFile(MultipartHttpServletRequest request){
+        String pathSaveFile = context.getRealPath("/resources/imgs/");
+        Iterator<String> fileName = request.getFileNames();
+        MultipartFile mpf = request.getFile(fileName.next());
+        String path = pathSaveFile + mpf.getOriginalFilename();
+        File fileSave = new File(path);
+        try {
+            mpf.transferTo(fileSave);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return path;
     }
 }

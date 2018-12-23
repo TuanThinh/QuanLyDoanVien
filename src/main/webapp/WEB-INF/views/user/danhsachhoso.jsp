@@ -86,7 +86,7 @@
 							<img class="media-object img-thumbnail user-img"
 								 alt="User Picture"
 								 src="${pageContext.servletContext.contextPath}/resources/imgs/user.gif">
-							<input type="file" name="hinhAnh">
+							<input type="file" name="hinhAnh" id="add-hinh-anh">
 						</div>
 					</div>
 

@@ -45,4 +45,9 @@ public class BaoCaoServiceImpl implements BaoCaoService {
     public List<BaoCao> getList(Long idHoSo) {
         return baoCaoDao.getList(idHoSo);
     }
+
+    @Override
+    public BaoCao getById(Long id) {
+        return baoCaoDao.getById(id);
+    }
 }

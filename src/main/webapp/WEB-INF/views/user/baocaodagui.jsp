@@ -28,7 +28,7 @@
             <tr>
                 <th style="width: 30px;"></th>
                 <th>Tiêu đề</th>
-                <th>Nội dung</th>
+                <%--<th>Nội dung</th>--%>
                 <th>Ngày gửi</th>
                 <th></th>
             </tr>
@@ -93,22 +93,27 @@
 
         <div class="modal-body">
             <div class="form-horizontal">
-                    <div class="form-group">
-                        <label>Tiêu đề</label>
-                        
-                    </div>
+                <div class="form-group">
+                    <label>Tiêu đề: <span id="detail-tieude"></span></label>
+                </div>
 
-                    <div class="form-group">
-                        <label>Nội dung</label>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
-                    </div>
+                <hr>
 
                 <div class="form-group">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                    <div id="detail-noidung" ></div>
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <label>Ngày gửi: <span id="detail-ngaygui"></span></label>
                 </div>
 
             </div>
 
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
         </div>
     </div>
 </div>

@@ -213,6 +213,27 @@ $(document).ready(function () {
             }
         })
     ).then(function () {
+        $(document).on("change", "#add-hinh-anh", function (event) {
+            var file = event.target.files;
+            forms = new FormData();
+            forms.append("file", file);
+
+            $.ajax({
+                url: '/ho-so/upload-file',
+                type: 'POST',
+                data: forms,
+                contentType: false,
+                processData: false,
+                enctype: 'multipart/form-data',
+                success: function (data) {
+                    var html = '<img class="media-object img-thumbnail user-img"' +
+                        ' alt="User Picture"' +
+                        ' src="${pageContext.servletContext.contextPath}' + data.path + '">';
+                    $('.img-avatar').html(html);
+                }
+            })
+        });
+
         function validateEmail(email){
             var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             if (email != ""){

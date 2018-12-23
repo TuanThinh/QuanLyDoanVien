@@ -69,4 +69,14 @@ public class BaoCaoDaoImpl implements BaoCaoDao {
         }
         return null;
     }
+
+    @Override
+    public BaoCao getById(Long id) {
+        try {
+            return (BaoCao) hibernateUtil.getCurrentSession().get(BaoCao.class, id);
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }

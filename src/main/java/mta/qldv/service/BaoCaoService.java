@@ -14,4 +14,5 @@ public interface BaoCaoService {
 
     int totalRecord(String parameter);
     List<BaoCao> getList(Long idHoSo);
+    BaoCao getById(Long id);
 }

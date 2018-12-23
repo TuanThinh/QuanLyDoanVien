@@ -30,4 +30,9 @@ public class BaoCaoApi {
     public List<BaoCao> getList(@RequestParam Long id){
         return baoCaoService.getList(id);
     }
+
+    @RequestMapping(value = "/id", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public BaoCao getById(@RequestParam Long id){
+        return baoCaoService.getById(id);
+    }
 }

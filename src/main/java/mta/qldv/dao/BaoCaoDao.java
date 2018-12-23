@@ -11,4 +11,5 @@ public interface BaoCaoDao {
 
     int totalRecord(String parameter);
     List<BaoCao> getList(Long idHoSo);
+    BaoCao getById(Long id);
 }
