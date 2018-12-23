@@ -9,12 +9,11 @@ $(document).ready(function () {
             html += '<td>' +
                 '<input type="hidden" class="tb-id" value="' + item.id + '"/>' +
                 '<span data-toggle="modal" data-target="#modalDetail">' +
-                '<i class="fa fa-eye" id="xem" data-toggle="tooltip" data-original-title="Chi tiết" data-placement="top"></i>' +
+                '<button id="btnxem">xem</button>'+
                 '</span> ' +
                 '</td>';
             html += '</tr>'
 
-            html+='<textarea class="noi-dung">'+item.noiDung+'</textarea>';
         });
         $('#danh-sach-thong-bao tbody').html(html);
     }
@@ -35,25 +34,25 @@ $(document).ready(function () {
         }
     })
 
-    function hienThiNoiDungThongBao(data){
-        var html='';
-        $.each(data,function (i, item) {
-            html+='<textarea class="noi-dung">'+item.noiDung+'</textarea>';
-        });
-        $('#modalDetail textarea').html(html);
-    }
 
-    $.ajax({
-        url: '/thong-bao-chinh-sach/list',
-        type: 'GET',
-        dataType: 'JSON',
-        success: function (data) {
-            hienThiNoiDungThongBao(data);
-        },
-        error: function (e) {
-            console.log(e);
-        }
-    })
+    $(document).on('click','#btnxem', function() {
+
+        $.ajax({
+            url: '/thong-bao-chinh-sach/id',
+            type: 'GET',
+            dataType: 'JSON',
+            data:{
+                id: $(this).closest('tr').find('.tb-id').val()
+            },
+            success: function (data) {
+                $('#noiDung').html(data.noiDung);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    });
+
 
     $('#timKiem').keyup(function() {
         var value = $(this).val().toLowerCase();

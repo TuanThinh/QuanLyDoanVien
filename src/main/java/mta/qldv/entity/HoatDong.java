@@ -20,6 +20,10 @@ public class HoatDong implements Serializable {
 	@Column(name = "dia_diem")
 	private String diaDiem;
 
+	@Column(name = "thoi_gian")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
+	private Date thoiGian;
+
 	@Column(name = "dv_to_chuc")
 	private String dvToChuc;
 
@@ -54,6 +58,14 @@ public class HoatDong implements Serializable {
 
 	public void setDiaDiem(String diaDiem) {
 		this.diaDiem = diaDiem;
+	}
+
+	public Date getThoiGian() {
+		return thoiGian;
+	}
+
+	public void setThoiGian(Date thoiGian) {
+		this.thoiGian = thoiGian;
 	}
 
 	public String getDvToChuc() {
