@@ -22,7 +22,7 @@
 			<sf:input type="text" path="tenChiDoan"
 				class="form-control" id="inputTenCoSo" aria-describedby="tenCSHelp"
 				placeholder="Đoàn cơ sở..."/>
-			<!--<small id="tenDNHelp" class="form-text text-muted">Tên đăng nhập không được trùng.</small>-->
+			<sf:errors path="tenChiDoan" cssClass="invalid-feedback" element="div"></sf:errors>
 		</div>
 		<div class="form-group">
 			<label for="inputKhoa">Khoa<span class="required-field">*</span></label>
@@ -31,12 +31,11 @@
 					itemLabel="tenDonVi"
 					itemValue="id"
 				/>
-			<sf:errors path="donVi" cssClass="help-block" element="em"/>
+			<sf:errors path="donVi" cssClass="invalid-feedback" element="div"/>
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary col-md-1"
 				style="margin-right: 10px">OK</button>
-			<button type="submit" class="btn btn-primary col-md-1">Hủy</button>
 		</div>
 	</fieldset>
 </sf:form>

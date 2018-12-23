@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface QuyenDao {
     List<Quyen> getList();
+	Quyen getById(Long id);
 }

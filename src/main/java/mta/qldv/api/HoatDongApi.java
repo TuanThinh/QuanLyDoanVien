@@ -3,9 +3,12 @@ package mta.qldv.api;
 import mta.qldv.dto.HoatDongDto;
 import mta.qldv.entity.HoatDong;
 import mta.qldv.service.HoatDongService;
+import mta.qldv.utils.HoatDongValidator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +25,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -46,9 +50,10 @@ public class HoatDongApi {
 		return hoatDongService.getById(id);
 	}
 
-	@PostMapping(value = "/add", produces = { MediaType.APPLICATION_JSON_VALUE })
+	@PostMapping(value = "/add", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=utf-8")
 	public String addHoatDong(@Valid @ModelAttribute("hoatDongDto") HoatDongDto hoatDongDto,
 			BindingResult results) throws Exception {
+		new HoatDongValidator().validate(hoatDongDto, results);
 		if(results.hasErrors()) {
 			return "them-hd";
 		}
@@ -63,10 +68,27 @@ public class HoatDongApi {
 		return "redirect:/admin/hoat-dong/them?result=" + hoatDongService.addHoatDong(hoatDong);
 	}
 
-	@PutMapping(value = "/update/{hoatDong}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public boolean updateHoatDong(@PathVariable HoatDongDto hoatDongDto) {
-		HoatDong hoatDong = new HoatDong();
-		return hoatDongService.updateHoatDong(hoatDong);
+	@PostMapping(value = "/update", produces = { MediaType.APPLICATION_JSON_VALUE })
+	public String updateHoatDong(@Valid @ModelAttribute("hoatDongDto") HoatDongDto hoatDongDto,
+			BindingResult results, ModelMap map) throws Exception {
+		new HoatDongValidator().validate(hoatDongDto, results);
+		if(results.hasErrors()) {
+			List<String> listTrangThai = new ArrayList<>();
+			listTrangThai.add("Đã duyệt");
+			listTrangThai.add("Chờ duyệt");
+			listTrangThai.add("Hủy bỏ");
+			map.addAttribute("listTrangThai", listTrangThai);
+			return "sua-hd";
+		}
+		HoatDong hoatDong = hoatDongService.getById(hoatDongDto.getId());
+		hoatDong.setTenHoatDong(hoatDongDto.getTenHoatDong());
+		hoatDong.setDiaDiem(hoatDongDto.getDiaDiem());
+		hoatDong.setDoiTuongThamGia(hoatDongDto.getDoiTuongThamGia());
+		hoatDong.setTrangThai(hoatDongDto.getTrangThai());
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date thoiGianToChuc = formatter.parse(hoatDongDto.getThoiGian());
+		hoatDong.setThoiGian(thoiGianToChuc);
+		return "redirect:/admin/hoat-dong/danh-sach-duoc-duyet?result=" + hoatDongService.updateHoatDong(hoatDong);
 	}
 
 //	@DeleteMapping(value = "/delete/{hoatDong}", produces = { MediaType.APPLICATION_JSON_VALUE })

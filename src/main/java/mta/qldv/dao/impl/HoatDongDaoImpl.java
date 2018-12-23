@@ -43,7 +43,9 @@ public class HoatDongDaoImpl implements HoatDongDao {
 	@Override
 	public boolean updateHoatDong(HoatDong newHoatDong) {
 		try {
-			hibernateUtil.getCurrentSession().update(newHoatDong);
+			Session session = hibernateUtil.getCurrentSession();
+			session.update(newHoatDong);
+			session.flush();
 		} catch(Exception e) {
 			e.printStackTrace();
 			return false;

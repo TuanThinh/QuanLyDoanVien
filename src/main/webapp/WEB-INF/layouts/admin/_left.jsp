@@ -7,14 +7,6 @@
 	</div>
 
 	<ul class="list-unstyled components">
-		<li><a href="#taiKhoanMenu" data-toggle="collapse"
-			aria-expanded="false" class="dropdown-toggle"> <i
-				class="fa fa-user-circle icon-margin-right"></i> Tài khoản đoàn
-				viên
-		</a>
-			<ul class="collapse list-unstyled" id="taiKhoanMenu">
-				<li><a href="${pageContext.servletContext.contextPath}/admin/tai-khoan/danh-sach">Danh sách tài khoản</a></li>
-			</ul></li>
 		<li><a href="#doanCoSoMenu" data-toggle="collapse"
 			aria-expanded="false" class="dropdown-toggle"> <i
 				class="fa fa-users icon-margin-right"></i> Đoàn cơ sở
@@ -35,11 +27,14 @@
 			</ul></li>
 		<li><a href="#tbcsMenu" data-toggle="collapse"
 			aria-expanded="false" class="dropdown-toggle"> <i
-				class="fa fa-scroll icon-margin-right"></i>Thông báo - Chính sách
+				class="fa fa-bullhorn icon-margin-right"></i>Thông báo - Chính sách
 		</a>
 			<ul class="collapse list-unstyled" id="tbcsMenu">
 				<li><a href="${pageContext.servletContext.contextPath}/admin/tb-cs/them">Thông báo, chính sách mới</a></li>
 				<li><a href="${pageContext.servletContext.contextPath}/admin/tb-cs/danh-sach">Danh sách thông báo</a></li>
 			</ul></li>
+		<li><a href="${pageContext.servletContext.contextPath}/admin/bao-cao/danh-sach">
+			<i class="fa fa-copy icon-margin-right"></i>Báo cáo
+		</a></li>
 	</ul>
 </nav>

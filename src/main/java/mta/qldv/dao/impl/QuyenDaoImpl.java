@@ -26,4 +26,16 @@ public class QuyenDaoImpl implements QuyenDao {
 
         return null;
     }
+
+	@Override
+	public Quyen getById(Long id) {
+		try {
+			return (Quyen) hibernateUtil.getCurrentSession().load(Quyen.class, id);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+    
 }

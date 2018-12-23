@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -48,10 +49,17 @@ public class ThongBaoChinhSachApi {
 		return "redirect:/admin/tb-cs/them?result=" + thongBaoChinhSachService.addThongBaoChinhSach(tbcs);
 	}
 
-	@PutMapping(value = "/update/{tbcs}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public boolean updateThongBaoChinhSach(@PathVariable ThongBaoChinhSachDto tbcsDto) {
-		ThongBaoChinhSach tbcs = new ThongBaoChinhSach();
-		return thongBaoChinhSachService.updateThongBaoChinhSach(tbcs);
+	@PostMapping(value = "/update", produces = { MediaType.APPLICATION_JSON_VALUE })
+	public String updateThongBaoChinhSach(@Valid @ModelAttribute("tbcsDto") ThongBaoChinhSachDto tbcsDto,
+			BindingResult results) {
+		if(results.hasErrors()) {
+			return "them-tb-cs";
+		}
+		ThongBaoChinhSach tbcs = thongBaoChinhSachService.getById(tbcsDto.getId());
+		tbcs.setTenThongBaoChinhSach(tbcsDto.getTenThongBaoChinhSach());
+		tbcs.setNoiDung(tbcsDto.getNoiDung());
+		tbcs.setNguoiGui(tbcsDto.getNguoiGui());
+		return "redirect:/admin/tb-cs/danh-sach?result=" + thongBaoChinhSachService.updateThongBaoChinhSach(tbcs);
 	}
 
 	@DeleteMapping(value = "/delete/{tbcs}", produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -60,7 +68,7 @@ public class ThongBaoChinhSachApi {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-	public ThongBaoChinhSach getTBCS(@PathVariable Long id) {
-		return thongBaoChinhSachService.getTBCS(id);
+	public ThongBaoChinhSach getById(@PathVariable Long id) {
+		return thongBaoChinhSachService.getById(id);
 	}
 }

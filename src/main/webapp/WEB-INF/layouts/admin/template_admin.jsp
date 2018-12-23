@@ -46,6 +46,14 @@
 			container : 'body'
 		});
 	</script>
+	<script type="text/javascript">
+		$alert = $('.alert');
+		if($alert.length){
+			setTimeout(function(){
+				$alert.fadeOut('slow');
+			}, 3000)
+		}
+	</script>
 	<script
 		src="${pageContext.servletContext.contextPath}/resources/js/admin/jquery.dataTables.js"></script>
 	<script

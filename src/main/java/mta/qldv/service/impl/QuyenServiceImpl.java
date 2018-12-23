@@ -16,4 +16,9 @@ public class QuyenServiceImpl implements QuyenService {
     public List<Quyen> getList() {
         return quyenDao.getList();
     }
+
+	@Override
+	public Quyen getById(Long id) {
+		return quyenDao.getById(id);
+	}
 }

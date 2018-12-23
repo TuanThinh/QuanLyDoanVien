@@ -17,17 +17,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import mta.qldv.dto.ChiDoanDto;
 import mta.qldv.entity.ChiDoan;
 import mta.qldv.service.ChiDoanService;
+import mta.qldv.service.DonViService;
 
 @Controller
 @RequestMapping("/chi-doan")
 public class ChiDoanApi {
     @Autowired
     private ChiDoanService chiDoanService;
+    
+    @Autowired
+    private DonViService donViService;
 
     @GetMapping(value = "/list", produces = { MediaType.APPLICATION_JSON_VALUE })
     @ResponseBody
@@ -46,11 +49,13 @@ public class ChiDoanApi {
     public String addChiDoan(@Valid @ModelAttribute("doanCoSoDto") ChiDoanDto chiDoanDto,
 			BindingResult results, ModelMap map) {
     	if(results.hasErrors()) {
+    		map.addAttribute("khoa", donViService.getList());
 			return "them-doan-co-so";
 		}
+    	
 		ChiDoan chiDoan = new ChiDoan();
 		chiDoan.setTenChiDoan(chiDoanDto.getTenChiDoan());
-//		chiDoan.setDonVi(donViDao.getListById(chiDoanDto.getDonVi()).get(0));
+		chiDoan.setDonVi(donViService.getById(chiDoanDto.getDonVi()));
 		return "redirect:/admin/doan-co-so/them?result=" + chiDoanService.addChiDoan(chiDoan);
     }
     

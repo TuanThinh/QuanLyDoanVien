@@ -1,6 +1,9 @@
 package mta.qldv.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import mta.qldv.entity.HoSo;
 
 public class TaiKhoanDkyDto {
 	public Long idHoSo;
@@ -9,6 +12,7 @@ public class TaiKhoanDkyDto {
 	public String tenTaiKhoan;
 
 	@NotBlank(message = "Vui lòng nhập mật khẩu!")
+	@Size(min = 8, message = "Mật khẩu phải có ít nhất 8 ký tự")
 	public String matKhau;
 
 	@NotBlank(message = "Vui lòng nhập lại mật khẩu!")

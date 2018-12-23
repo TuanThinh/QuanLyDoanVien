@@ -12,9 +12,8 @@ import org.springframework.stereotype.Repository;
 import java.math.BigInteger;
 import java.util.List;
 
-@Repository()
+@Repository
 public class TaiKhoanDaoImpl implements TaiKhoanDao {
-
     @Autowired
     private HibernateUtil hibernateUtil;
 

@@ -1,8 +1,11 @@
 package mta.qldv.dto;
 
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 
 public class HoatDongDto {
+	private Long id;
+	
 	@NotBlank(message="Vui lòng nhập tên hoạt động!")
 	private String tenHoatDong;
 
@@ -18,6 +21,12 @@ public class HoatDongDto {
 	private String doiTuongThamGia;
 
 	private String trangThai;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getTenHoatDong() {
 		return tenHoatDong;
 	}

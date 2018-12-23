@@ -6,33 +6,6 @@
 			style="border-bottom: 2px solid #005d35; padding-left: 0">
 			<ul class="ul-title">
 				<li class="li-title">
-					<p class="p-title">Tài khoản đoàn viên</p>
-				</li>
-				<li>
-					<div class="triangle"></div>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="container">
-		<div>
-			<ul class="ul-group-btn col-md-12">
-				<li class="li-group-btn col-md-3"><a
-					href="${pageContext.servletContext.contextPath}/admin/tai-khoan/danh-sach">
-						<button type="button" class="btn btn-outline-success group-btn">
-							<i class="fa fa-list-alt icon-margin-right"></i>Danh sách tài khoản
-						</button>
-				</a></li>
-			</ul>
-		</div>
-	</div>
-
-	<div class="container">
-		<div class="col-md-12"
-			style="border-bottom: 2px solid #005d35; padding-left: 0">
-			<ul class="ul-title">
-				<li class="li-title">
 					<p class="p-title">Đoàn cơ sở</p>
 				</li>
 				<li>
@@ -90,8 +63,7 @@
 				<li class="li-group-btn col-md-3"><a
 					href="${pageContext.servletContext.contextPath}/admin/tb-cs/danh-sach">
 						<button type="button" class="btn btn-outline-success group-btn">
-							<i class="fa fa-bullhorn icon-margin-right"></i>Danh sách thông
-							báo, chính sách
+							<i class="fa fa-list-alt icon-margin-right"></i>Danh sách thông báo
 						</button>
 				</a></li>
 			</ul>

@@ -1,10 +1,17 @@
 package mta.qldv.api;
 
+import mta.qldv.dao.TaiKhoanQuyenDao;
 import mta.qldv.dto.TaiKhoanDkyDto;
 import mta.qldv.entity.HoSo;
+import mta.qldv.entity.Quyen;
 import mta.qldv.entity.TaiKhoan;
+import mta.qldv.entity.TaiKhoanQuyen;
 import mta.qldv.service.HoSoService;
+import mta.qldv.service.QuyenService;
+import mta.qldv.service.TaiKhoanQuyenService;
 import mta.qldv.service.TaiKhoanService;
+import mta.qldv.utils.TaiKhoanValidator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -31,6 +38,12 @@ public class TaiKhoanApi {
 
     @Autowired
     private HoSoService hoSoService;
+    
+    @Autowired
+    private TaiKhoanQuyenService taiKhoanQuyenService;
+    
+    @Autowired
+    private QuyenService quyenService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
     @ResponseBody
@@ -42,7 +55,9 @@ public class TaiKhoanApi {
     @PostMapping(value = "/add", produces = { MediaType.APPLICATION_JSON_VALUE })
     public String createAccount(@Valid @ModelAttribute("taiKhoanDto") TaiKhoanDkyDto taiKhoanDto,
 			BindingResult results, ModelMap map) {
+    	new TaiKhoanValidator().validate(taiKhoanDto, results);
     	if(results.hasErrors()) {
+    		map.addAttribute("listQuyen", quyenService.getList());
 			return "them-tai-khoan";
 		}
 		TaiKhoan taiKhoan = new TaiKhoan();
@@ -52,15 +67,21 @@ public class TaiKhoanApi {
 		taiKhoan.setNgayLap(new Date());
 		Long lastId = taiKhoanService.createAccount(taiKhoan);
 
-//		boolean insertResult = false;
-//		if (lastId != null) {
-//			insertResult = true;
-//		}
-
 		HoSo hoSo = hoSoService.getHoSoById(taiKhoanDto.getIdHoSo());
 		taiKhoan.setId(lastId);
 		hoSo.setTaiKhoan(taiKhoan);
 		hoSoService.updateTaiKhoan(hoSo);
-		return "redirect:/admin/tai-khoan/danh-sach";// + taiKhoanDto.getIdHoSo(); + "?result=" + insertResult;
+
+		TaiKhoanQuyen taiKhoanQuyen = new TaiKhoanQuyen();
+		taiKhoanQuyen.setTaiKhoan(taiKhoan);
+		Quyen quyen = quyenService.getById(Long.valueOf(taiKhoanDto.getQuyen()));
+		taiKhoanQuyen.setQuyen(quyen);
+		taiKhoanQuyenService.addTaiKhoanQuyen(taiKhoanQuyen);
+		
+		boolean insertResult = false;
+		if (lastId != null) {
+			insertResult = true;
+		}
+		return "redirect:/admin/chi-doan/" + hoSo.getChiDoan().getId() + "/danh-sach" + "?result=" + insertResult;
     }
 }

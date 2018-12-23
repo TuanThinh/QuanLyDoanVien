@@ -153,3 +153,8 @@ footer {
     margin-bottom: 0;
     color: white;
 }
+
+.invalid-feedback {
+	display: block;
+    font-style: italic;
+}

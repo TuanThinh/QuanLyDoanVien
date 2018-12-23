@@ -2,6 +2,7 @@ package mta.qldv.controller.admin;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,54 +33,70 @@ import mta.qldv.dto.TaiKhoanDkyDto;
 import mta.qldv.dto.ThongBaoChinhSachDto;
 import mta.qldv.entity.ChiDoan;
 import mta.qldv.entity.DonVi;
+import mta.qldv.entity.HoSo;
 import mta.qldv.entity.HoatDong;
 import mta.qldv.entity.Quyen;
 import mta.qldv.entity.TaiKhoan;
+import mta.qldv.entity.ThongBaoChinhSach;
+import mta.qldv.service.DonViService;
+import mta.qldv.service.HoSoService;
+import mta.qldv.service.HoatDongService;
+import mta.qldv.service.QuyenService;
+import mta.qldv.service.ThongBaoChinhSachService;
 
 @Controller
 @RequestMapping("/admin")
 public class HomeAdminController {
 	@Autowired
-	private QuyenDao quyenDao;
+	private QuyenService quyenService;
 	
 	@Autowired
-	private TaiKhoanDao taiKhoanDao;
-	
-	@Autowired
-	private HoatDongDao hoatDongDao;
-	
-	@Autowired
-	private ChiDoanDao chiDoanDao;
+	private HoSoService hoSoService;
 
 	@Autowired
-	private DonViDao donViDao;
+	private DonViService donViService;
+	
+	@Autowired
+	private HoatDongService hoatDongService;
+	
+	@Autowired
+	private ThongBaoChinhSachService tbcsService;
 
 	@GetMapping
 	public String homeAdmin() {
 		return "home-admin";
 	}
 	
-	@GetMapping("/tai-khoan/them/{ho-so}")
-	public String themTaiKhoanAdmin(@PathVariable(name="ho-so") Long idHoSo, @RequestParam(name="result", required=false) String result, ModelMap map) {
+	@GetMapping("/tai-khoan/them/{id}")
+	public String themTaiKhoanAdmin(@PathVariable(name="id") Long idHoSo, ModelMap map) {
+		HoSo hoSo = hoSoService.getHoSoById(idHoSo);
 		TaiKhoanDkyDto taiKhoanDto = new TaiKhoanDkyDto();
-		taiKhoanDto.setKichHoat(true);
-		taiKhoanDto.setIdHoSo(idHoSo);
-
-		map.addAttribute("taiKhoanDto", taiKhoanDto);
-		
-		if(result != null) {
-			if(result.equals("true")) {
-				map.addAttribute("message", "Success!");
-			} else {
-				map.addAttribute("message", "Failed!");
-			}
+		if(hoSo.getTaiKhoan() == null) {		
+			taiKhoanDto.setKichHoat(true);
+			taiKhoanDto.setIdHoSo(idHoSo);
+			map.addAttribute("taiKhoanDto", taiKhoanDto);
+			
+			map.addAttribute("listQuyen", quyenService.getList());
+			return "them-tai-khoan";
+		} else {
+			return "redirect:/admin/chi-doan/" + hoSo.getChiDoan().getId() + "/danh-sach?result=exist";
 		}
-		return "them-tai-khoan";
+		
 	}
 
 	@GetMapping("/chi-doan/{id}/danh-sach")
-	public String danhSachDoanVienChiDoanAdmin(@PathVariable(name = "id") Long idChiDoan, ModelMap map) {
+	public String danhSachDoanVienChiDoanAdmin(@PathVariable(name = "id") Long idChiDoan,
+			@RequestParam(name="result", required=false) String result, ModelMap map) {
 		map.addAttribute("idChiDoan", idChiDoan);
+		if(result != null) {
+			if(result.equals("true")) {
+				map.addAttribute("message", "Thành công!");
+			} else if(result.equals("false")){
+				map.addAttribute("message", "Thất bại!");
+			} else {
+				map.addAttribute("message", "Đoàn viên đã có tài khoản!");
+			}
+		}
 		return "danh-sach-doan-vien";
 	}
 	
@@ -86,27 +104,16 @@ public class HomeAdminController {
 	public String themDoanCoSoAdmin(@RequestParam(name="result", required=false) String result, ModelMap map) {
 		ChiDoanDto doanCoSoDto = new ChiDoanDto();
 		map.addAttribute("doanCoSoDto", doanCoSoDto);
-		
+		map.addAttribute("khoa", donViService.getList());
 		if(result != null) {
 			if(result.equals("true")) {
-				map.addAttribute("message", "Success!");
+				map.addAttribute("message", "Thành công!");
+			} else {
+				map.addAttribute("message", "Thất bại!");
 			}
 		}
 		return "them-doan-co-so";
 	}
-
-//	@PostMapping("/doan-co-so/them")
-//	public String themDoanCoSoAdminSubmit(@Valid @ModelAttribute("doanCoSoDto") DoanCoSoHoSoDto doanCoSoDto,
-//			BindingResult results, ModelMap map) {
-//		if(results.hasErrors()) {
-//			return "them-doan-co-so";
-//		}
-//		ChiDoan chiDoan = new ChiDoan();
-//		chiDoan.setTenChiDoan(doanCoSoDto.getTenChiDoan());
-//		chiDoan.setDonVi(donViDao.getListById(doanCoSoDto.getDonVi()).get(0));
-//		
-//		return "redirect:/admin/doan-co-so/them?result=" + chiDoanDao.addChiDoan(chiDoan);
-//	}
 	
 	@GetMapping("/doan-co-so/danh-sach")
 	public String doanCoSoAdmin() {
@@ -120,46 +127,109 @@ public class HomeAdminController {
 
 		if(result != null) {
 			if(result.equals("true")) {
-				map.addAttribute("message", "Success!");
+				map.addAttribute("message", "Thành công!");
 			} else {
-				map.addAttribute("message", "Failed!");
+				map.addAttribute("message", "Thất bại");
 			}
 		}
 		return "them-tb-cs";
 	}
 	
+	@GetMapping("/tb-cs/update/{id}")
+	public String suaThongBaoChinhSachAdmin(@PathVariable(name = "id") Long idTBCS,
+			@RequestParam(name="result", required=false) String result, ModelMap map) {
+		ThongBaoChinhSach tbcs = tbcsService.getById(idTBCS);
+		map.addAttribute("tbcs", tbcs);
+		
+		ThongBaoChinhSachDto tbcsDto = new ThongBaoChinhSachDto();
+		tbcsDto.setId(idTBCS);
+		tbcsDto.setTenThongBaoChinhSach(tbcs.getTenThongBaoChinhSach());
+		tbcsDto.setNoiDung(tbcs.getNoiDung());
+		tbcsDto.setNguoiGui(tbcs.getNguoiGui());
+		map.addAttribute("tbcsDto", tbcsDto);
+		return "sua-tb-cs";
+	}
+	
+	@GetMapping("/tb-cs/{id}/chi-tiet")
+	public String chiTietThongBaoChinhSachAdmin(@PathVariable(name = "id") Long idTBCS, ModelMap map) {
+		map.addAttribute("tbcs", tbcsService.getById(idTBCS));
+		return "chi-tiet-tb-cs";
+	}
+	
 	@GetMapping("/tb-cs/danh-sach")
-	public String thongBaoChinhSachAdmin() {
+	public String thongBaoChinhSachAdmin(@RequestParam(name="result", required=false) String result,
+			ModelMap map) {
+		if(result != null) {
+			if(result.equals("true")) {
+				map.addAttribute("message", "Thành công!");
+			} else {
+				map.addAttribute("message", "Thất bại!");
+			}
+		}
 		return "danh-sach-tb-cs";
 	}
 	
 	@GetMapping("/hoat-dong/them")
 	public String themHoatDongAdmin(@RequestParam(name="result", required=false) String result, ModelMap map) {
 		HoatDongDto hoatDongDto = new HoatDongDto();
-		hoatDongDto.setDvToChuc("Ban Thanh nien");
-		hoatDongDto.setTrangThai("Da duyet");
-
+		hoatDongDto.setDvToChuc("Ban Thanh niên");
+		hoatDongDto.setTrangThai("Đã duyệt");
 		map.addAttribute("hoatDongDto", hoatDongDto);
 		
 		if(result != null) {
 			if(result.equals("true")) {
-				map.addAttribute("message", "Success!");
+				map.addAttribute("message", "Thành công!");
 			} else {
-				map.addAttribute("message", "Failed!");
+				map.addAttribute("message", "Thất bại!");
 			}
 		}
 		return "them-hd";
 	}
-
-//	@PostMapping("/hoat-dong/them")
-//	public String themHoatDongAdminSubmit(@ModelAttribute("hoatDong") HoatDong hoatDong) {
-//		hoatDongDao.addHoatDong(hoatDong);
-//		return "redirect:/admin/hoat-dong/them?operation=hoatDong";
-//	}
+	
+	@GetMapping("/hoat-dong/update/{id}")
+	public String suaHoatDongAdmin(@PathVariable(name = "id") Long idHoatDong,
+			@RequestParam(name="result", required=false) String result, ModelMap map) {
+		HoatDong hoatDong = hoatDongService.getById(idHoatDong);
+		map.addAttribute("hoatDong", hoatDong);
+		
+		HoatDongDto hoatDongDto = new HoatDongDto();
+		hoatDongDto.setDvToChuc(hoatDong.getDvToChuc());
+		hoatDongDto.setId(hoatDong.getId());
+		map.addAttribute("hoatDongDto", hoatDongDto);
+		
+		List<String> listTrangThai = new ArrayList<>();
+		listTrangThai.add("Đã duyệt");
+		listTrangThai.add("Chờ duyệt");
+		listTrangThai.add("Hủy bỏ");
+		map.addAttribute("listTrangThai", listTrangThai);
+		
+		return "sua-hd";
+	}
+	
+	@GetMapping("/hoat-dong/{id}/phe-duyet")
+	public String pheDuyetHoatDongAdmin(@PathVariable(name = "id") Long idHoatDong) {
+		HoatDong hoatDong = hoatDongService.getById(idHoatDong);
+		hoatDong.setTrangThai("Đã duyệt");
+		return "redirect:/admin/hoat-dong/danh-sach-duoc-duyet?result=" + hoatDongService.updateHoatDong(hoatDong);
+	}
+	
+	@GetMapping("/hoat-dong/{id}/huy-bo")
+	public String huyBoHoatDongAdmin(@PathVariable(name = "id") Long idHoatDong) {
+		HoatDong hoatDong = hoatDongService.getById(idHoatDong);
+		hoatDong.setTrangThai("Hủy bỏ");
+		return "redirect:/admin/hoat-dong/danh-sach-hd-huy?result=" + hoatDongService.updateHoatDong(hoatDong);
+	}
 
 	@GetMapping("/hoat-dong/danh-sach-duoc-duyet")
-	public String hoatDongDuocDuyetAdmin(ModelMap map) {
+	public String hoatDongDuocDuyetAdmin(@RequestParam(name="result", required=false) String result, ModelMap map) {
 		map.addAttribute("loaiHoatDong", 2);
+		if(result != null) {
+			if(result.equals("true")) {
+				map.addAttribute("message", "Thành công!");
+			} else {
+				map.addAttribute("message", "Thất bại!");
+			}
+		}
 		return "danh-sach-hd-duyet";
 	}
 	
@@ -170,18 +240,25 @@ public class HomeAdminController {
 	}
 	
 	@GetMapping("/hoat-dong/danh-sach-hd-huy")
-	public String hoatDongHuyBoAdmin(ModelMap map) {
+	public String hoatDongHuyBoAdmin(@RequestParam(name="result", required=false) String result, ModelMap map) {
 		map.addAttribute("loaiHoatDong", 3);
+		if(result != null) {
+			if(result.equals("true")) {
+				map.addAttribute("message", "Thành công!");
+			} else {
+				map.addAttribute("message", "Thất bại!");
+			}
+		}
 		return "danh-sach-hd-huy";
 	}
 	
-	@ModelAttribute("quyen")
-	public List<Quyen> getListQuyen() {
-		return quyenDao.getList();
-	}
+//	@ModelAttribute("listQuyen")
+//	public List<Quyen> getListQuyen() {
+//		return quyenService.getList();
+//	}
 
-	@ModelAttribute("khoa")
-	public List<DonVi> getListKhoa() {
-		return donViDao.getList();
-	}
+//	@ModelAttribute("khoa")
+//	public List<DonVi> getListKhoa() {
+//		return donViDao.getList();
+//	}
 }

@@ -3,10 +3,10 @@ package mta.qldv.dto;
 import javax.validation.constraints.NotBlank;
 
 public class ChiDoanDto {
-	@NotBlank(message="please")
+	@NotBlank(message="Vui lòng nhập tên chi đoàn!")
 	private String tenChiDoan;
 
-	private int donVi;
+	private Long donVi;
 
 	public String getTenChiDoan() {
 		return tenChiDoan;
@@ -16,11 +16,11 @@ public class ChiDoanDto {
 		this.tenChiDoan = tenChiDoan;
 	}
 
-	public int getDonVi() {
+	public Long getDonVi() {
 		return donVi;
 	}
 
-	public void setDonVi(int donVi) {
+	public void setDonVi(Long donVi) {
 		this.donVi = donVi;
 	}
 

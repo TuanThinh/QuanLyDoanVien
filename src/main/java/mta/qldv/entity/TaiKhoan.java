@@ -44,7 +44,7 @@ public class TaiKhoan implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", locale = "vi-VN", timezone = "Asia/Ho_Chi_Minh")
 	private Date truyCapLanCuoi;
 
-	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "taikhoan_quyen",
 			joinColumns = { @JoinColumn(name = "id_taikhoan") },

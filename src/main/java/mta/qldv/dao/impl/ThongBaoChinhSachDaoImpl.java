@@ -41,7 +41,9 @@ public class ThongBaoChinhSachDaoImpl implements ThongBaoChinhSachDao {
 	@Override
 	public boolean updateThongBaoChinhsSach(ThongBaoChinhSach newTBCS) {
 		try {
-			hibernateUtil.getCurrentSession().update(newTBCS);
+			Session session = hibernateUtil.getCurrentSession();
+			session.update(newTBCS);
+			session.flush();
 		} catch(Exception e) {
 			e.printStackTrace();
 			return false;

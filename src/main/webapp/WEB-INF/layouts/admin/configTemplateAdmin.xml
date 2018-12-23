@@ -42,6 +42,16 @@
 		<put-attribute name="content" value="/WEB-INF/views/admin/taotbcs.jsp"/>
 	</definition>
 	
+	<definition name="sua-tb-cs" extends="TemplateAdmin">
+		<put-attribute name="title" value="Sửa thông báo - chính sách" />
+		<put-attribute name="content" value="/WEB-INF/views/admin/suatbcs.jsp"/>
+	</definition>
+	
+	<definition name="chi-tiet-tb-cs" extends="TemplateAdmin">
+		<put-attribute name="title" value="Sửa thông báo - chính sách" />
+		<put-attribute name="content" value="/WEB-INF/views/admin/chitiettbcs.jsp"/>
+	</definition>
+	
 	<definition name="danh-sach-tb-cs" extends="TemplateAdmin">
 		<put-attribute name="title" value="Danh sách thông báo - chính sách" />
 		<put-attribute name="content" value="/WEB-INF/views/admin/thongbao.jsp"/>
@@ -65,5 +75,10 @@
 	<definition name="them-hd" extends="TemplateAdmin">
 		<put-attribute name="title" value="Thêm hoạt động"/>
 		<put-attribute name="content" value="/WEB-INF/views/admin/taohd.jsp"/>
+	</definition>
+	
+	<definition name="sua-hd" extends="TemplateAdmin">
+		<put-attribute name="title" value="Sửa hoạt động"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/suahd.jsp"/>
 	</definition>
 </tiles-definitions>
