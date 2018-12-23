@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface BaoCaoDao {
     List<BaoCao> getList();
+
+	BaoCao getById(Long id);
 }

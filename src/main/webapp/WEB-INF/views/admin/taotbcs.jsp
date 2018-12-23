@@ -11,7 +11,7 @@
 		</div>
 	</div>
 </c:if>
-<sf:form class="col-md-12" style="margin: 20px 0"
+<sf:form class="col-md-12" style="margin: 20px 0" accept-charset="UTF-8"
 	modelAttribute="tbcsDto"
 	action="${pageContext.servletContext.contextPath}/thong-bao-chinh-sach/add"
 	method="POST">

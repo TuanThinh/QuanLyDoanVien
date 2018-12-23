@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface BaoCaoService {
     List<BaoCao> getList();
+
+	BaoCao getById(Long id);
 }

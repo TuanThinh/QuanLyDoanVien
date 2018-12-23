@@ -81,4 +81,14 @@
 		<put-attribute name="title" value="Sửa hoạt động"/>
 		<put-attribute name="content" value="/WEB-INF/views/admin/suahd.jsp"/>
 	</definition>
+	
+	<definition name="danh-sach-bao-cao" extends="TemplateAdmin">
+		<put-attribute name="title" value="Danh sách báo cáo"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/baocao.jsp"/>
+	</definition>
+	
+	<definition name="chi-tiet-bao-cao" extends="TemplateAdmin">
+		<put-attribute name="title" value="Danh sách báo cáo"/>
+		<put-attribute name="content" value="/WEB-INF/views/admin/chitietbaocao.jsp"/>
+	</definition>
 </tiles-definitions>

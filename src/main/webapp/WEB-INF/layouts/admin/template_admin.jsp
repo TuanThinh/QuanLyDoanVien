@@ -22,8 +22,12 @@
 <!-- Font awesome -->
 <link rel="stylesheet"
 	href="${pageContext.servletContext.contextPath}/resources/css/font-awesome.min.css">
+<!-- JQuery -->
 <script
 	src="${pageContext.servletContext.contextPath}/resources/js/jquery-3.2.1.min.js"></script>
+<!-- Tinymce -->
+<script
+	src="${pageContext.servletContext.contextPath}/resources/tinymce/tinymce.min.js"></script>
 </head>
 <body>
 	<div class="wrapper">

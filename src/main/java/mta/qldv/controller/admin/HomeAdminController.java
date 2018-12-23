@@ -31,6 +31,7 @@ import mta.qldv.dto.ChiDoanDto;
 import mta.qldv.dto.HoatDongDto;
 import mta.qldv.dto.TaiKhoanDkyDto;
 import mta.qldv.dto.ThongBaoChinhSachDto;
+import mta.qldv.entity.BaoCao;
 import mta.qldv.entity.ChiDoan;
 import mta.qldv.entity.DonVi;
 import mta.qldv.entity.HoSo;
@@ -38,6 +39,7 @@ import mta.qldv.entity.HoatDong;
 import mta.qldv.entity.Quyen;
 import mta.qldv.entity.TaiKhoan;
 import mta.qldv.entity.ThongBaoChinhSach;
+import mta.qldv.service.BaoCaoService;
 import mta.qldv.service.DonViService;
 import mta.qldv.service.HoSoService;
 import mta.qldv.service.HoatDongService;
@@ -61,6 +63,9 @@ public class HomeAdminController {
 	
 	@Autowired
 	private ThongBaoChinhSachService tbcsService;
+	
+	@Autowired
+	private BaoCaoService baoCaoService;
 
 	@GetMapping
 	public String homeAdmin() {
@@ -252,13 +257,17 @@ public class HomeAdminController {
 		return "danh-sach-hd-huy";
 	}
 	
-//	@ModelAttribute("listQuyen")
-//	public List<Quyen> getListQuyen() {
-//		return quyenService.getList();
-//	}
-
-//	@ModelAttribute("khoa")
-//	public List<DonVi> getListKhoa() {
-//		return donViDao.getList();
-//	}
+	@GetMapping("/bao-cao/danh-sach")
+	public String baoCaoAdmin() {
+		return "danh-sach-bao-cao";
+	}
+	
+	@GetMapping("/bao-cao/{id}/chi-tiet")
+	public String chiTietBaoCao(@PathVariable(name = "id") Long idBaoCao, ModelMap map) {
+		BaoCao baoCao = baoCaoService.getById(idBaoCao);
+		HoSo nguoiGui = baoCao.getHoSo();
+		map.addAttribute("baoCao", baoCao);
+		map.addAttribute("nguoiGui", nguoiGui.getHoTen());
+		return "chi-tiet-bao-cao";
+	}
 }
