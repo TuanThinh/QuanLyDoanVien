@@ -14,7 +14,7 @@
 		<tiles-version>3.0.7</tiles-version>
 		<persistence-api>1.0</persistence-api>
 		<commons-dbcp>1.4</commons-dbcp>
-		<mysql-connector>8.0.11</mysql-connector>
+		<mysql-connector>8.0.16</mysql-connector>
 		<javassist>3.19.0-GA</javassist>
 		<junit>4.12</junit>
 		<javax.servlet-api>3.1.0</javax.servlet-api>
