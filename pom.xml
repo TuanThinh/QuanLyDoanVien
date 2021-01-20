@@ -20,7 +20,7 @@
 		<javax.servlet-api>3.1.0</javax.servlet-api>
 		<jstl>1.2</jstl>
 		<jsp-api>2.1</jsp-api>
-        <jackson>2.8.6</jackson>
+        <jackson>2.12.1</jackson>
 		<json>20180130</json>
 	</properties>
 
