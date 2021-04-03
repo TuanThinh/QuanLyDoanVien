@@ -56,13 +56,13 @@ $(document).ready(function () {
         $('#up-ma-doan-vien').append('<input type="hidden"  name="id" readonly class="form-control" ' + 'value="' + (hoso.id) + '"' + '>');
         $('#up-ho-va-ten').html('<input type="text" name="hoTen" readonly  class="form-control" ' + 'value="' + hoso.hoTen + '"' + '>');
         $('#up-ngay-sinh').html('<input type="text" name="ngaySinh" readonly class="form-control" ' + 'value="' + hoso.ngaySinh + '"' + '>');
-        $('#dia-chi').html('<input type="text" name="diaChi" class="form-control" ' + 'value="' + hoso.diaChi + '"' + '>');
+        $('#dia-chi').html('<input type="text" disabled="disabled" name="diaChi" class="form-control" ' + 'value="' + hoso.diaChi + '"' + '>');
         $('#so-dien-thoai').html('<input type="text" name="soDienThoai" name class="form-control" ' + 'value="' + hoso.sdt + '"' + '>');
-        $('#dan-toc').html('<input type="text" name="danToc" class="form-control" ' + 'value="' + hoso.danToc + '"' + '>');
-        $('#quoc-tich').html('<input type="text" name="quocTich" class="form-control" ' + 'value="' + hoso.quocTich + '"' + '>');
-        $('#ton-giao').html('<input type="text" name="tonGiao" class="form-control" ' + 'value="' + hoso.tonGiao + '"' + '>');
-        $('#email').html('<input type="text" name="email" class="form-control" ' + 'value="' + hoso.email + '"' + '>');
-        $('#doi-tuong-chinh-sach').html('<input type="text" name="doiTuongChinhSach" class="form-control" ' + 'value="' + hoso.doiTuongChinhSach + '"' + '>');
+        $('#dan-toc').html('<input type="text" disabled="disabled" name="danToc" class="form-control" ' + 'value="' + hoso.danToc + '"' + '>');
+        $('#quoc-tich').html('<input type="text" disabled="disabled" name="quocTich" class="form-control" ' + 'value="' + hoso.quocTich + '"' + '>');
+        $('#ton-giao').html('<input type="text" disabled="disabled" name="tonGiao" class="form-control" ' + 'value="' + hoso.tonGiao + '"' + '>');
+        $('#email').html('<input type="text"disabled="disabled" name="email" class="form-control" ' + 'value="' + hoso.email + '"' + '>');
+        $('#doi-tuong-chinh-sach').html('<input type="text" disabled="disabled" name="doiTuongChinhSach" class="form-control" ' + 'value="' + hoso.doiTuongChinhSach + '"' + '>');
         $('#ngay-vao-doan').html('<input type="text" name="ngayVaoDoan" readonly  class="form-control" ' + 'value="' + hoso.ngayVaoDoan + '"' + '>');
         $('#ngay-vao-dang').html('<input type="text" name="ngayVaoDang" readonly  class="form-control" ' + 'value="' + hoso.ngayVaoDang + '"' + '>');
         $.each(data.hoSo[0], function (key, value) {
