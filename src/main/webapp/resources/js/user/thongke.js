@@ -22,6 +22,7 @@ $(document).ready(function () {
         var html = '';
         $.each(data, function (i, item) {
             html += '<tr>';
+            html += '<td class="stt">' + (i+1) + '</td>';
                 html += '<td class="diem-ma">' + item.maSv + '</td>';
                 html += '<td class="diem-hoten">' + item.hoTen + '</td>';
                 html += '<td class="diem-ngaysinh column-hidden">' + item.ngaySinh + '</td>';

@@ -72,7 +72,7 @@
                     <div class="form-group">
                         <label class="col-md-5 custom">Địa chỉ</label>
                         <div class="col-md-7 custom" id="dia-chi">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" disabled="disabled">
                         </div>
                     </div>
 
@@ -105,7 +105,7 @@
                     <div class="form-group">
                         <label class="col-md-5 custom">Email</label>
                         <div class="col-md-7 custom" id="email">
-                            <input type="text"  class="form-control">
+                            <input type="text"  class="form-control" disabled="disabled">
                         </div>
                     </div>
 
@@ -132,28 +132,28 @@
                     <div class="form-group">
                         <label class="col-md-5 custom">Dân tộc</label>
                         <div class="col-md-7 custom" id="dan-toc">
-                            <input type="text"  class="form-control">
+                            <input type="text"  class="form-control" disabled="disabled">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-5 custom">Quốc tịch</label>
                         <div class="col-md-7 custom" id="quoc-tich">
-                            <input type="text"  class="form-control">
+                            <input type="text"  class="form-control" disabled="disabled">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-5 custom">Tôn giáo</label>
                         <div class="col-md-7 custom" id="ton-giao">
-                            <input type="text"  class="form-control">
+                            <input type="text"  class="form-control" disabled="disabled">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-5 custom">Đối tượng chính sách</label>
                         <div class="col-md-7 custom" id="doi-tuong-chinh-sach">
-                            <input type="text"  class="form-control">
+                            <input type="text"  class="form-control" disabled="disabled">
                         </div>
                     </div>
 

@@ -94,6 +94,7 @@
                     <table class="table table-striped table-bordered table-hover" id="danh-sach-diem-doan-vien">
                         <thead>
                         <tr>
+                            <th class="stt">STT</th>
                             <th width="120px;">Mã đoàn viên</th>
                             <th>Họ tên</th>
                             <th class="column-hidden">Ngày sinh</th>
@@ -105,6 +106,7 @@
                         </thead>
                         <tbody>
                         <tr>
+                            <td class ="stt"></td>
                             <td class="diem-ma"></td>
                             <td class="diem-hoten"></td>
                             <td class="diem-ngaysinh column-hidden"></td>
