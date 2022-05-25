@@ -9,7 +9,7 @@
 
 	<properties>
 		<spring-version>4.3.3.RELEASE</spring-version>
-		<spring-security>4.2.3.RELEASE</spring-security>
+		<spring-security>5.5.7</spring-security>
 		<hibernate-version>4.3.11.Final</hibernate-version>
 		<tiles-version>3.0.7</tiles-version>
 		<persistence-api>1.0</persistence-api>
